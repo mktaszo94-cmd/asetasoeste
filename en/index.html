@@ -4,289 +4,84 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Associação de Setas da Zona Oeste</title>
-  <meta name="description" content="Official website — documents, events, useful links and contacts." />
+  <meta name="description" content="Official website of Associação de Setas da Zona Oeste." />
   <link rel="icon" href="../assets/img/logo.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="header">
     <div class="container header__inner">
-      <a class="brand" href="index.html" aria-label="Home">
-        <img class="brand__logo" src="../assets/img/logo.png" alt="Associação de Setas da Zona Oeste logo" />
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="../assets/img/logo.png" alt="ASZO logo" />
         <div class="brand__text">
           <span class="brand__title">Associação de Setas da Zona Oeste</span>
           <span class="brand__subtitle">Caldas da Rainha</span>
         </div>
       </a>
 
-      <nav class="nav" aria-label="Main navigation">
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
-          <span class="nav__toggleBars" aria-hidden="true"></span>
-          <span class="sr-only">Open/close menu</span>
+      <nav class="nav">
+        <button class="nav__toggle" type="button" aria-expanded="false">
+          <span class="nav__toggleBars"></span>
         </button>
 
         <div id="navMenu" class="nav__menu">
-          <a class="nav__link is-active" href="index.html">Home</a>
-          <a class="nav__link" href="#about">Association</a>
-          <a class="nav__link" href="#docs">Documents</a>
+          <a class="nav__link is-active" href="#home">Home</a>
+          <a class="nav__link" href="#documents">Documents</a>
           <a class="nav__link" href="#events">Events</a>
           <a class="nav__link" href="#links">Useful Links</a>
-          <a class="nav__link" href="#suggestions">Suggestions</a>
           <a class="nav__link" href="#contacts">Contacts</a>
 
-          <div class="nav__lang" role="group" aria-label="Language selector">
-            <span class="nav__langLabel">Language:</span>
+          <div class="nav__lang">
             <a class="pill" href="../index.html">PT</a>
-            <a class="pill pill--active" href="index.html" aria-current="page">EN</a>
+            <a class="pill pill--active" href="index.html">EN</a>
           </div>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="home">
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <h1>Official info, simple and always up to date.</h1>
-          <p class="lead">
-            Documents, events, useful links and contacts for Associação de Setas da Zona Oeste.
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn btn--primary" href="#docs">View documents</a>
-            <a class="btn btn--ghost" href="#events">View events</a>
-          </div>
-
-          <div class="quickLinks" aria-label="Shortcuts">
-            <a class="cardLink" href="#links">
-              <span class="cardLink__title">Membership Fees</span>
-              <span class="cardLink__meta">Open</span>
-            </a>
-            <a class="cardLink" href="#links">
-              <span class="cardLink__title">New Member Signup</span>
-              <span class="cardLink__meta">Open</span>
-            </a>
-            <a class="cardLink" href="#links">
-              <span class="cardLink__title">Competitions</span>
-              <span class="cardLink__meta">Open</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="hero__panel" aria-label="Highlights">
-          <div class="panel">
-            <h2 class="panel__title">Next highlight</h2>
-            <p class="panel__text">
-              Add your next event, date and location here (short text).
-            </p>
-            <div class="panel__note">
-              <strong>Tip:</strong> more photos and updates on social media.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2>Association</h2>
-          <p>Who we are and what we do in the Oeste region.</p>
-        </div>
-
-        <div class="grid grid--2">
-          <div class="box">
-            <h3>Mission</h3>
-            <p>
-              Promote darts, community, and the organization of events/competitions in the Oeste region,
-              with sportsmanship and respect for the rules.
-            </p>
-          </div>
-
-          <div class="box">
-            <h3>Board / Official contact</h3>
-            <p>
-              (Optional) You can list the board, term, or just a general contact email.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="docs" class="section section--alt">
-      <div class="container">
-        <div class="section__head">
-          <h2>Documents</h2>
-          <p>Calendars, score sheets, rules and other official files.</p>
-        </div>
-
-        <div class="grid grid--2">
-          <div class="docGroup">
-            <h3>📅 Calendars</h3>
-            <ul class="list">
-              <li><a href="#" class="link">Calendar 2026 (PDF)</a></li>
-              <li><a href="#" class="link">Calendar 2025 (PDF)</a></li>
-            </ul>
-          </div>
-
-          <div class="docGroup">
-            <h3>📝 Score Sheets</h3>
-            <ul class="list">
-              <li><a href="#" class="link">Score sheet (PDF)</a></li>
-              <li><a href="#" class="link">Alternative template (PDF)</a></li>
-            </ul>
-          </div>
-
-          <div class="docGroup">
-            <h3>📜 Rules</h3>
-            <ul class="list">
-              <li><a href="#" class="link">General rules (PDF)</a></li>
-              <li><a href="#" class="link">Disciplinary rules (PDF)</a></li>
-            </ul>
-          </div>
-
-          <div class="docGroup">
-            <h3>📄 Other</h3>
-            <ul class="list">
-              <li><a href="#" class="link">Statutes (PDF)</a></li>
-              <li><a href="#" class="link">Announcements (PDF)</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="hint">
-          When you have the PDFs, put them in <code>assets/docs/</code> and update the links.
-        </p>
-      </div>
-    </section>
-
-    <section id="events" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>Events</h2>
-          <p>Some photos and info — the rest is on social media.</p>
-        </div>
-
-        <div class="grid grid--3">
-          <article class="eventCard">
-            <div class="eventCard__img" aria-hidden="true"></div>
-            <div class="eventCard__body">
-              <h3 class="eventCard__title">Sample Event</h3>
-              <p class="eventCard__meta">Date • Location</p>
-              <p class="eventCard__text">Short summary. 3–6 photos are enough.</p>
-            </div>
-          </article>
-
-          <article class="eventCard">
-            <div class="eventCard__img" aria-hidden="true"></div>
-            <div class="eventCard__body">
-              <h3 class="eventCard__title">Tournament / Competition</h3>
-              <p class="eventCard__meta">Date • Location</p>
-              <p class="eventCard__text">Quick recap + link to social media.</p>
-            </div>
-          </article>
-
-          <article class="eventCard">
-            <div class="eventCard__img" aria-hidden="true"></div>
-            <div class="eventCard__body">
-              <h3 class="eventCard__title">Get-together</h3>
-              <p class="eventCard__meta">Date • Location</p>
-              <p class="eventCard__text">More photos on Facebook/Instagram.</p>
-            </div>
-          </article>
-        </div>
+        <h1>Official information in one place</h1>
+        <p class="lead">Documents, events and official contacts.</p>
       </div>
     </section>
 
     <section id="links" class="section section--alt">
       <div class="container">
-        <div class="section__head">
-          <h2>Useful Links</h2>
-          <p>Shortcuts to competitions, fees and new member signup.</p>
-        </div>
+        <h2>Useful Links</h2>
 
-        <div class="grid grid--2">
-          <a class="bigLink" href="#" target="_blank" rel="noreferrer">
-            <span class="bigLink__title">Competitions</span>
-            <span class="bigLink__desc">External page / drive / platform</span>
-          </a>
-
-          <a class="bigLink" href="#" target="_blank" rel="noreferrer">
-            <span class="bigLink__title">Membership Fees</span>
-            <span class="bigLink__desc">Link to the fees system</span>
-          </a>
-
-          <a class="bigLink" href="#" target="_blank" rel="noreferrer">
-            <span class="bigLink__title">New Member Signup</span>
-            <span class="bigLink__desc">Link to the signup form</span>
-          </a>
-
-          <a class="bigLink" href="#" target="_blank" rel="noreferrer">
-            <span class="bigLink__title">Partners / Others</span>
-            <span class="bigLink__desc">Additional links</span>
-          </a>
-        </div>
+        <a class="bigLink" href="https://socios.quotasonline.pt/aszoeste/inscricao" target="_blank">
+          <span class="bigLink__title">New Member Registration</span>
+          <span class="bigLink__desc">Official registration platform</span>
+        </a>
       </div>
     </section>
 
-    <section id="suggestions" class="section">
+    <section id="contacts" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2>Member Suggestions</h2>
-          <p>Send suggestions to be reviewed in meetings.</p>
-        </div>
+        <h2>Contacts</h2>
 
-        <div class="box">
-          <p>
-            The simplest approach is an external form (e.g., Google Forms).
-            It keeps everything organized and easy to discuss.
-          </p>
+        <ul class="list">
+          <li><strong>Phone:</strong> <a href="tel:+351911843990">+351 911 843 990</a></li>
+          <li><strong>Email:</strong> <a href="mailto:aszoeste94@gmail.com">aszoeste94@gmail.com</a></li>
+          <li><strong>Headquarters:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
+        </ul>
 
-          <div class="ctaRow">
-            <a class="btn btn--primary" href="#" target="_blank" rel="noreferrer">Send a suggestion</a>
-            <a class="btn btn--ghost" href="#contacts">Contact us</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacts" class="section section--alt">
-      <div class="container">
-        <div class="section__head">
-          <h2>Contacts</h2>
-          <p>Social media, phone and email.</p>
-        </div>
-
-        <div class="grid grid--2">
-          <div class="box">
-            <h3>Direct contacts</h3>
-            <ul class="list">
-              <li><strong>Phone:</strong> <a class="link" href="tel:+351000000000">+351 000 000 000</a></li>
-              <li><strong>Email:</strong> <a class="link" href="mailto:geral@exemplo.pt">geral@exemplo.pt</a></li>
-            </ul>
-          </div>
-
-          <div class="box">
-            <h3>Social media</h3>
-            <ul class="list">
-              <li><a class="link" href="#" target="_blank" rel="noreferrer">Facebook</a></li>
-              <li><a class="link" href="#" target="_blank" rel="noreferrer">Instagram</a></li>
-              <li><a class="link" href="#" target="_blank" rel="noreferrer">Other</a></li>
-            </ul>
-          </div>
-        </div>
+        <h3>Social Media</h3>
+        <ul class="list">
+          <li><a href="https://www.facebook.com/share/1BqJ7XdWtR/" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ass.setaszonaoeste?igsh=dW1uaGkzZDlteXg=" target="_blank">Instagram</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <p>© <span id="year"></span> Associação de Setas da Zona Oeste — Caldas da Rainha</p>
-      <p class="footer__small">Simple and objective website. More content on social media.</p>
+    <div class="container">
+      <p>© <span id="year"></span> Associação de Setas da Zona Oeste</p>
     </div>
   </footer>
 
