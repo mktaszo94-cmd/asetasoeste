@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
   <title>Associação de Setas da Zona Oeste</title>
-  <meta name="description" content="Website oficial da Associação de Setas da Zona Oeste — documentação, eventos, links úteis e contactos." />
-  <link rel="icon" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
+
 <header class="header">
   <div class="container header__inner">
     <a class="brand" href="index.html">
-      <img class="brand__logo" src="assets/img/logo.png" alt="Logótipo ASZO" />
+      <img class="brand__logo" src="assets/img/logo.png" alt="ASZO">
       <div class="brand__text">
         <span class="brand__title">Associação de Setas da Zona Oeste</span>
         <span class="brand__subtitle">Caldas da Rainha</span>
@@ -21,17 +21,11 @@
     </a>
 
     <nav class="nav">
-      <button class="nav__toggle" type="button" aria-expanded="false">
-        <span class="nav__toggleBars"></span>
-      </button>
-
-      <div id="navMenu" class="nav__menu">
-        <a class="nav__link is-active" href="#inicio">Início</a>
-        <a class="nav__link" href="#documentacao">Documentação</a>
+      <button class="nav__toggle"><span class="nav__toggleBars"></span></button>
+      <div class="nav__menu">
         <a class="nav__link" href="#eventos">Eventos</a>
         <a class="nav__link" href="#links">Links Úteis</a>
         <a class="nav__link" href="#contactos">Contactos</a>
-
         <div class="nav__lang">
           <a class="pill pill--active" href="index.html">PT</a>
           <a class="pill" href="en/index.html">EN</a>
@@ -41,79 +35,92 @@
   </div>
 </header>
 
-<main id="inicio">
+<main>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Informação oficial, simples e centralizada</h1>
-      <p class="lead">
-        Documentação, eventos, links úteis e contactos da Associação de Setas da Zona Oeste.
-      </p>
-    </div>
-  </section>
-
-  <section id="links" class="section section--alt">
-    <div class="container">
-      <h2>Links Úteis</h2>
-
-      <a class="bigLink" href="https://socios.quotasonline.pt/aszoeste/inscricao" target="_blank">
-        <span class="bigLink__title">Inscrição de Novos Sócios</span>
-        <span class="bigLink__desc">Plataforma oficial de inscrição</span>
-      </a>
-    </div>
-  </section>
-
-  <section id="contactos" class="section">
-    <div class="container">
-      <h2>Contactos</h2>
-
-      <ul class="list">
-        <li><strong>Telemóvel:</strong> <a href="tel:+351911843990">911 843 990</a></li>
-        <li><strong>Email:</strong> <a href="mailto:aszoeste94@gmail.com">aszoeste94@gmail.com</a></li>
-        <li><strong>Sede:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
-      </ul>
-
-      <!-- MAPA -->
-      <div style="margin:20px 0; border-radius:16px; overflow:hidden; border:1px solid #e5e7eb;">
-        <iframe
-          src="https://www.google.com/maps?q=R.%20Infante%20Dom%20Henrique%202,%202500-918%20Caldas%20da%20Rainha&output=embed"
-          width="100%"
-          height="300"
-          style="border:0;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-
-      <h3>Redes Sociais</h3>
-
-      <div style="display:flex; gap:16px; margin-top:12px;">
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/1BqJ7XdWtR/" target="_blank" aria-label="Facebook">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="#1877F2">
-            <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.3v1.6H16l-.4 2.9h-2.5v7A10 10 0 0 0 22 12"/>
-          </svg>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/ass.setaszonaoeste?igsh=dW1uaGkzZDlteXg=" target="_blank" aria-label="Instagram">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="#E1306C">
-            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zM17.8 6.2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
+<!-- EVENTOS -->
+<section id="eventos" class="section">
   <div class="container">
-    <p>© <span id="year"></span> Associação de Setas da Zona Oeste</p>
-  </div>
-</footer>
+    <div class="section__head">
+      <h2>Eventos</h2>
+      <p>Alguns momentos dos nossos eventos.</p>
+    </div>
 
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+    <div class="eventsGrid">
+      <div class="eventCard">
+        <div class="eventCarousel">
+          <a href="https://www.facebook.com/AssociacaodeSetasdaZonaOeste/photos?locale=pt_PT" target="_blank">
+            <img src="assets/img/19_Open_Nacional_Setas_1.jpg" class="is-active">
+            <img src="assets/img/19_Open_Nacional_Setas_2.jpg">
+            <img src="assets/img/19_Open_Nacional_Setas_3.jpg">
+          </a>
+          <button class="eventCarousel__btn eventCarousel__btn--prev">‹</button>
+          <button class="eventCarousel__btn eventCarousel__btn--next">›</button>
+        </div>
+
+        <div class="eventCard__body">
+          <h3 class="eventCard__title">19º Open Nacional Setas</h3>
+          <p class="eventCard__meta">16–17 Maio · Expoeste – Caldas da Rainha</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section id="links" class="section section--alt">
+  <div class="container">
+    <h2>Links Úteis</h2>
+    <a class="bigLink" href="https://socios.quotasonline.pt/aszoeste/inscricao" target="_blank">
+      <span class="bigLink__title">Inscrição de Novos Sócios</span>
+      <span class="bigLink__desc">Plataforma oficial</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACTOS -->
+<section id="contactos" class="section">
+  <div class="container">
+    <h2>Contactos</h2>
+
+    <ul class="list">
+      <li><strong>Telemóvel:</strong> 911 843 990</li>
+      <li><strong>Email:</strong> aszoeste94@gmail.com</li>
+      <li><strong>Sede:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
+    </ul>
+
+    <!-- MAPA -->
+    <iframe
+      src="https://www.google.com/maps?q=R.%20Infante%20Dom%20Henrique%202,%202500-918%20Caldas%20da%20Rainha&output=embed"
+      width="100%" height="300" style="border:0;margin-top:16px">
+    </iframe>
+
+    <!-- REDES SOCIAIS -->
+      <h3 style="margin-top:24px;">Redes Sociais</h3>
+
+      <div class="socials">
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/AssociacaodeSetasdaZonaOeste"
+        target="_blank"
+        aria-label="Facebook">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#1877F2"
+            d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.505 0-1.797.716-1.797 1.764v2.313h3.59l-.467 3.696h-3.123V24h6.127C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+        </svg>
+
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/ass.setaszonaoeste?igsh=dW1uaGkzZDlteXg="
+        target="_blank"
+        aria-label="Instagram">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#E1306C"
+            d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 1.5A4.26 4.26 0 0 0 3.5 7.75v8.5A4.26 4.26 0 0 0 7.75 20.5h8.5a4.26 4.26 0 0 0 4.25-4.25v-8.5A4.26 4.26 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1-2.26 0 1.13 1.13 0 0 1 2.26 0z"/>
+        </svg>
+
+      </a>
+
+      </div>

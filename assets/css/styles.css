@@ -463,3 +463,124 @@ img{ max-width:100%; display:block; }
 }
 .footer__inner p{ margin: 0; }
 .footer__small{ font-size: 0.95rem; }
+
+/* =========================================================
+   EVENTOS – CARDS COM CARROSSEL PEQUENO
+   (EXTENSÃO – NÃO REMOVE NADA DO CSS EXISTENTE)
+   ========================================================= */
+
+.eventsGrid{
+  display:grid;
+  gap:16px;
+}
+
+@media (min-width: 900px){
+  .eventsGrid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.eventCard{
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(17,24,39,0.06);
+}
+
+/* Carrossel pequeno */
+.eventCarousel{
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.eventCarousel a{
+  display:block;
+  height:100%;
+}
+
+.eventCarousel img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:none;
+}
+
+.eventCarousel img.is-active{
+  display:block;
+}
+
+.eventCarousel__btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  border:0;
+  cursor:pointer;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.eventCarousel__btn:hover{
+  background:rgba(0,0,0,.7);
+}
+
+.eventCarousel__btn--prev{ left:8px; }
+.eventCarousel__btn--next{ right:8px; }
+
+.eventCard__body{
+  padding:14px;
+}
+
+.eventCard__title{
+  margin:0 0 6px;
+  font-weight:800;
+}
+
+.eventCard__meta{
+  margin:0;
+  color:var(--muted);
+  font-weight:700;
+  font-size:0.95rem;
+}
+
+/* =========================================================
+   REDES SOCIAIS – ICONES CORRETOS
+   ========================================================= */
+
+.socials{
+  display:flex;
+  gap:14px;
+  margin-top:12px;
+}
+
+.socials a{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.socials a:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.socials svg{
+  width:22px;
+  height:22px;
+  display:block;
+}

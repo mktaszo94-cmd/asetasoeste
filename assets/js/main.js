@@ -1,36 +1,44 @@
-(function () {
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* Menu mobile */
   const toggle = document.querySelector(".nav__toggle");
-  const menu = document.querySelector("#navMenu");
+  const menu = document.querySelector(".nav__menu");
 
-  if (toggle && menu) {
+  if(toggle && menu){
     toggle.addEventListener("click", () => {
-      const isOpen = menu.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    // Fecha o menu ao clicar num link (em mobile)
-    menu.addEventListener("click", (e) => {
-      const target = e.target;
-      if (!(target instanceof HTMLElement)) return;
-      if (target.classList.contains("nav__link")) {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Fecha ao clicar fora
-    document.addEventListener("click", (e) => {
-      const target = e.target;
-      if (!(target instanceof Node)) return;
-      const clickedInside = menu.contains(target) || toggle.contains(target);
-      if (!clickedInside) {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
+      menu.classList.toggle("is-open");
     });
   }
 
-  // Ano no footer
+  /* Ano automático no footer */
   const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-})();
+  if(yearEl){
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  /* Carrossel de eventos */
+  document.querySelectorAll(".eventCarousel").forEach(carousel => {
+    const images = carousel.querySelectorAll("img");
+    let index = 0;
+
+    images[index].classList.add("is-active");
+
+    const prev = carousel.querySelector(".eventCarousel__btn--prev");
+    const next = carousel.querySelector(".eventCarousel__btn--next");
+
+    prev.addEventListener("click", e => {
+      e.preventDefault();
+      images[index].classList.remove("is-active");
+      index = (index - 1 + images.length) % images.length;
+      images[index].classList.add("is-active");
+    });
+
+    next.addEventListener("click", e => {
+      e.preventDefault();
+      images[index].classList.remove("is-active");
+      index = (index + 1) % images.length;
+      images[index].classList.add("is-active");
+    });
+  });
+
+});
