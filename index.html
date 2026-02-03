@@ -25,6 +25,7 @@
       <div class="nav__menu">
         <a class="nav__link" href="#eventos">Eventos</a>
         <a class="nav__link" href="#links">Links Úteis</a>
+        <a class="nav__link" href="#sugestoes">Sugestões</a>
         <a class="nav__link" href="#contactos">Contactos</a>
         <div class="nav__lang">
           <a class="pill pill--active" href="index.html">PT</a>
@@ -77,6 +78,43 @@
   </div>
 </section>
 
+<!-- SUGESTÕES -->
+<section id="sugestoes" class="section section--alt">
+  <div class="container">
+    <h2>Sugestões</h2>
+    <p>Este espaço serve para deixares ideias ou sugestões. Todas serão analisadas pela direção.</p>
+
+    <form class="box"
+      action="https://formsubmit.co/aszoeste94@gmail.com"
+      method="POST">
+
+      <input type="hidden" name="_subject" value="Nova sugestão - ASZO">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="grid grid--2">
+        <div>
+          <label>Nome (opcional)</label>
+          <input type="text" name="name">
+        </div>
+
+        <div>
+          <label>Email (opcional)</label>
+          <input type="email" name="email">
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <label>Sugestão *</label>
+        <textarea name="message" required></textarea>
+      </div>
+
+      <button class="btn btn--primary" type="submit">
+        Enviar Sugestão
+      </button>
+    </form>
+  </div>
+</section>
+
 <!-- CONTACTOS -->
 <section id="contactos" class="section">
   <div class="container">
@@ -88,12 +126,9 @@
       <li><strong>Sede:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
     </ul>
 
-    <!-- MAPA -->
     <iframe
       src="https://www.google.com/maps?q=R.%20Infante%20Dom%20Henrique%202,%202500-918%20Caldas%20da%20Rainha&output=embed"
-      width="100%"
-      height="300"
-      style="border:0;margin-top:16px">
+      width="100%" height="300" style="border:0;margin-top:16px">
     </iframe>
 
     <!-- REDES SOCIAIS -->
@@ -105,24 +140,20 @@
       <a href="https://www.facebook.com/AssociacaodeSetasdaZonaOeste"
          target="_blank"
          aria-label="Facebook">
-
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#1877F2"
             d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.505 0-1.797.716-1.797 1.764v2.313h3.59l-.467 3.696h-3.123V24h6.127C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
         </svg>
-
       </a>
 
       <!-- Instagram -->
       <a href="https://www.instagram.com/ass.setaszonaoeste?igsh=dW1uaGkzZDlteXg="
          target="_blank"
          aria-label="Instagram">
-
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#E1306C"
             d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 1.5A4.26 4.26 0 0 0 3.5 7.75v8.5A4.26 4.26 0 0 0 7.75 20.5h8.5a4.26 4.26 0 0 0 4.25-4.25v-8.5A4.26 4.26 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1-2.26 0 1.13 1.13 0 0 1 2.26 0z"/>
         </svg>
-
       </a>
 
     </div>
@@ -131,7 +162,6 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer__inner">
     <p>© 2026 Associação de Setas da Zona Oeste — Caldas da Rainha</p>

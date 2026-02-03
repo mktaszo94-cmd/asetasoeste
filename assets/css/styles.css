@@ -584,3 +584,75 @@ img{ max-width:100%; display:block; }
   height:22px;
   display:block;
 }
+
+/* === Forms (Sugestões) === */
+
+form label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+form input,
+form textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#fff;
+  font-size:1rem;
+  font-family:inherit;
+}
+
+form input:focus,
+form textarea:focus{
+  outline:none;
+  border-color: rgba(209,31,42,0.5);
+  box-shadow: 0 0 0 3px rgba(209,31,42,0.12);
+}
+
+form textarea{
+  resize:vertical;
+  min-height:120px;
+}
+
+form .btn{
+  margin-top:10px;
+}
+
+form .box{
+  max-width:720px;
+}
+/* === Buttons hover / micro animation === */
+.btn{
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+.btn:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* === Success message === */
+.form-success{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius: var(--radius);
+  background: rgba(31,138,59,0.08);
+  border:1px solid rgba(31,138,59,0.25);
+  color:#065f46;
+  font-weight:700;
+}
+
+/* === Mobile form tweaks === */
+@media (max-width: 700px){
+  .grid--2{
+    grid-template-columns: 1fr;
+  }
+  form .btn{
+    width:100%;
+  }
+}
