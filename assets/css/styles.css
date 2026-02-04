@@ -687,3 +687,8 @@ form .box{
     transform: translateY(0);
   }
 }
+
+
+.bigLink {
+  padding: 14px;
+}
