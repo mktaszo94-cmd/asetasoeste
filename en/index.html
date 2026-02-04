@@ -23,6 +23,7 @@
     <nav class="nav">
       <button class="nav__toggle"><span class="nav__toggleBars"></span></button>
       <div class="nav__menu">
+        <a class="nav__link" href="#home">Home</a>
         <a class="nav__link" href="#association">Association</a>
         <a class="nav__link" href="#documentation">Documentation</a>
         <a class="nav__link" href="#events">Events</a>
@@ -40,6 +41,60 @@
 
 <main>
 
+<!-- HOME / HERO -->
+<section id="home" class="section" style="padding:0;">
+  <div style="position:relative;height:70vh;min-height:420px;overflow:hidden;">
+
+    <!-- BACKGROUND CAROUSEL -->
+    <div style="
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      animation: heroSliderEN 18s infinite;
+    "></div>
+
+    <!-- OVERLAY -->
+   <div class="container" style="
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  flex-direction:column;
+  gap:12px;
+">
+  <h1 class="hero-title" style="
+    color:#fff;
+    font-size:clamp(2.2rem,5vw,3.6rem);
+    letter-spacing:-0.02em;
+    margin:0;
+  ">
+    Associação de Setas da Zona Oeste
+  </h1>
+
+  <p class="hero-subtitle">
+    Unity, competition and passion for darts in the Oeste region
+  </p>
+</div>
+
+  </div>
+</section>
+
+<style>
+@keyframes heroSliderEN {
+  0%   { background-image:url('../assets/img/Inicio/1.jpg'); }
+  20%  { background-image:url('../assets/img/Inicio/2.jpg'); }
+  40%  { background-image:url('../assets/img/Inicio/3.jpg'); }
+  60% { background-image:url('../assets/img/Inicio/4.jpg'); }
+  80% { background-image:url('../assets/img/Inicio/5.jpg'); }
+  100% { background-image:url('../assets/img/Inicio/1.jpg'); }
+  }
+
+</style>
+
 <!-- ASSOCIATION -->
 <section id="association" class="section">
   <div class="container">
@@ -52,8 +107,7 @@
       <div class="box">
         <h3>About</h3>
         <p>
-          Learn more about the West Zone Darts Association, our purpose,
-          values and commitment to the development of darts in the region.
+          Learn about the history, mission, vision and values of the West Zone Darts Association.
         </p>
         <a href="about.html" class="btn btn--ghost" style="margin-top:12px;">
           View About the Association
@@ -63,8 +117,7 @@
       <div class="box">
         <h3>Governing Bodies</h3>
         <p>
-          View the composition of the General Assembly, Board of Directors
-          and Fiscal Council.
+          View the composition of the General Assembly, Board of Directors and Fiscal Council.
         </p>
         <a href="board.html" class="btn btn--ghost" style="margin-top:12px;">
           View Governing Bodies
@@ -162,7 +215,7 @@
 <section id="suggestions" class="section section--alt">
   <div class="container">
     <h2>Suggestions</h2>
-    <p>This space is for sharing ideas or suggestions. All submissions will be reviewed by the board.</p>
+    <p>This space is for sharing ideas or suggestions. All submissions are reviewed by the board.</p>
 
     <form class="box" action="https://formsubmit.co/aszoeste94@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New suggestion - ASZO">
