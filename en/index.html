@@ -10,6 +10,15 @@
 
 <body>
 
+<!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
+<div style="display:none;">
+  <img src="../assets/img/Inicio/1.jpg" alt="">
+  <img src="../assets/img/Inicio/2.jpg" alt="">
+  <img src="../assets/img/Inicio/3.jpg" alt="">
+  <img src="../assets/img/Inicio/4.jpg" alt="">
+  <img src="../assets/img/Inicio/5.jpg" alt="">
+</div>
+
 <header class="header">
   <div class="container header__inner">
     <a class="brand" href="index.html">
@@ -23,13 +32,13 @@
     <nav class="nav">
       <button class="nav__toggle"><span class="nav__toggleBars"></span></button>
       <div class="nav__menu">
-        <a class="nav__link" href="#home">Home</a>
-        <a class="nav__link" href="#association">Association</a>
-        <a class="nav__link" href="#documentation">Documentation</a>
-        <a class="nav__link" href="#events">Events</a>
+        <a class="nav__link" href="#inicio">Home</a>
+        <a class="nav__link" href="#associacao">Association</a>
+        <a class="nav__link" href="#documentacao">Documentation</a>
+        <a class="nav__link" href="#eventos">Events</a>
         <a class="nav__link" href="#links">Useful Links</a>
-        <a class="nav__link" href="#suggestions">Suggestions</a>
-        <a class="nav__link" href="#contacts">Contacts</a>
+        <a class="nav__link" href="#sugestoes">Suggestions</a>
+        <a class="nav__link" href="#contactos">Contacts</a>
         <div class="nav__lang">
           <a class="pill" href="../index.html">PT</a>
           <a class="pill pill--active" href="index.html">EN</a>
@@ -42,61 +51,64 @@
 <main>
 
 <!-- HOME / HERO -->
-<section id="home" class="section" style="padding:0;">
-  <div style="position:relative;height:70vh;min-height:420px;overflow:hidden;">
+<section id="inicio" class="section" style="padding:0;">
+  <div style="position:relative;height:85vh;min-height:560px;overflow:hidden;">
 
-    <!-- BACKGROUND CAROUSEL -->
+    <!-- BACKGROUND SLIDER -->
     <div style="
       position:absolute;
       inset:0;
-      background-size:cover;
-      background-position:center;
-      animation: heroSliderEN 18s infinite;
+      background-size:100%;
+      background-position:center 90%;
+      background-image:url('../assets/img/Inicio/1.jpg');
+      animation: heroSlider 18s infinite;
     "></div>
 
     <!-- OVERLAY -->
-   <div class="container" style="
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  flex-direction:column;
-  gap:12px;
-">
-  <h1 class="hero-title" style="
-    color:#fff;
-    font-size:clamp(2.2rem,5vw,3.6rem);
-    letter-spacing:-0.02em;
-    margin:0;
-  ">
-    West Zone Darts Association
-  </h1>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
 
-  <p class="hero-subtitle">
-    Unity, competition and passion for darts in the Oeste region
-  </p>
-</div>
+    <!-- TEXT -->
+    <div class="container" style="
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      gap:12px;
+    ">
+      <h1 style="
+        color:#fff;
+        font-size:clamp(2.2rem,5vw,3.6rem);
+        letter-spacing:-0.02em;
+        margin:0;
+      ">
+        West Zone Darts Association
+      </h1>
+
+      <p style="color:#e5e7eb;font-size:1.1rem;margin:0;">
+        Unity, competition and passion for darts in the West Zone
+      </p>
+    </div>
 
   </div>
 </section>
 
 <style>
-@keyframes heroSliderEN {
+@keyframes heroSlider {
   0%   { background-image:url('../assets/img/Inicio/1.jpg'); }
   20%  { background-image:url('../assets/img/Inicio/2.jpg'); }
   40%  { background-image:url('../assets/img/Inicio/3.jpg'); }
-  60% { background-image:url('../assets/img/Inicio/4.jpg'); }
-  80% { background-image:url('../assets/img/Inicio/5.jpg'); }
+  60%  { background-image:url('../assets/img/Inicio/4.jpg'); }
+  80%  { background-image:url('../assets/img/Inicio/5.jpg'); }
   100% { background-image:url('../assets/img/Inicio/1.jpg'); }
-  }
-
+}
 </style>
 
 <!-- ASSOCIATION -->
-<section id="association" class="section">
+<section id="associacao" class="section">
   <div class="container">
     <div class="section__head">
       <h2>Association</h2>
@@ -106,9 +118,7 @@
     <div class="grid grid--2">
       <div class="box">
         <h3>About</h3>
-        <p>
-          Learn about the history, mission, vision and values of the West Zone Darts Association.
-        </p>
+        <p>Learn about the history, mission, vision and values of the West Zone Darts Association.</p>
         <a href="about.html" class="btn btn--ghost" style="margin-top:12px;">
           View About the Association
         </a>
@@ -116,9 +126,7 @@
 
       <div class="box">
         <h3>Governing Bodies</h3>
-        <p>
-          View the composition of the General Assembly, Board of Directors and Fiscal Council.
-        </p>
+        <p>See the composition of the General Assembly, Board of Directors and Fiscal Council.</p>
         <a href="board.html" class="btn btn--ghost" style="margin-top:12px;">
           View Governing Bodies
         </a>
@@ -128,7 +136,7 @@
 </section>
 
 <!-- DOCUMENTATION -->
-<section id="documentation" class="section section--alt">
+<section id="documentacao" class="section section--alt">
   <div class="container">
     <div class="section__head">
       <h2>Documentation</h2>
@@ -139,8 +147,8 @@
       <div class="box docGroup">
         <h3>📅 Calendars</h3>
         <ul class="list">
-          <li><a href="#" class="link">2026 Calendar (PDF)</a></li>
-          <li><a href="#" class="link">2025 Calendar (PDF)</a></li>
+          <li><a href="#" class="link">Calendar 2026 (PDF)</a></li>
+          <li><a href="#" class="link">Calendar 2025 (PDF)</a></li>
         </ul>
       </div>
 
@@ -161,10 +169,10 @@
       </div>
 
       <div class="box docGroup">
-        <h3>📂 Other</h3>
+        <h3>📂 Others</h3>
         <ul class="list">
           <li><a href="#" class="link">Statutes (PDF)</a></li>
-          <li><a href="#" class="link">Announcements (PDF)</a></li>
+          <li><a href="#" class="link">Official notices (PDF)</a></li>
         </ul>
       </div>
     </div>
@@ -172,7 +180,7 @@
 </section>
 
 <!-- EVENTS -->
-<section id="events" class="section">
+<section id="eventos" class="section">
   <div class="container">
     <div class="section__head">
       <h2>Events</h2>
@@ -182,7 +190,7 @@
     <div class="eventsGrid">
       <div class="eventCard">
         <div class="eventCarousel">
-          <a href="https://www.facebook.com/AssociacaodeSetasdaZonaOeste/photos" target="_blank">
+          <a href="https://www.facebook.com/AssociacaodeSetasdaZonaOeste" target="_blank">
             <img src="../assets/img/19_Open_Nacional_Setas_1.jpg" class="is-active">
             <img src="../assets/img/19_Open_Nacional_Setas_2.jpg">
             <img src="../assets/img/19_Open_Nacional_Setas_3.jpg">
@@ -206,31 +214,24 @@
     <h2>Useful Links</h2>
 
     <div class="grid grid--2" style="margin-top:16px;">
-
-      <a class="bigLink"
-         href="https://socios.quotasonline.pt/aszoeste/inscricao"
-         target="_blank">
+      <a class="bigLink" href="https://socios.quotasonline.pt/aszoeste/inscricao" target="_blank">
         <span class="bigLink__title">New Member Registration</span>
         <span class="bigLink__desc">Official platform</span>
       </a>
 
-      <a class="bigLink"
-         href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118"
-         target="_blank">
-        <span class="bigLink__title">A.S.Z.O General Competitions</span>
-        <span class="bigLink__desc">Events calendar and competition management</span>
+      <a class="bigLink" href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118" target="_blank">
+        <span class="bigLink__title">A.S.Z.O General Events Link</span>
+        <span class="bigLink__desc">Events calendar and management</span>
       </a>
-
     </div>
   </div>
 </section>
 
-
 <!-- SUGGESTIONS -->
-<section id="suggestions" class="section section--alt">
+<section id="sugestoes" class="section section--alt">
   <div class="container">
     <h2>Suggestions</h2>
-    <p>This space is for sharing ideas or suggestions. All submissions are reviewed by the board.</p>
+    <p>This space is for sharing ideas or suggestions.</p>
 
     <form class="box" action="https://formsubmit.co/aszoeste94@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New suggestion - ASZO">
@@ -253,23 +254,23 @@
       </div>
 
       <p class="hint">
-        🔒 Submitted data is used only for internal review and is not shared with third parties.
+        🔒 Submitted data is used only for internal analysis.
       </p>
 
-      <button class="btn btn--primary" type="submit">Send Suggestion</button>
+      <button class="btn btn--primary" type="submit">Submit Suggestion</button>
     </form>
   </div>
 </section>
 
 <!-- CONTACTS -->
-<section id="contacts" class="section">
+<section id="contactos" class="section">
   <div class="container">
     <h2>Contacts</h2>
 
     <ul class="list">
-      <li><strong>Phone:</strong> +351 911 843 990</li>
+      <li><strong>Phone:</strong> 911 843 990</li>
       <li><strong>Email:</strong> aszoeste94@gmail.com</li>
-      <li><strong>Headquarters:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
+      <li><strong>Address:</strong> R. Infante Dom Henrique 2, Caldas da Rainha</li>
     </ul>
 
     <iframe

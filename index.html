@@ -10,6 +10,15 @@
 
 <body>
 
+<!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
+<div style="display:none;">
+  <img src="assets/img/Inicio/1.jpg" alt="">
+  <img src="assets/img/Inicio/2.jpg" alt="">
+  <img src="assets/img/Inicio/3.jpg" alt="">
+  <img src="assets/img/Inicio/4.jpg" alt="">
+  <img src="assets/img/Inicio/5.jpg" alt="">
+</div>
+
 <header class="header">
   <div class="container header__inner">
     <a class="brand" href="index.html">
@@ -43,55 +52,48 @@
 
 <!-- INÍCIO / HERO -->
 <section id="inicio" class="section" style="padding:0;">
-  <div style="
-    position:relative;
-    height:70vh;
-    min-height:420px;
-    overflow:hidden;
-  ">
+  <div style="position:relative;height:85vh;min-height:560px;overflow:hidden;">
 
     <!-- CARROSSEL BACKGROUND -->
     <div style="
       position:absolute;
       inset:0;
-      background-size:cover;
-      background-position:center;
+      background-size:100%;
+      background-position:center 90%;
+      background-image:url('assets/img/Inicio/1.jpg');
       animation: heroSlider 18s infinite;
     "></div>
 
     <!-- OVERLAY -->
-    <div style="
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.55);
-    "></div>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
 
     <!-- TEXTO -->
     <div class="container" style="
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  flex-direction:column;
-  gap:12px;
-">
-  <h1 class="hero-title" style="
-    color:#fff;
-    font-size:clamp(2.2rem,5vw,3.6rem);
-    letter-spacing:-0.02em;
-    margin:0;
-  ">
-    Associação de Setas da Zona Oeste
-  </h1>
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      gap:12px;
+    ">
+      <h1 style="
+        color:#fff;
+        font-size:clamp(2.2rem,5vw,3.6rem);
+        letter-spacing:-0.02em;
+        margin:0;
+      ">
+        Associação de Setas da Zona Oeste
+      </h1>
 
-  <p class="hero-subtitle">
-    União, competição e paixão pelas setas na Zona Oeste
-  </p>
-</div>
+      <p style="color:#e5e7eb;font-size:1.1rem;margin:0;">
+        União, competição e paixão pelas setas na Zona Oeste
+      </p>
+    </div>
 
+  </div>
 </section>
 
 <style>
@@ -99,8 +101,8 @@
   0%   { background-image:url('assets/img/Inicio/1.jpg'); }
   20%  { background-image:url('assets/img/Inicio/2.jpg'); }
   40%  { background-image:url('assets/img/Inicio/3.jpg'); }
-  60% { background-image:url('assets/img/Inicio/4.jpg'); }
-  80% { background-image:url('assets/img/Inicio/5.jpg'); }
+  60%  { background-image:url('assets/img/Inicio/4.jpg'); }
+  80%  { background-image:url('assets/img/Inicio/5.jpg'); }
   100% { background-image:url('assets/img/Inicio/1.jpg'); }
 }
 </style>
@@ -116,9 +118,7 @@
     <div class="grid grid--2">
       <div class="box">
         <h3>Sobre</h3>
-        <p>
-          Conhece a história, missão, visão e valores da Associação de Setas da Zona Oeste.
-        </p>
+        <p>Conhece a história, missão, visão e valores da Associação de Setas da Zona Oeste.</p>
         <a href="sobre.html" class="btn btn--ghost" style="margin-top:12px;">
           Ver Sobre a Associação
         </a>
@@ -126,9 +126,7 @@
 
       <div class="box">
         <h3>Órgãos Sociais</h3>
-        <p>
-          Consulta a composição dos Órgãos Sociais (Assembleia Geral, Direção e Conselho Fiscal).
-        </p>
+        <p>Consulta a composição dos Órgãos Sociais (Assembleia Geral, Direção e Conselho Fiscal).</p>
         <a href="orgaos-sociais.html" class="btn btn--ghost" style="margin-top:12px;">
           Ver Órgãos Sociais
         </a>
@@ -216,31 +214,24 @@
     <h2>Links Úteis</h2>
 
     <div class="grid grid--2" style="margin-top:16px;">
-
-      <a class="bigLink"
-         href="https://socios.quotasonline.pt/aszoeste/inscricao"
-         target="_blank">
+      <a class="bigLink" href="https://socios.quotasonline.pt/aszoeste/inscricao" target="_blank">
         <span class="bigLink__title">Inscrição de Novos Sócios</span>
         <span class="bigLink__desc">Plataforma oficial</span>
       </a>
 
-      <a class="bigLink"
-         href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118"
-         target="_blank">
+      <a class="bigLink" href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118" target="_blank">
         <span class="bigLink__title">Link Geral Provas A.S.Z.O</span>
         <span class="bigLink__desc">Calendário e gestão de provas</span>
       </a>
-
     </div>
   </div>
 </section>
-
 
 <!-- SUGESTÕES -->
 <section id="sugestoes" class="section section--alt">
   <div class="container">
     <h2>Sugestões</h2>
-    <p>Este espaço serve para deixares ideias ou sugestões. Todas serão analisadas pela direção.</p>
+    <p>Este espaço serve para deixares ideias ou sugestões.</p>
 
     <form class="box" action="https://formsubmit.co/aszoeste94@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Nova sugestão - ASZO">
@@ -263,7 +254,7 @@
       </div>
 
       <p class="hint">
-        🔒 Os dados enviados são usados apenas para análise interna e não são partilhados com terceiros.
+        🔒 Os dados enviados são usados apenas para análise interna.
       </p>
 
       <button class="btn btn--primary" type="submit">Enviar Sugestão</button>
@@ -279,7 +270,7 @@
     <ul class="list">
       <li><strong>Telemóvel:</strong> 911 843 990</li>
       <li><strong>Email:</strong> aszoeste94@gmail.com</li>
-      <li><strong>Sede:</strong> R. Infante Dom Henrique 2, 2500-918 Caldas da Rainha</li>
+      <li><strong>Sede:</strong> R. Infante Dom Henrique 2, Caldas da Rainha</li>
     </ul>
 
     <iframe
