@@ -223,12 +223,13 @@ img{ max-width:100%; display:block; }
     position: static;
     display:flex !important;
     align-items:center;
-    gap: 6px;
+    gap: 28px;
     padding: 0;
     border: 0;
     box-shadow: none;
     background: transparent;
-    min-width: unset;
+    min-width: 720px;
+    justify-content: center;
   }
   .nav__link{
     display:inline-flex;
@@ -691,4 +692,36 @@ form .box{
 
 .bigLink {
   padding: 14px;
+}
+
+.footer {
+  background:#111;
+  color:#fff;
+}
+
+/* HERO - LOGO INFERIOR DIREITO */
+.hero-logo-right {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  z-index: 3;
+  opacity: 0.95;
+}
+
+.hero-logo-right img {
+  height: 260px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-logo-right img {
+    height: 64px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-logo-right {
+    display: none;
+  }
 }

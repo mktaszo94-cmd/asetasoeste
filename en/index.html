@@ -58,14 +58,21 @@
     <div style="
       position:absolute;
       inset:0;
-      background-size:100%;
-      background-position:center 90%;
+      background-size:cover;
+      background-position:center center;
+      background-repeat: no-repeat;
       background-image:url('../assets/img/Inicio/1.jpg');
       animation: heroSlider 18s infinite;
+      will-change: background-image;
     "></div>
 
     <!-- OVERLAY -->
     <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+
+    <!-- LOGO FIXO INFERIOR DIREITO -->
+    <div class="hero-logo-right">
+      <img src="../assets/img/logo-direito.png" alt="Logo Associação">
+    </div>
 
     <!-- TEXT -->
     <div class="container" style="
