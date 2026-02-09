@@ -108,14 +108,12 @@ img{ max-width:100%; display:block; }
 }
 
 .brand__title{
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 0.95rem;
+  line-height: 1.1;
 }
 
 .brand__subtitle{
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: 2px;
+  font-size: 0.8rem;
 }
 
 /* Nav */
@@ -224,6 +222,7 @@ img{ max-width:100%; display:block; }
     display:flex !important;
     align-items:center;
     gap: 28px;
+    flex-wrap: nowrap;       /* 🔑 impede quebras */
     padding: 0;
     border: 0;
     box-shadow: none;
@@ -801,4 +800,29 @@ form .box{
 .partnerItem:hover img{
   filter: grayscale(0%);
   opacity: 1;
+}
+
+.nav__link{
+  white-space: nowrap;        /* 🔑 nunca quebra texto */
+  font-size: 0.95rem;         /* ligeiramente mais compacto */
+}
+
+@media (max-width: 1200px){
+  .nav__menu{
+    gap: 16px;
+  }
+
+  .nav__link{
+    font-size: 0.9rem;
+  }
+}
+
+
+/* HEADER — mostrar apenas o logo */
+.brand__text{
+  display: none;
+}
+
+.brand__logo{
+  height: 50px; /* ajusta se quiseres maior */
 }
