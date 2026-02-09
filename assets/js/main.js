@@ -42,3 +42,86 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* ===============================
+   POP-UP EVENTOS
+   =============================== */
+
+// ATIVAR / DESATIVAR POP-UP
+const ENABLE_EVENTS_POPUP = true; // <-- MUDA AQUI
+
+function closeEventsPopup(){
+  document.getElementById('eventsPopup').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if(!ENABLE_EVENTS_POPUP) return;
+
+  const popup = document.getElementById('eventsPopup');
+  if(popup){
+    popup.style.display = 'flex';
+  }
+});
+
+/* =====================================================
+   POP-UP EVENTOS – CARROSSEL
+   ===================================================== */
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (!ENABLE_EVENTS_POPUP) {
+    const popup = document.getElementById("eventsPopup");
+    if (popup) popup.remove();
+    return;
+  }
+
+  let index = 0;
+  const slides = document.querySelectorAll(".popup-slide");
+
+  function showSlide(i){
+    slides.forEach(s => s.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
+
+  window.nextSlide = function(){
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  };
+
+  window.prevSlide = function(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  };
+
+  window.closePopup = function(){
+    document.getElementById("eventsPopup").remove();
+  };
+
+  // Auto-play
+  setInterval(() => {
+    if (document.getElementById("eventsPopup")) {
+      nextSlide();
+    }
+  }, 8000);
+
+});
+
+
+function closePopupAndGo(e) {
+  e.preventDefault();
+
+  const popup = document.querySelector('.events-popup');
+  if (popup) {
+    popup.classList.remove('is-visible');
+  }
+
+  const targetId = e.currentTarget.getAttribute('href');
+  const target = document.querySelector(targetId);
+
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }, 200);
+  }
+}

@@ -826,3 +826,204 @@ form .box{
 .brand__logo{
   height: 50px; /* ajusta se quiseres maior */
 }
+/* ===============================
+   POP-UP EVENTOS
+   =============================== */
+
+.popup-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-box{
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+  max-width: 420px;
+  width: calc(100% - 32px);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  animation: popupIn .35s ease;
+}
+
+.popup-box h3{
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.popup-events{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.popup-events li{
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.popup-events li:last-child{
+  border-bottom: none;
+}
+
+.popup-close{
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.popup-close:hover{
+  color: #000;
+}
+
+@keyframes popupIn{
+  from{
+    transform: scale(.9);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* POP-UP – EVENTO COM TITULO EM CIMA */
+
+.popup-event{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.popup-event:last-child{
+  border-bottom: none;
+}
+
+.popup-title{
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.popup-event img{
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+}
+
+.popup-meta{
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   POP-UP EVENTOS
+   ===================================================== */
+
+.events-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.events-popup{
+  background:#fff;
+  width:360px;
+  max-width:92%;
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  text-align:center;
+}
+
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  background:none;
+  border:0;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.popup-title{
+  margin:0 0 14px;
+  font-weight:800;
+}
+
+.popup-carousel{
+  position:relative;
+}
+
+.popup-slide{
+  display:none;
+}
+
+.popup-slide.active{
+  display:block;
+}
+
+.popup-slide img{
+  width:100%;
+  border-radius:14px;
+  margin:10px 0;
+}
+
+.popup-slide h4{
+  margin:0;
+  font-weight:800;
+}
+
+.popup-slide p{
+  margin:6px 0 12px;
+  color:#6b7280;
+  font-weight:600;
+}
+
+.popup-controls{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.popup-controls button{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:0;
+  background:#111827;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.popup-btn{
+  display:inline-block;
+  background:#dc2626;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+}
+

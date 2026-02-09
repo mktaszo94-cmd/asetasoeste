@@ -8,6 +8,46 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
+<!-- POP-UP PRÓXIMOS EVENTOS -->
+<div id="eventsPopup" class="events-popup-overlay">
+  <div class="events-popup">
+
+    <button class="popup-close" onclick="closePopup()">×</button>
+
+    <h3 class="popup-title">
+      📅 Próximos Eventos
+    </h3>
+
+    <!-- CARROSSEL -->
+    <div class="popup-carousel">
+
+      <!-- EVENTO 1 -->
+      <div class="popup-slide active">
+        <h4>WCOD – Qualificador Portugal 2026</h4>
+        <img src="assets/img/eventos/wcod-qualificador-2026.jpg" alt="WCOD Qualifier">
+        <p>1 Maio · Expoeste – Caldas da Rainha</p>
+      </div>
+
+      <!-- EVENTO 2 -->
+      <div class="popup-slide">
+        <h4>20º Open Nacional de Setas</h4>
+        <img src="assets/img/eventos/20-open-nacional-setas.jpg" alt="20º Open Nacional">
+        <p>2 Maio · Expoeste – Caldas da Rainha</p>
+      </div>
+
+    </div>
+
+    <!-- CONTROLOS -->
+    <div class="popup-controls">
+      <button onclick="prevSlide()">‹</button>
+      <button onclick="nextSlide()">›</button>
+    </div>
+
+    
+
+  </div>
+</div>
+
 <body>
 
 <!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->

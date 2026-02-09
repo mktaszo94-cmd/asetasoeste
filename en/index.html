@@ -8,6 +8,47 @@
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
+<!-- UPCOMING EVENTS POP-UP -->
+<div id="eventsPopup" class="events-popup-overlay">
+  <div class="events-popup">
+
+    <button class="popup-close" onclick="closePopup()">×</button>
+
+    <h3 class="popup-title">
+      📅 Upcoming Events
+    </h3>
+
+    <!-- CAROUSEL -->
+    <div class="popup-carousel">
+
+      <!-- EVENT 1 -->
+      <div class="popup-slide active">
+        <h4>WCOD – Portugal Qualifier 2026</h4>
+        <img src="../assets/img/eventos/wcod-qualificador-2026.jpg" alt="WCOD Qualifier">
+        <p>May 1 · Expoeste – Caldas da Rainha</p>
+      </div>
+
+      <!-- EVENT 2 -->
+      <div class="popup-slide">
+        <h4>20th National Darts Open</h4>
+        <img src="../assets/img/eventos/20-open-nacional-setas.jpg" alt="20th Open">
+        <p>May 2 · Expoeste – Caldas da Rainha</p>
+      </div>
+
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="popup-controls">
+      <button onclick="prevSlide()">‹</button>
+      <button onclick="nextSlide()">›</button>
+    </div>
+
+    
+
+  </div>
+</div>
+
+
 <body>
 
 <!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
