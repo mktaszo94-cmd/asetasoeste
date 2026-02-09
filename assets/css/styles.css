@@ -751,3 +751,54 @@ form .box{
 .container--wide{
   max-width: 1200px;
 }
+
+/* =========================================================
+   PARCEIROS
+   ========================================================= */
+
+.partnersGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+
+.partnerItem{
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  /* 👇 reduz o tamanho do quadrado */
+  aspect-ratio: 1 / 1;
+  max-width: 230px;
+  margin: 0 auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1px;
+}
+
+
+
+.partnerItem:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.partnerItem img{
+  max-width: 50%;
+  max-height: 50%;
+  object-fit: contain;
+}
+
+.partnerItem img{
+  filter: grayscale(100%);
+  opacity: .85;
+  transition: all .25s ease;
+}
+
+.partnerItem:hover img{
+  filter: grayscale(0%);
+  opacity: 1;
+}
