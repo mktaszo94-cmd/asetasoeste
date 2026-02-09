@@ -471,10 +471,13 @@ img{ max-width:100%; display:block; }
    ========================================================= */
 
 .eventsGrid{
-  display:grid;
-  gap:16px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
 }
 
+/* Desktop – garante 3 cards lado a lado */
 @media (min-width: 900px){
   .eventsGrid{
     grid-template-columns: repeat(3, 1fr);
@@ -482,6 +485,9 @@ img{ max-width:100%; display:block; }
 }
 
 .eventCard{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid var(--border);
   background: var(--bg);
   border-radius: var(--radius);
@@ -489,7 +495,9 @@ img{ max-width:100%; display:block; }
   box-shadow: 0 10px 25px rgba(17,24,39,0.06);
 }
 
-/* Carrossel pequeno */
+/* =========================
+   Carrossel pequeno
+   ========================= */
 .eventCarousel{
   position: relative;
   height: 160px;
@@ -498,60 +506,72 @@ img{ max-width:100%; display:block; }
 }
 
 .eventCarousel a{
-  display:block;
-  height:100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .eventCarousel img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  display:none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 🔑 mantém proporção sem esticar */
+  display: none;
 }
 
 .eventCarousel img.is-active{
-  display:block;
+  display: block;
 }
 
+/* Botões */
 .eventCarousel__btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:32px;
-  height:32px;
-  border-radius:999px;
-  border:0;
-  cursor:pointer;
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  font-size:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .eventCarousel__btn:hover{
-  background:rgba(0,0,0,.7);
+  background: rgba(0,0,0,.75);
 }
 
-.eventCarousel__btn--prev{ left:8px; }
-.eventCarousel__btn--next{ right:8px; }
+.eventCarousel__btn--prev{ left: 8px; }
+.eventCarousel__btn--next{ right: 8px; }
 
+/* =========================
+   Corpo do card
+   ========================= */
 .eventCard__body{
-  padding:14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
 }
 
 .eventCard__title{
-  margin:0 0 6px;
-  font-weight:800;
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.05rem;
 }
 
 .eventCard__meta{
-  margin:0;
-  color:var(--muted);
-  font-weight:700;
-  font-size:0.95rem;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
+
 
 /* =========================================================
    REDES SOCIAIS – ICONES CORRETOS
@@ -724,4 +744,10 @@ form .box{
   .hero-logo-right {
     display: none;
   }
+}
+
+
+/* Container mais largo só para eventos */
+.container--wide{
+  max-width: 1200px;
 }
