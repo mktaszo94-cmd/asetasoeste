@@ -741,7 +741,14 @@ form .box{
 
 @media (max-width: 520px) {
   .hero-logo-right {
-    display: none;
+    display: block;      /* em vez de none */
+    bottom: 14px;        /* ajusta posição */
+    right: 14px;
+  }
+
+  .hero-logo-right img {
+    height: 120px;        /* tamanho no mobile (ajusta se quiseres) */
+    width: auto;
   }
 }
 
@@ -1027,3 +1034,93 @@ form .box{
   text-decoration:none;
 }
 
+/* desktop/tablet */
+.heroShell { height: 85vh; min-height: 560px; }
+
+/* mobile */
+@media (max-width: 520px){
+  .heroShell { height: 70vh; min-height: 420px; }
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; }
+
+.partners { padding: 3rem 0; }
+.partners__marquee{
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  padding: 18px 0;
+}
+
+/* “fade” nas laterais */
+.partners__marquee::before,
+.partners__marquee::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width: 70px;
+  pointer-events:none;
+  z-index: 2;
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+}
+.partners__marquee::after{
+  right:0;
+  transform: rotate(180deg);
+}
+.partners__marquee::before{ left:0; }
+
+.partners__track{
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  width: max-content;
+  animation: partners-scroll 22s linear infinite;
+}
+
+.partners__item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 0;
+}
+
+.partners__item img{
+  height: 42px;
+  width: auto;
+  display:block;
+  opacity: .95;
+}
+
+.partners__marquee:hover .partners__track{ animation-play-state: paused; }
+
+@keyframes partners-scroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 520px){
+  .partners__track{ gap: 34px; animation-duration: 18s; }
+  .partners__item img{ height: 34px; }
+}
+
+/* garante que o "cartão" do carrossel respeita a largura do container */
+.partners__marquee{
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* aumenta os logos */
+.partners__item img{
+  height: 70px;   /* antes tinhas 42px - mete 60/70/80 conforme queres */
+  width: auto;
+  display:block;
+}
+
+/* em mobile, um pouco mais pequenos para não rebentar */
+@media (max-width: 520px){
+  .partners__item img{ height: 52px; }
+}

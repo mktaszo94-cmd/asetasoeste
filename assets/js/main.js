@@ -125,3 +125,10 @@ function closePopupAndGo(e) {
     }, 200);
   }
 }
+
+document.querySelectorAll(".nav__link").forEach(a => {
+  a.addEventListener("click", () => {
+    const menu = document.querySelector(".nav__menu");
+    if (menu) menu.classList.remove("is-open");
+  });
+});

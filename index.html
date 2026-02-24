@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
+<body>
+
 <!-- POP-UP PRÓXIMOS EVENTOS -->
 <div id="eventsPopup" class="events-popup-overlay">
   <div class="events-popup">
@@ -48,7 +50,6 @@
   </div>
 </div>
 
-<body>
 
 <!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
 <div style="display:none;">
@@ -93,7 +94,7 @@
 
 <!-- INÍCIO / HERO -->
 <section id="inicio" class="section" style="padding:0;">
-  <div style="position:relative;height:85vh;min-height:560px;overflow:hidden;">
+  <div class="heroShell" style="position:relative;overflow:hidden;">
 
     <!-- CARROSSEL BACKGROUND -->
     <div style="
@@ -301,32 +302,28 @@
 </section>
 
 <!-- PARCEIROS -->
-<section id="parceiros" class="section section--alt">
+<section class="partners section" id="parceiros">
   <div class="container">
-    <div class="section__head">
-      <h2>Parceiros</h2>
-      <p>Empresas e entidades que apoiam a Associação.</p>
-    </div>
+    <h2 class="section__title">Parceiros</h2>
 
-    <div class="partnersGrid">
+    <div class="partners__marquee" aria-label="Parceiros">
+      <div class="partners__track">
+        <!-- Lista 1 -->
+        <div class="partners__item"><img src="assets/img/parceiros/CMCR_Logo.png" alt="Caldas da Rainha"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/Expoeste_Logo.png" alt="Expoeste"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/Godinho_Design_Logo.png" alt="GD"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/2K-Logo.png" alt="2K"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/nossa-senhora-populo.png" alt="JFNSP"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/santo-onofre.png" alt="JFSO"></div>
 
-      <!-- Parceiro 1 -->
-      <a href="https://www.expoeste.airo.pt/" target="_blank" class="partnerItem">
-        <img src="assets/img/parceiros/Expoeste_Logo.png" alt="Parceiro 1">
-      </a>
-
-      <!-- Parceiro 2 -->
-      <a href="https://www.mcr.pt/" target="_blank" class="partnerItem">
-        <img src="assets/img/parceiros/CMCR_Logo.png" alt="Parceiro 2">
-      </a>
-
-      <!-- Parceiro 3 -->
-      <div class="partnerItem">
-        <img src="assets/img/parceiros/Godinho_Design_Logo.png" alt="Parceiro 3">
+        <!-- Lista 2 duplicada -->
+        <div class="partners__item"><img src="assets/img/parceiros/CMCR_Logo.png" alt="Caldas da Rainha"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/Expoeste_Logo.png" alt="Expoeste"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/Godinho_Design_Logo.png" alt="GD"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/2K-Logo.png" alt="2K"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/nossa-senhora-populo.png" alt="JFNSP"></div>
+        <div class="partners__item"><img src="assets/img/parceiros/santo-onofre.png" alt="JFSO"></div>
       </div>
-
-      <!-- adicionas mais copiando um bloco -->
-
     </div>
   </div>
 </section>
@@ -424,7 +421,7 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <p>© 2026 Associação de Setas da Zona Oeste — Caldas da Rainha</p>
+    <p>© 2026 Associação de Setas da Zona Oeste — Caldas da Rainha - Design and Developed by Godinho Design</p>
   </div>
 </footer>
 
