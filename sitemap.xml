@@ -4,4 +4,32 @@
     <loc>https://aszoeste.pt/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#associacao</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#documentacao</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#eventos</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#links</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#parceiros</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#sugestoes</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aszoeste.pt/index.html#contactos</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
