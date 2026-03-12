@@ -66,69 +66,64 @@ document.addEventListener('DOMContentLoaded', () => {
    POP-UP EVENTOS – CARROSSEL
    ===================================================== */
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  const popup = document.getElementById("eventsPopup");
+  if (!popup) return;
+
   if (!ENABLE_EVENTS_POPUP) {
-    const popup = document.getElementById("eventsPopup");
-    if (popup) popup.remove();
+    popup.remove();
     return;
   }
 
   let index = 0;
   const slides = document.querySelectorAll(".popup-slide");
+  const controls = document.querySelector(".popup-controls");
 
-  function showSlide(i){
-    slides.forEach(s => s.classList.remove("active"));
-    slides[i].classList.add("active");
+  // Se não houver slides, remove o popup
+  if (slides.length === 0) {
+    popup.remove();
+    return;
   }
 
-  window.nextSlide = function(){
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  };
+  function showSlide(i) {
+    // Corrigir índice se ficar fora do limite
+    if (i >= slides.length) index = 0;
+    if (i < 0) index = slides.length - 1;
 
-  window.prevSlide = function(){
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  };
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === index);
+    });
 
-  window.closePopup = function(){
-    document.getElementById("eventsPopup").remove();
-  };
-
-  // Auto-play
-  setInterval(() => {
-    if (document.getElementById("eventsPopup")) {
-      nextSlide();
+    // Esconder setas se só existir 1 evento
+    if (controls) {
+      controls.style.display = slides.length <= 1 ? "none" : "flex";
     }
-  }, 8000);
-
-});
-
-
-function closePopupAndGo(e) {
-  e.preventDefault();
-
-  const popup = document.querySelector('.events-popup');
-  if (popup) {
-    popup.classList.remove('is-visible');
   }
 
-  const targetId = e.currentTarget.getAttribute('href');
-  const target = document.querySelector(targetId);
+  window.nextSlide = function () {
+    index++;
+    showSlide(index);
+  };
 
-  if (target) {
-    setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }, 200);
+  window.prevSlide = function () {
+    index--;
+    showSlide(index);
+  };
+
+  window.closePopup = function () {
+    popup.remove();
+  };
+
+  // Mostrar o primeiro slide logo no arranque
+  showSlide(index);
+
+  // Auto-play só se existir mais de 1 slide
+  if (slides.length > 1) {
+    setInterval(() => {
+      if (document.getElementById("eventsPopup")) {
+        window.nextSlide();
+      }
+    }, 8000);
   }
-}
-
-document.querySelectorAll(".nav__link").forEach(a => {
-  a.addEventListener("click", () => {
-    const menu = document.querySelector(".nav__menu");
-    if (menu) menu.classList.remove("is-open");
-  });
 });
