@@ -65,8 +65,11 @@
   fetch(root.dataset.source,{cache:'no-cache'})
     .then(response => { if (!response.ok) throw new Error('HTTP '+response.status); return response.json(); })
     .then(data => {
-      if (!Array.isArray(data)) throw new Error('Invalid data');
-      documents = data.filter(d => d && d.publicado === true && d.titulo && safePdf(d.ficheiro));
+      // Fase 3: o Pages CMS guarda a lista dentro de { documentos: [...] }.
+      // Aceita temporariamente a lista antiga para facilitar recuperacao em testes.
+      const records = Array.isArray(data) ? data : (data && data.documentos);
+      if (!Array.isArray(records)) throw new Error('Invalid documents data');
+      documents = records.filter(d => d && d.publicado === true && d.titulo && safePdf(d.ficheiro));
       const seasons = [...new Set(documents.map(d => String(d.epoca || 'Geral')))];
       seasons.sort((a,b)=>b.localeCompare(a,'pt',{numeric:true}));
       seasons.forEach(value=>{const option = document.createElement('option');option.value=value;option.textContent=value;season.append(option);});

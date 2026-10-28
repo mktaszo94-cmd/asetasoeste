@@ -1,5 +1,6 @@
-# Pages CMS — utilizar inicialmente apenas no ramo desenvolvimento-v2.
-# Os PDFs existentes mantêm os URLs para não quebrar ligações externas.
+# ASZO V2 — Painel de documentos | Fase 3
+# Trabalhar no ramo desenvolvimento-v2 ate validacao final.
+# Manter caminhos dos PDFs existentes para preservar URLs publicos.
 media:
   - name: documentos
     label: PDFs da ASZO
@@ -7,44 +8,56 @@ media:
     output: /documentacao
     extensions: [pdf]
     rename: safe
+
 content:
   - name: documentos
     label: Biblioteca de documentos
     type: file
     path: dados/documentos.json
     format: json
-    list: true
     operations:
       delete: false
     fields:
-      - name: titulo
-        label: Título (PT)
-        type: string
-        required: true
-      - name: titulo_en
-        label: Título (EN)
-        type: string
-      - name: categoria
-        label: Categoria
-        type: select
-        required: true
-        options:
-          values:
-            - {name: calendarios, label: Calendários}
-            - {name: folhas-de-jogo, label: Folhas de jogo}
-            - {name: regulamentos, label: Regulamentos}
-            - {name: outros, label: Outros}
-      - name: epoca
-        label: Época (ex. 2027 ou Geral)
-        type: string
-        required: true
-      - name: ficheiro
-        label: Ficheiro PDF
-        type: file
-        required: true
-        options:
-          media: documentos
-          extensions: [pdf]
-      - name: publicado
-        label: Publicado
-        type: boolean
+      - name: documentos
+        label: Documentos publicados e em preparacao
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo}"
+        fields:
+          - name: titulo
+            label: Titulo (PT)
+            type: string
+            required: true
+            description: Nome apresentado na biblioteca portuguesa.
+          - name: titulo_en
+            label: Titulo (EN)
+            type: string
+            description: Quando vazio, apresenta o titulo portugues no site ingles.
+          - name: categoria
+            label: Categoria
+            type: select
+            required: true
+            options:
+              values:
+                - {name: calendarios, label: Calendarios}
+                - {name: folhas-de-jogo, label: Folhas de jogo}
+                - {name: regulamentos, label: Regulamentos}
+                - {name: outros, label: Outros}
+          - name: epoca
+            label: Epoca (ex. 2027 ou Geral)
+            type: string
+            required: true
+          - name: ficheiro
+            label: Ficheiro PDF
+            type: file
+            required: true
+            description: Selecionar ou carregar um PDF na pasta documentacao.
+            options:
+              media: documentos
+              extensions: [pdf]
+          - name: publicado
+            label: Visivel no website
+            type: boolean
+            description: Desativar para ocultar o documento sem apagar o registo.
