@@ -1,0 +1,50 @@
+# Pages CMS — utilizar inicialmente apenas no ramo desenvolvimento-v2.
+# Os PDFs existentes mantêm os URLs para não quebrar ligações externas.
+media:
+  - name: documentos
+    label: PDFs da ASZO
+    input: documentacao
+    output: /documentacao
+    extensions: [pdf]
+    rename: safe
+content:
+  - name: documentos
+    label: Biblioteca de documentos
+    type: file
+    path: dados/documentos.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: titulo
+        label: Título (PT)
+        type: string
+        required: true
+      - name: titulo_en
+        label: Título (EN)
+        type: string
+      - name: categoria
+        label: Categoria
+        type: select
+        required: true
+        options:
+          values:
+            - {name: calendarios, label: Calendários}
+            - {name: folhas-de-jogo, label: Folhas de jogo}
+            - {name: regulamentos, label: Regulamentos}
+            - {name: outros, label: Outros}
+      - name: epoca
+        label: Época (ex. 2027 ou Geral)
+        type: string
+        required: true
+      - name: ficheiro
+        label: Ficheiro PDF
+        type: file
+        required: true
+        options:
+          media: documentos
+          extensions: [pdf]
+      - name: publicado
+        label: Publicado
+        type: boolean

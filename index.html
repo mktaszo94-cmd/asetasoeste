@@ -16,6 +16,7 @@
     gtag('config', 'G-CJW6LE76HB');
   </script>
 
+  <link rel="stylesheet" href="assets/css/documentos.css">
 </head>
 
 <body>
@@ -189,51 +190,15 @@
 <!-- DOCUMENTAÇÃO -->
 <section id="documentacao" class="section section--alt">
   <div class="container">
-    <div class="section__head">
-      <h2>Documentação</h2>
-      <p>Calendários, folhas de jogo, regulamentos e outros documentos.</p>
-    </div>
-
-    <div class="grid grid--2">
-      <div class="box docGroup">
-        <h3>📅 Calendários</h3>
-        <ul class="list">
-          <li><a href="documentacao/calendarios/calendario-epoca-2026.pdf" class="link">Calendário Geral Época 2026 (PDF)</a></li>
-          <li><a href="documentacao/calendarios/calendario-epoca-feminino-2026.pdf" class="link">Calendário Geral Época Feminino 2026 (PDF)</a></li>
-          <li><a href="documentacao/calendarios/campeonato-masculino-1-divisao.pdf" class="link">Calendário Campeonato Masculino 1ª Divisão (PDF)</a></li>
-          <li><a href="documentacao/calendarios/campeonato-masculino-2-divisao.pdf" class="link">Calendário Campeonato Masculino 2ª Divisão (PDF)</a></li>
-          <li><a href="documentacao/calendarios/campeonato-feminino-2026.pdf" class="link">Calendário Campeonato Feminino (PDF)</a></li>
-          <li><a href="documentacao/calendarios/taca-nf-m-f-oitavos-meias.pdf" class="link">Taça NF - Nelson Fernandes (M/F) (PDF)</a></li>
-          <li><a href="documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf" class="link">Taça Portugal - Regional (M/F) (PDF)</a></li>
-          <li><a href="documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf" class="link">Calendário Campeonato Tradicional Não Oficial (PDF)</a></li>
-          <li><a href="documentacao/calendarios/plano-atividades-2026.pdf" class="link">Calendário Atividades 2026 Expoeste (PDF)</a></li>
-        </ul>
+    <div class="section__head"><h2>Documentação</h2><p>Encontra os calendários, folhas de jogo e regulamentos da associação.</p></div>
+    <div class="aszo-documents" data-aszo-documents data-lang="pt" data-source="dados/documentos.json">
+      <div class="aszo-documents__filters">
+        <label class="aszo-documents__field"><span>Pesquisa</span><input type="search" data-doc-search placeholder="Pesquisar por nome do documento" autocomplete="off"></label>
+        <label class="aszo-documents__field"><span>Categoria</span><select data-doc-category><option value="">Todas as categorias</option><option value="calendarios">Calendários</option><option value="folhas-de-jogo">Folhas de jogo</option><option value="regulamentos">Regulamentos</option><option value="outros">Outros</option></select></label>
+        <label class="aszo-documents__field"><span>Época</span><select data-doc-season><option value="">Todas as épocas</option></select></label>
       </div>
-
-      <div class="box docGroup">
-        <h3>📝 Folhas de Jogo</h3>
-        <ul class="list">
-          <li><a href="documentacao/folhas-de-jogo/folha-jogo-taca-nf.pdf" class="link">Folha de jogo Taça NF (PDF)</a></li>
-          <li><a href="documentacao/folhas-de-jogo/folha-jogo-campeonato-feminino.pdf" class="link">Folha de jogo Campeonato Feminino (PDF)</a></li>
-          <li><a href="documentacao/folhas-de-jogo/folha-jogo-taca-portugal.pdf" class="link">Folha de jogo Taça de Portugal (PDF)</a></li>
-          <li><a href="documentacao/folhas-de-jogo/folha-jogo-campeonato-masculino.pdf" class="link">Folha de jogo Campeonato Masculino (PDF)</a></li>
-        </ul>
-      </div>
-
-      <div class="box docGroup">
-        <h3>📘 Regulamentos</h3>
-        <ul class="list">
-          <li><a href="documentacao/regulamentos/regulamento-oficial-provas-aszo-2026.pdf" class="link">Regulamento Oficial das Competições ASZO 2026 (PDF)</a></li>
-        </ul>
-      </div>
-
-      <div class="box docGroup">
-        <h3>📂 Outros</h3>
-        <ul class="list">
-          <li><a href="documentacao/outros/comunicado-inicio-epoca-2026.pdf" class="link">Comunicado Início Época 2026 (PDF)</a></li>
-          <li><a href="documentacao/outros/estatutos-aszo.pdf" class="link">Estatutos (PDF)</a></li>
-        </ul>
-      </div>
+      <p data-doc-count class="aszo-documents__count" role="status" aria-live="polite">A carregar documentos...</p>
+      <div data-doc-list class="aszo-documents__grid"></div>
     </div>
   </div>
 </section>
@@ -431,5 +396,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/documentos.js" defer></script>
 </body>
 </html>
