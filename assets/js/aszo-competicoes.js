@@ -37,10 +37,7 @@
       : [];
   }
   function resultsLink(competition) {
-    const mode = competition.modo_classificacoes || 'geral';
-    if (mode === 'ocultar') return null;
-    if (mode === 'personalizado') return httpsUrl(competition.url_classificacoes);
-    return GENERAL_RESULTS;
+    return httpsUrl(competition.url_classificacoes) || GENERAL_RESULTS;
   }
   function draw() {
     const filter = season.value;

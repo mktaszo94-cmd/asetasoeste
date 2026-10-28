@@ -237,22 +237,10 @@ content:
           label: Em curso
         - name: concluida
           label: Concluida
-    - name: modo_classificacoes
-      label: Botao Classificacoes e resultados
-      type: select
-      required: true
-      options:
-        values:
-        - name: geral
-          label: Mostrar link geral da plataforma 2K
-        - name: personalizado
-          label: Mostrar link personalizado
-        - name: ocultar
-          label: Ocultar botao de classificacoes
     - name: url_classificacoes
-      label: Link personalizado para classificacoes (HTTPS)
+      label: Link direto para classificacoes 2K (HTTPS, opcional)
       type: string
-      description: Preencher apenas se escolheu Mostrar link personalizado. Deve comecar por https://.
+      description: Se vazio, utiliza o link geral da plataforma 2K.
     - name: calendarios
       label: Botoes de PDF desta competicao (editaveis)
       type: object

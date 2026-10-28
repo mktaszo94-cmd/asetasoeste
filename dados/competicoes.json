@@ -19,8 +19,7 @@
           "titulo_en": "Men's Second Division Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-masculino-2-divisao.pdf"
         }
-      ],
-      "modo_classificacoes": "geral"
+      ]
     },
     {
       "titulo": "Campeonato Feminino",
@@ -41,8 +40,7 @@
           "titulo_en": "Women's Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-feminino-2026.pdf"
         }
-      ],
-      "modo_classificacoes": "geral"
+      ]
     },
     {
       "titulo": "Taças",
@@ -63,8 +61,7 @@
           "titulo_en": "Portugal Cup - Regional (M/F)",
           "ficheiro": "/documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf"
         }
-      ],
-      "modo_classificacoes": "geral"
+      ]
     },
     {
       "titulo": "Tradicional",
@@ -80,8 +77,7 @@
           "titulo_en": "Unofficial Traditional Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf"
         }
-      ],
-      "modo_classificacoes": "geral"
+      ]
     }
   ]
 }
