@@ -1,3 +1,13 @@
 {
-  "noticias": []
+  "noticias": [
+    {
+      "titulo": "Atletas Apurados para as Finais Nacionais 2026",
+      "titulo_en": "Athletes Qualified for the 2026 National Finals",
+      "descricao": "Listagem dos atletas apurados em cada categoria.",
+      "descricao_en": "List of athletes who have qualified in each category.",
+      "data": "2026-10-21",
+      "imagem": "/assets/img/conteudos/apurados.jpg",
+      "publicado": true
+    }
+  ]
 }
