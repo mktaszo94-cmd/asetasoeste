@@ -7,7 +7,7 @@
       "descricao_en": "First and second divisions",
       "epoca": "2026",
       "estado": "concluida",
-      "publicado": true,
+      "url_classificacoes": "https://portal.3k-darts.com/frontend/events/5/event/20941/participants",
       "calendarios": [
         {
           "titulo": "Calendário Campeonato Masculino 1ª Divisão",
@@ -19,7 +19,8 @@
           "titulo_en": "Men's Second Division Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-masculino-2-divisao.pdf"
         }
-      ]
+      ],
+      "publicado": true
     },
     {
       "titulo": "Campeonato Feminino",
@@ -28,7 +29,6 @@
       "descricao_en": "Women's competition calendars",
       "epoca": "2026",
       "estado": "concluida",
-      "publicado": true,
       "calendarios": [
         {
           "titulo": "Calendário Geral Época Feminino 2026",
@@ -40,7 +40,8 @@
           "titulo_en": "Women's Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-feminino-2026.pdf"
         }
-      ]
+      ],
+      "publicado": true
     },
     {
       "titulo": "Taças",
@@ -49,7 +50,6 @@
       "descricao_en": "Portugal Cup and other competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "publicado": true,
       "calendarios": [
         {
           "titulo": "Taça NF - Nelson Fernandes (M/F)",
@@ -61,7 +61,8 @@
           "titulo_en": "Portugal Cup - Regional (M/F)",
           "ficheiro": "/documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf"
         }
-      ]
+      ],
+      "publicado": true
     },
     {
       "titulo": "Tradicional",
@@ -70,14 +71,14 @@
       "descricao_en": "Traditional darts competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "publicado": true,
       "calendarios": [
         {
           "titulo": "Calendário Campeonato Tradicional Não Oficial",
           "titulo_en": "Unofficial Traditional Championship Calendar",
           "ficheiro": "/documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf"
         }
-      ]
+      ],
+      "publicado": true
     }
   ]
 }
