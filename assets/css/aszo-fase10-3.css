@@ -1,0 +1,18 @@
+/* ASZO V2 - Fase 10.3: arquivo de eventos compacto. */
+.aszo-archive .section__head{margin-bottom:20px}
+.aszo-archive__intro{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.aszo-archive__intro p{max-width:650px;margin:0;color:#56627b;line-height:1.6}
+.aszo-archive__details{border:1px solid #d8dfed;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 9px 25px rgba(24,39,73,.06)}
+.aszo-archive__details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;padding:19px 22px;color:#223359;font-weight:750;list-style:none}
+.aszo-archive__details summary::-webkit-details-marker{display:none}
+.aszo-archive__details summary:focus-visible{outline:3px solid #d3a637;outline-offset:3px}
+.aszo-archive__details summary:hover{background:#f5f7fc}
+.aszo-archive__summary-text{display:flex;gap:12px;align-items:center}
+.aszo-archive__summary-icon{font-size:1.25rem;line-height:1}
+.aszo-archive__arrow{display:inline-block;transition:transform .2s ease}
+.aszo-archive__details[open] .aszo-archive__arrow{transform:rotate(180deg)}
+.aszo-archive__panel{padding:4px 18px 22px;border-top:1px solid #e5e9f3}
+.aszo-archive__panel .eventsGrid{margin-top:18px}
+.aszo-archive__hint{font-size:.9rem;color:#5a6680;margin:14px 4px 0}
+@media(max-width:720px){.aszo-archive__details summary{padding:17px}.aszo-archive__panel{padding:4px 12px 18px}}
+@media(prefers-reduced-motion:reduce){.aszo-archive__arrow{transition:none}}
