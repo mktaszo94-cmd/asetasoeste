@@ -168,16 +168,9 @@ content:
       label: Descricao (EN)
       type: text
     - name: data
-      label: Data de inicio
+      label: Data
       type: date
       required: true
-      description: Primeiro dia do evento. Para eventos de um unico dia, nao preencher a data de fim.
-      options:
-        format: yyyy-MM-dd
-    - name: data_fim
-      label: Data de fim (opcional)
-      type: date
-      description: Ultimo dia do evento, inclusive. Deixar vazio para eventos de um unico dia. Deve ser igual ou posterior a data de inicio.
       options:
         format: yyyy-MM-dd
     - name: local
@@ -244,12 +237,24 @@ content:
           label: Em curso
         - name: concluida
           label: Concluida
+    - name: modo_classificacoes
+      label: Botao Classificacoes e resultados
+      type: select
+      required: true
+      options:
+        values:
+        - name: geral
+          label: Mostrar link geral da plataforma 2K
+        - name: personalizado
+          label: Mostrar link personalizado
+        - name: ocultar
+          label: Ocultar botao de classificacoes
     - name: url_classificacoes
-      label: Link para classificacoes (HTTPS, opcional)
+      label: Link personalizado para classificacoes (HTTPS)
       type: string
-      description: Deixar vazio para usar o link geral 2K da ASZO.
+      description: Preencher apenas se escolheu Mostrar link personalizado. Deve comecar por https://.
     - name: calendarios
-      label: PDFs associados a esta competicao
+      label: Botoes de PDF desta competicao (editaveis)
       type: object
       list:
         collapsible:
@@ -271,22 +276,6 @@ content:
           media: documentos
           extensions:
           - pdf
-    - name: chave_legado
-      label: Associacao automatica dos PDF antigos (opcional)
-      type: select
-      description: Utilizar apenas nas quatro competicoes antigas de 2026. Nas novas competicoes, escolher Nenhuma e associar PDFs acima.
-      options:
-        values:
-        - name: ''
-          label: Nenhuma
-        - name: masculino
-          label: Masculino (2026)
-        - name: feminino
-          label: Feminino (2026)
-        - name: tacas
-          label: Tacas (2026)
-        - name: tradicional
-          label: Tradicional (2026)
     - name: publicado
       label: Mostrar no website
       type: boolean

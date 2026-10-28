@@ -7,8 +7,20 @@
       "descricao_en": "First and second divisions",
       "epoca": "2026",
       "estado": "concluida",
-      "chave_legado": "masculino",
-      "publicado": true
+      "publicado": true,
+      "calendarios": [
+        {
+          "titulo": "Calendário Campeonato Masculino 1ª Divisão",
+          "titulo_en": "Men's First Division Championship Calendar",
+          "ficheiro": "/documentacao/calendarios/campeonato-masculino-1-divisao.pdf"
+        },
+        {
+          "titulo": "Calendário Campeonato Masculino 2ª Divisão",
+          "titulo_en": "Men's Second Division Championship Calendar",
+          "ficheiro": "/documentacao/calendarios/campeonato-masculino-2-divisao.pdf"
+        }
+      ],
+      "modo_classificacoes": "geral"
     },
     {
       "titulo": "Campeonato Feminino",
@@ -17,8 +29,20 @@
       "descricao_en": "Women's competition calendars",
       "epoca": "2026",
       "estado": "concluida",
-      "chave_legado": "feminino",
-      "publicado": true
+      "publicado": true,
+      "calendarios": [
+        {
+          "titulo": "Calendário Geral Época Feminino 2026",
+          "titulo_en": "Women's General Calendar Season 2026",
+          "ficheiro": "/documentacao/calendarios/calendario-epoca-feminino-2026.pdf"
+        },
+        {
+          "titulo": "Calendário Campeonato Feminino",
+          "titulo_en": "Women's Championship Calendar",
+          "ficheiro": "/documentacao/calendarios/campeonato-feminino-2026.pdf"
+        }
+      ],
+      "modo_classificacoes": "geral"
     },
     {
       "titulo": "Taças",
@@ -27,8 +51,20 @@
       "descricao_en": "Portugal Cup and other competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "chave_legado": "tacas",
-      "publicado": true
+      "publicado": true,
+      "calendarios": [
+        {
+          "titulo": "Taça NF - Nelson Fernandes (M/F)",
+          "titulo_en": "NF Cup - Nelson Fernandes (M/F)",
+          "ficheiro": "/documentacao/calendarios/taca-nf-m-f-oitavos-meias.pdf"
+        },
+        {
+          "titulo": "Taça Portugal - Regional (M/F)",
+          "titulo_en": "Portugal Cup - Regional (M/F)",
+          "ficheiro": "/documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf"
+        }
+      ],
+      "modo_classificacoes": "geral"
     },
     {
       "titulo": "Tradicional",
@@ -37,8 +73,15 @@
       "descricao_en": "Traditional darts competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "chave_legado": "tradicional",
-      "publicado": true
+      "publicado": true,
+      "calendarios": [
+        {
+          "titulo": "Calendário Campeonato Tradicional Não Oficial",
+          "titulo_en": "Unofficial Traditional Championship Calendar",
+          "ficheiro": "/documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf"
+        }
+      ],
+      "modo_classificacoes": "geral"
     }
   ]
 }

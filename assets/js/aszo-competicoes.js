@@ -16,12 +16,6 @@
   const labels = english
     ? { competition:'Competition', unavailable:'No calendar available for this season.', status:'Unable to load competitions.', results:'Standings and results', preparation:'Preparing', underway:'In progress', finished:'Finished' }
     : { competition:'Competição', unavailable:'Sem calendário disponível para esta época.', status:'Não foi possível carregar as competições.', results:'Classificações e resultados', preparation:'Em preparação', underway:'Em curso', finished:'Concluída' };
-  const legacyWords = {
-    masculino: ['masculino'], feminino: ['feminino'],
-    tacas: ['taça', 'taca', 'cup', 'nelson fernandes'],
-    tradicional: ['tradicional', 'traditional']
-  };
-  const text = value => String(value ?? '').toLocaleLowerCase('pt');
   const pdfPath = value => typeof value === 'string' && /^\/documentacao\/[a-z0-9/_-]+\.pdf$/i.test(value);
   const httpsUrl = value => {
     if (typeof value !== 'string' || !value.trim()) return null;
@@ -34,18 +28,19 @@
     if (content !== undefined) n.textContent = content;
     return n;
   };
-  let documents = [];
   let competitions = [];
 
   function linkedDocuments(competition) {
-    const explicit = Array.isArray(competition.calendarios)
+    // Todos os botoes sao agora geridos explicitamente no Pages CMS.
+    return Array.isArray(competition.calendarios)
       ? competition.calendarios.filter(d => d && pdfPath(d.ficheiro) && d.titulo)
       : [];
-    if (explicit.length) return explicit;
-    // Apenas para as quatro competicoes preexistentes. Evita misturar PDFs de 2027.
-    const words = legacyWords[competition.chave_legado];
-    if (!words || competition.epoca !== '2026') return [];
-    return documents.filter(d => d.epoca === '2026' && words.some(w => text(d.titulo + ' ' + (d.titulo_en || '')).includes(w)));
+  }
+  function resultsLink(competition) {
+    const mode = competition.modo_classificacoes || 'geral';
+    if (mode === 'ocultar') return null;
+    if (mode === 'personalizado') return httpsUrl(competition.url_classificacoes);
+    return GENERAL_RESULTS;
   }
   function draw() {
     const filter = season.value;
@@ -72,10 +67,13 @@
         links.append(a);
       }
       if (unique.size === 0) links.append(element('span', 'aszo-competitions__none', labels.unavailable));
-      const results = element('a','aszo-competitions__link aszo-competitions__link--results',labels.results + ' ↗');
-      results.href = httpsUrl(comp.url_classificacoes) || GENERAL_RESULTS;
-      results.target = '_blank'; results.rel = 'noopener noreferrer';
-      links.append(results);
+      const resultsUrl = resultsLink(comp);
+      if (resultsUrl) {
+        const results = element('a','aszo-competitions__link aszo-competitions__link--results',labels.results + ' ↗');
+        results.href = resultsUrl;
+        results.target = '_blank'; results.rel = 'noopener noreferrer';
+        links.append(results);
+      }
       card.append(links);
       fragment.append(card);
     }
@@ -87,12 +85,10 @@
     if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
     return r.json();
   });
-  Promise.all([readJson(docsUrl), readJson(competitionUrl)])
-    .then(([documentData,competitionData]) => {
-      const docList = Array.isArray(documentData) ? documentData : documentData?.documentos;
+  readJson(competitionUrl)
+    .then(competitionData => {
       const competitionList = competitionData?.competicoes;
-      if (!Array.isArray(docList) || !Array.isArray(competitionList)) throw new Error('Invalid content format');
-      documents = docList.filter(d => d && d.publicado === true && d.categoria === 'calendarios' && pdfPath(d.ficheiro));
+      if (!Array.isArray(competitionList)) throw new Error('Invalid competition format');
       competitions = competitionList.filter(c => c && c.publicado === true && typeof c.epoca === 'string');
       [...new Set(competitions.map(c => c.epoca).filter(Boolean))]
         .sort((a,b) => b.localeCompare(a,'pt',{numeric:true}))
