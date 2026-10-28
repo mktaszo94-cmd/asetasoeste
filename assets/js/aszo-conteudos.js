@@ -61,6 +61,36 @@
     catch { return null; }
   };
 
+  // Janela modal nativa: abre o cartaz inteiro sem sair da pagina.
+  // Criada apenas quando alguem clica numa imagem.
+  let imageDialog = null;
+  function openImage(src, title, lang) {
+    if (!imageDialog) {
+      const dialog = elt('dialog', 'aszo-image-dialog');
+      const frame = elt('div', 'aszo-image-dialog__frame');
+      const close = elt('button', 'aszo-image-dialog__close', '×');
+      close.type = 'button';
+      const image = elt('img', 'aszo-image-dialog__image');
+      const caption = elt('p', 'aszo-image-dialog__caption');
+      close.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => {
+        if (event.target === dialog) dialog.close();
+      });
+      frame.append(close, image, caption);
+      dialog.append(frame);
+      document.body.append(dialog);
+      imageDialog = { dialog, close, image, caption };
+    }
+    const label = lang === 'en' ? 'Close image' : 'Fechar imagem';
+    imageDialog.close.setAttribute('aria-label', label);
+    imageDialog.close.title = label;
+    imageDialog.image.src = src;
+    imageDialog.image.alt = title;
+    imageDialog.caption.textContent = title;
+    if (!imageDialog.dialog.open) imageDialog.dialog.showModal();
+    imageDialog.close.focus();
+  }
+
   function card(item, type, lang, featured) {
     const words = TXT[lang];
     const article = elt('article', 'aszo-feed-card' + (featured ? ' aszo-feed-card--featured' : ''));
@@ -71,7 +101,13 @@
       img.src=imgSrc;
       img.alt=localText(item,'titulo',lang);
       img.loading='lazy'; img.decoding='async';
-      figure.append(img); article.append(figure);
+      const zoom = elt('button', 'aszo-feed-card__zoom');
+      zoom.type = 'button';
+      zoom.setAttribute('aria-label', (lang === 'en' ? 'Enlarge image: ' : 'Ampliar imagem: ') + localText(item,'titulo',lang));
+      zoom.title = lang === 'en' ? 'View full image' : 'Ver imagem completa';
+      zoom.append(img);
+      zoom.addEventListener('click', () => openImage(imgSrc, localText(item,'titulo',lang), lang));
+      figure.append(zoom); article.append(figure);
     }
     const body=elt('div','aszo-feed-card__body');
     const meta=elt('div','aszo-feed-card__meta');

@@ -1,17 +1,21 @@
-# ASZO V2 — Fase 12.2: Eventos compactos e cartazes completos
+# ASZO V2 - Fase 12.4 | Ampliacao de imagens de noticias e eventos
 
-## Alteracao
-Substitui exclusivamente `assets/css/aszo-conteudos.css` por esta versao completa. O cartaz do evento passa a caber inteiro (`object-fit: contain`) e, em desktop, fica ao lado da informacao. Em mobile fica acima, com altura limitada. Noticias, Pages CMS, JSON e restantes estilos nao sao alterados.
+## Objetivo
+Ao clicar num cartaz de noticia ou evento no site, abre uma janela com a imagem integral sem sair da pagina. Suporta fechar no X, tecla Esc ou clique fora da imagem. A disposicao compacta existente e mantida.
 
-## Instalacao
-1. Abre o GitHub Desktop e confirma `desenvolvimento-v2`.
-2. Guarda uma copia de `assets/css/aszo-conteudos.css` fora da pasta do repositorio.
-3. Extrai este ZIP e copia `assets/css/aszo-conteudos.css` para o mesmo caminho do repositorio, substituindo-o.
-4. Nao alteres outros ficheiros, em particular `.pages.yml`, `dados/eventos.json` ou `assets/js/aszo-conteudos.js`.
-5. Se necessario, inicia o servidor local na raiz do repositorio com `py -m http.server 8000`.
-6. Abre `http://localhost:8000/` e atualiza com Ctrl+F5. Testa em desktop e a 390 px no modo responsivo.
-7. Confirma que a imagem aparece inteira e que o evento continua legivel; verifica Noticias e versao inglesa.
-8. Se estiver tudo OK, cria o commit `ASZO V2 - Fase 12.2 - Cartoes de eventos compactos` e Push origin.
+## Instalar (ramo desenvolvimento-v2)
+1. No GitHub Desktop, confirmar o repositorio `asetasoeste` e ramo `desenvolvimento-v2`. Fazer Fetch/Pull, se necessario.
+2. Extrair o ZIP para uma pasta temporaria.
+3. Abrir Repository > Show in Explorer e guardar uma copia de `assets/js/aszo-conteudos.js` e `assets/css/aszo-conteudos.css` fora do repositorio.
+4. Copiar a pasta `assets` do pacote para a raiz do repositorio, substituindo APENAS esses dois ficheiros.
+5. No GitHub Desktop, confirmar que aparecem apenas dois ficheiros modificados. Nao fazer commit ainda.
+6. Com o servidor local iniciado na raiz do repositorio (`py -m http.server 8000`), abrir `http://localhost:8000/` e atualizar com Ctrl+F5.
+7. Clicar nas imagens de uma noticia e de um evento; confirmar que abrem completas em modal e que o X, Esc e clique fora fecham a imagem.
+8. Verificar em `http://localhost:8000/en/` e numa janela mobile. Confirmar que as datas multidia e os cartoes compactos continuam intactos.
+9. Apos validar, fazer commit `ASZO V2 - Fase 12.4 - Ampliacao de imagens` e Push origin apenas para `desenvolvimento-v2`.
 
-## Sobre a data de fim
-O JavaScript da Fase 12.1 ja apresenta os intervalos quando `data_fim` existe e e posterior a `data`. Na captura foi apresentada apenas a data de inicio. Confirma no Pages CMS se o campo "Data de fim" foi guardado e, apos Pull origin, verifica em `http://localhost:8000/dados/eventos.json` se a entrada inclui `"data_fim": "2026-11-08"` (para o exemplo de 5 a 8 de novembro). Se existir mas a pagina continuar a mostrar um dia, faz Ctrl+F5 e confirma se o JS atualizado da Fase 12.1 esta instalado. Nao precisas de alterar o JSON manualmente.
+## Ficheiros
+- `assets/js/aszo-conteudos.js`: versao completa com datas multidia da Fase 12.1 e visualizacao ampliada.
+- `assets/css/aszo-conteudos.css`: versao completa com layouts compactos das Fases 12.2/12.3 e estilo do modal.
+
+Nao altera `.pages.yml`, JSON, HTML, PDFs nem imagens. Funcionalidade apenas para noticias e eventos que tenham imagem valida em `/assets/img/`.
