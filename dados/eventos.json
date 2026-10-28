@@ -10,6 +10,16 @@
       "local": "Bombeiros Voluntários de Melres",
       "imagem": "/assets/img/conteudos/sem-titulo.jpg",
       "publicado": true
+    },
+    {
+      "titulo": "Assembleia Geral",
+      "titulo_en": "General Meeting",
+      "descricao": "Assembleia Geral, para discussão e votação do Orçamento e Plano relativo ao ano de 2027, abordar o assunto Finais Nacionais e outros assuntos.\nSerão entregues também no final da assembleia os polos aos respetivos apurados.",
+      "descricao_en": "General Meeting to discuss and vote on the Budget and Plan for the year 2027, to address the issue of the National Finals and other matters.\nThe badges will also be presented to the respective qualifiers at the end of the meeting.",
+      "data": "2026-11-01",
+      "local": "Expoeste",
+      "imagem": "/assets/img/conteudos/assembleia.jpg",
+      "publicado": true
     }
   ]
 }
