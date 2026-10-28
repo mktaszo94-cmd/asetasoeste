@@ -1,3 +1,15 @@
 {
-  "eventos": []
+  "eventos": [
+    {
+      "titulo": "Finais Nacionais 2026",
+      "titulo_en": "2026 National Finals",
+      "descricao": "Finais Nacionais 2026",
+      "descricao_en": "2026 National Finals",
+      "data": "2026-11-05",
+      "data_fim": "2026-11-08",
+      "local": "Bombeiros Voluntários de Melres",
+      "imagem": "/assets/img/conteudos/sem-titulo.jpg",
+      "publicado": true
+    }
+  ]
 }
