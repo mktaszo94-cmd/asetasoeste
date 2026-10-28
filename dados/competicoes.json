@@ -7,8 +7,6 @@
       "descricao_en": "First and second divisions",
       "epoca": "2026",
       "estado": "concluida",
-      "url_classificacoes": "",
-      "calendarios": [],
       "chave_legado": "masculino",
       "publicado": true
     },
@@ -19,8 +17,6 @@
       "descricao_en": "Women's competition calendars",
       "epoca": "2026",
       "estado": "concluida",
-      "url_classificacoes": "",
-      "calendarios": [],
       "chave_legado": "feminino",
       "publicado": true
     },
@@ -31,8 +27,6 @@
       "descricao_en": "Portugal Cup and other competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "url_classificacoes": "",
-      "calendarios": [],
       "chave_legado": "tacas",
       "publicado": true
     },
@@ -43,9 +37,16 @@
       "descricao_en": "Traditional darts competitions",
       "epoca": "2026",
       "estado": "concluida",
-      "url_classificacoes": "",
-      "calendarios": [],
       "chave_legado": "tradicional",
+      "publicado": true
+    },
+    {
+      "titulo": "Rankings",
+      "titulo_en": "Rankings",
+      "descricao": "teste",
+      "descricao_en": "teste",
+      "epoca": "2027",
+      "estado": "preparacao",
       "publicado": true
     }
   ]
