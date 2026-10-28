@@ -12,3 +12,131 @@ body{color:#232a29;background:#fff}html{scroll-padding-top:76px}.section{padding
 .aszo-inner{min-height:100vh;background:#f7f8f6}.aszo-inner .header{position:relative;background:#fff}.aszo-inner .header__inner{min-height:78px}.aszo-inner .brand__logo{background:transparent;border:0}.aszo-inner__nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.aszo-inner__nav a{display:inline-flex;align-items:center;min-height:39px;padding:8px 13px;border-radius:9px;font-weight:700;color:#293632;text-decoration:none}.aszo-inner__nav a:hover,.aszo-inner__nav a[aria-current=page]{background:#f6e7e8;color:#ab2632}.aszo-inner__hero{position:relative;color:#fff;background:linear-gradient(110deg,#181f1eeb,#212a27d9),url('../img/Inicio/1.jpg') center 48%/cover;padding:48px 0 50px}.aszo-inner__hero .container{max-width:1120px}.aszo-inner__eyebrow{color:#f4d976;font-size:.78rem;letter-spacing:.1em;font-weight:800;text-transform:uppercase}.aszo-inner__hero h1{color:#fff;font-size:clamp(2rem,4.2vw,3.4rem);letter-spacing:-.04em;margin:8px 0}.aszo-inner__hero p{color:#f0f4ef;max-width:680px;margin:0;line-height:1.6}.aszo-inner__main{padding:30px 0 48px}.aszo-inner__intro{background:#fff;border:1px solid #e0e7e1;border-radius:15px;padding:23px 27px;margin-bottom:18px;max-width:100%}.aszo-inner__intro p{margin:0 0 13px;line-height:1.7}.aszo-inner__intro p:last-child{margin:0}.aszo-inner__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.aszo-inner__card{background:#fff;border:1px solid #e1e7e1;border-radius:14px;padding:22px;box-shadow:0 5px 20px #121c120a}.aszo-inner__card h2{color:#252e29;font-size:1.3rem;margin:0 0 10px}.aszo-inner__card p,.aszo-inner__card li{color:#505b55;line-height:1.6}.aszo-inner__card ul{padding-left:20px;margin:0}.aszo-inner__card li{margin:0 0 8px}.aszo-inner__card--accent{border-top:4px solid #c92f3d}.aszo-inner__card--green{border-top:4px solid #33754b}.aszo-inner__card--gold{border-top:4px solid #ddc04b}.aszo-inner__back{display:inline-flex;margin-top:22px;align-items:center;gap:8px;text-decoration:none;color:#a12432;font-weight:800;padding:10px 14px;border:1px solid #d8deda;border-radius:9px;background:#fff}.aszo-inner__back:hover{background:#f7e9e9}.aszo-inner__board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.aszo-inner__board .aszo-inner__card:nth-child(2){grid-row:span 2}.aszo-inner__board-list{list-style:none!important;padding:0!important}.aszo-inner__board-list li{display:flex;gap:15px;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf0ed;padding:10px 0;margin:0}.aszo-inner__board-list li:last-child{border-bottom:0}.aszo-inner__board-list strong{color:#232f28;font-weight:750;flex:0 0 42%}.aszo-inner__board-list span{flex:1;color:#4b5650}.aszo-inner__notice{font-size:.82rem;color:#6a726e;margin:16px 0 0}.aszo-inner .footer{background:#1f2623;color:#fff}
 @media(max-width:860px){.aszo-inner__grid{grid-template-columns:1fr 1fr}.aszo-inner__board{grid-template-columns:1fr}.aszo-inner__board .aszo-inner__card:nth-child(2){grid-row:auto}}
 @media(max-width:600px){.aszo-inner .header__inner{align-items:flex-start;flex-direction:column;padding-block:13px}.aszo-inner__nav{gap:4px}.aszo-inner__nav a{font-size:.85rem;padding:7px 9px}.aszo-inner__hero{padding:35px 0}.aszo-inner__main{padding:20px 0}.aszo-inner__grid{grid-template-columns:1fr}.aszo-inner__intro,.aszo-inner__card{padding:18px}.aszo-inner__board-list li{display:block}.aszo-inner__board-list strong,.aszo-inner__board-list span{display:block}}
+
+/* =============================================================
+   ASZO V2 - Fase 11.2 | Paleta oficial em componentes antigos
+   Mantem o layout e o funcionamento das fases anteriores.
+   Este ficheiro deve ser carregado DEPOIS dos CSS de cada secao.
+   ============================================================= */
+:root {
+  --aszo-brand-red: #c92f3d;
+  --aszo-brand-red-hover: #a92232;
+  --aszo-brand-green: #33754b;
+  --aszo-brand-ink: #202725;
+  --aszo-brand-muted: #53615a;
+  --aszo-brand-border: #dce5de;
+  --aszo-brand-tint: #f8e9eb;
+  --aszo-brand-green-tint: #edf5ef;
+}
+
+/* Competições: texto, fundos, filtros, etiquetas e botoes. */
+.aszo-competitions { background: #f5f7f5; color: var(--aszo-brand-ink); }
+.aszo-competitions__toolbar label,
+.aszo-competitions__card h3 { color: var(--aszo-brand-ink); }
+.aszo-competitions__toolbar select {
+  border-color: #bccac0; color: var(--aszo-brand-ink);
+}
+.aszo-competitions__card { border-color: var(--aszo-brand-border); }
+.aszo-competitions__card p,
+.aszo-competitions__state,
+.aszo-competitions__none,
+.aszo-competitions__note { color: var(--aszo-brand-muted); }
+.aszo-competitions__eyebrow {
+  background: var(--aszo-brand-green-tint);
+  color: #27633c;
+}
+.aszo-competitions__link {
+  background: #f5f7f5; border-color: #d3dfd6;
+  color: #295c3b !important;
+}
+.aszo-competitions__link:hover { background: #e8f2eb; border-color: #aac7b1; }
+.aszo-competitions__results,
+.aszo-competitions__link--results {
+  background: var(--aszo-brand-red);
+  border-color: var(--aszo-brand-red);
+  color: white !important;
+}
+.aszo-competitions__results:hover,
+.aszo-competitions__link--results:hover {
+  background: var(--aszo-brand-red-hover);
+  border-color: var(--aszo-brand-red-hover);
+  color: white !important;
+}
+.aszo-competitions__toolbar select:focus-visible,
+.aszo-competitions a:focus-visible { outline: 3px solid #e5c64d; outline-offset: 3px; }
+
+/* Documentação: filtros, etiquetas, títulos e botoes. */
+.aszo-documents {
+  --aszo-accent: var(--aszo-brand-red);
+  --aszo-line: var(--aszo-brand-border);
+}
+.aszo-documents__field,
+.aszo-documents__field input,
+.aszo-documents__field select,
+.aszo-documents__title { color: var(--aszo-brand-ink); }
+.aszo-documents__field input,
+.aszo-documents__field select { border-color: #bdcbc2; }
+.aszo-documents__count,
+.aszo-documents__empty { color: var(--aszo-brand-muted); }
+.aszo-documents__card { border-color: var(--aszo-brand-border); }
+.aszo-documents__pill {
+  background: var(--aszo-brand-green-tint);
+  color: #27633c;
+}
+.aszo-documents__btn {
+  background: var(--aszo-brand-red);
+  border-color: var(--aszo-brand-red);
+  color: #fff !important;
+}
+.aszo-documents__btn:hover {
+  background: var(--aszo-brand-red-hover);
+  border-color: var(--aszo-brand-red-hover);
+}
+.aszo-documents__btn--secondary {
+  background: #fff;
+  color: var(--aszo-brand-red) !important;
+}
+.aszo-documents__btn--secondary:hover {
+  background: var(--aszo-brand-tint);
+  color: var(--aszo-brand-red-hover) !important;
+}
+.aszo-documents__field :is(input,select):focus-visible,
+.aszo-documents__btn:focus-visible { outline: 3px solid #e5c64d; outline-offset: 2px; }
+
+/* Arquivo dos eventos anteriores. */
+.aszo-archive__intro p,
+.aszo-archive__hint { color: var(--aszo-brand-muted); }
+.aszo-archive__details { border-color: var(--aszo-brand-border); }
+.aszo-archive__details summary { color: var(--aszo-brand-ink); }
+.aszo-archive__details summary:hover { background: var(--aszo-brand-green-tint); }
+.aszo-archive__summary-icon,
+.aszo-archive__arrow { color: var(--aszo-brand-red); }
+.aszo-archive__panel { border-color: var(--aszo-brand-border); }
+.aszo-archive__details summary:focus-visible { outline: 3px solid #e5c64d; outline-offset: 3px; }
+
+/* Noticias e eventos geridos no CMS: mesma linguagem visual. */
+.aszo-feed-card,
+.aszo-feed-empty { border-color: var(--aszo-brand-border); }
+.aszo-feed-card__tag {
+  background: var(--aszo-brand-green-tint);
+  color: #27633c;
+}
+.aszo-feed-card__title,
+.aszo-feed-archive__title { color: var(--aszo-brand-ink); }
+.aszo-feed-card__date,
+.aszo-feed-card__desc,
+.aszo-feed-card__location,
+.aszo-feed-empty { color: var(--aszo-brand-muted); }
+.aszo-feed-card__pin,
+.aszo-feed-card__link { color: var(--aszo-brand-red); }
+.aszo-feed-more {
+  border-color: var(--aszo-brand-red);
+  color: var(--aszo-brand-red);
+}
+.aszo-feed-more:hover { background: var(--aszo-brand-tint); }
+.aszo-feed-archive { border-color: var(--aszo-brand-border); }
+.aszo-feed-card--featured:not(:has(.aszo-feed-card__media)) {
+  background: linear-gradient(130deg, #fff, #f6f9f6);
+}
+.aszo-feed-card__link:focus-visible,
+.aszo-feed-more:focus-visible { outline: 3px solid #e5c64d; outline-offset: 3px; }
