@@ -39,22 +39,6 @@
       "estado": "concluida",
       "chave_legado": "tradicional",
       "publicado": true
-    },
-    {
-      "titulo": "Rankings",
-      "titulo_en": "Rankings",
-      "descricao": "teste",
-      "descricao_en": "teste",
-      "epoca": "2027",
-      "estado": "preparacao",
-      "calendarios": [
-        {
-          "titulo": "\tCalendário de Teste 2027",
-          "titulo_en": "Test Calendar 2027",
-          "ficheiro": "/documentacao/aszo-teste-publicacao.pdf"
-        }
-      ],
-      "publicado": true
     }
   ]
 }
