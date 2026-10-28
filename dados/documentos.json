@@ -127,6 +127,14 @@
       "epoca": "Geral",
       "ficheiro": "/documentacao/outros/estatutos-aszo.pdf",
       "publicado": true
+    },
+    {
+      "titulo": "ASZO - Teste de Publicação",
+      "titulo_en": "ASZO - Publication Test",
+      "categoria": "outros",
+      "epoca": "Geral",
+      "ficheiro": "/documentacao/aszo-teste-publicacao.pdf",
+      "publicado": true
     }
   ]
 }
