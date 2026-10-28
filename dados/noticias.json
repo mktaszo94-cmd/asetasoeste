@@ -1,3 +1,12 @@
 {
-  "noticias": []
+  "noticias": [
+    {
+      "titulo": "ASZO — Teste de Notícia",
+      "titulo_en": "ASZO — News Test",
+      "descricao": "Estamos a testar o novo sistema de publicação de notícias da Associação de Setas da Zona Oeste.",
+      "descricao_en": "We are testing the new ASZO news publishing system.",
+      "data": "2026-10-28",
+      "publicado": true
+    }
+  ]
 }
