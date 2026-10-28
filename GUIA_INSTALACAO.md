@@ -1,22 +1,17 @@
-# ASZO V2 — Fase 12.1 — Eventos de varios dias
+# ASZO V2 — Fase 12.2: Eventos compactos e cartazes completos
 
-## Alteracoes
-- `.pages.yml`: o campo `data` continua a existir, agora com o rotulo **Data de inicio**. Novo campo `data_fim` opcional.
-- `assets/js/aszo-conteudos.js`: mostra intervalos de datas PT/EN e considera o ultimo dia na separacao entre proximos eventos e arquivo.
-- Nenhum ficheiro JSON ou HTML e substituido; os eventos antigos continuam compativeis.
+## Alteracao
+Substitui exclusivamente `assets/css/aszo-conteudos.css` por esta versao completa. O cartaz do evento passa a caber inteiro (`object-fit: contain`) e, em desktop, fica ao lado da informacao. Em mobile fica acima, com altura limitada. Noticias, Pages CMS, JSON e restantes estilos nao sao alterados.
 
-## Instalar no ramo desenvolvimento-v2
-1. No GitHub Desktop, confirma o ramo `desenvolvimento-v2`, faz Fetch/Pull, e certifica-te de que nao ha alteracoes pendentes. Se existirem, guarda-as antes de continuar.
-2. Extrai o ZIP. Em **Repository > Show in Explorer**, copia `.pages.yml` e `assets/js/aszo-conteudos.js` para os caminhos correspondentes no repositorio.
-3. Antes de substituir, guarda copia dos dois ficheiros existentes fora da pasta do repositorio. Se alteraste a configuracao ou script entretanto, compara antes de substituir.
-4. Confirma no GitHub Desktop que apenas estes dois ficheiros foram alterados. Cria o commit `ASZO V2 - Fase 12.1 - Datas de inicio e fim dos eventos` e faz **Push origin** no ramo `desenvolvimento-v2`.
-5. Abre https://app.pagescms.org, seleciona o repositorio e o ramo `desenvolvimento-v2`, atualiza a pagina e abre **Eventos (ASZO)**. Encontras os campos **Data de inicio** e **Data de fim (opcional)**.
-6. Para testar, cria um evento temporario: inicio `2026-11-05`, fim `2026-11-08`, titulo `ASZO - Teste de Evento Multidia`, publicado = true. Guarda.
-7. No GitHub Desktop, Fetch/Pull para receber o novo registo. Inicia `py -m http.server 8000` na pasta do repositorio e abre `http://localhost:8000/` (Ctrl+F5). Deve aparecer `5 a 8 de novembro de 2026`. Em `/en/`, `5–8 November 2026`.
-8. Confirma que os eventos com apenas data inicial continuam a aparecer como anteriormente. Depois desativa/elimina o evento de teste no CMS e Fetch/Pull.
+## Instalacao
+1. Abre o GitHub Desktop e confirma `desenvolvimento-v2`.
+2. Guarda uma copia de `assets/css/aszo-conteudos.css` fora da pasta do repositorio.
+3. Extrai este ZIP e copia `assets/css/aszo-conteudos.css` para o mesmo caminho do repositorio, substituindo-o.
+4. Nao alteres outros ficheiros, em particular `.pages.yml`, `dados/eventos.json` ou `assets/js/aszo-conteudos.js`.
+5. Se necessario, inicia o servidor local na raiz do repositorio com `py -m http.server 8000`.
+6. Abre `http://localhost:8000/` e atualiza com Ctrl+F5. Testa em desktop e a 390 px no modo responsivo.
+7. Confirma que a imagem aparece inteira e que o evento continua legivel; verifica Noticias e versao inglesa.
+8. Se estiver tudo OK, cria o commit `ASZO V2 - Fase 12.2 - Cartoes de eventos compactos` e Push origin.
 
-## Regras
-- O campo Data de fim e **opcional**, e o ultimo dia e **inclusivo**.
-- Se a data final estiver vazia, considera-se que o evento dura um dia.
-- Se a data final for anterior a inicial ou invalida, o JS nao publica esse evento e escreve aviso na consola (nao altera dados no GitHub). O CMS nao faz validacao cruzada automatica entre campos.
-- Nao alteres o ramo `main` nesta fase.
+## Sobre a data de fim
+O JavaScript da Fase 12.1 ja apresenta os intervalos quando `data_fim` existe e e posterior a `data`. Na captura foi apresentada apenas a data de inicio. Confirma no Pages CMS se o campo "Data de fim" foi guardado e, apos Pull origin, verifica em `http://localhost:8000/dados/eventos.json` se a entrada inclui `"data_fim": "2026-11-08"` (para o exemplo de 5 a 8 de novembro). Se existir mas a pagina continuar a mostrar um dia, faz Ctrl+F5 e confirma se o JS atualizado da Fase 12.1 esta instalado. Nao precisas de alterar o JSON manualmente.

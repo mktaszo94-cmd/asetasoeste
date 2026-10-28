@@ -72,3 +72,74 @@
     gap: 15px;
   }
 }
+
+
+/* ASZO V2 - Fase 12.2 | Eventos compactos com cartaz completo.
+   Aplicado apenas aos eventos do CMS; noticias mantem o layout anterior. */
+.aszo-content-section[data-aszo-feed="eventos"] [data-feed-list] > .aszo-feed-grid,
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-archive .aszo-feed-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 18px;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 780px);
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  align-items: stretch;
+  min-width: 0;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card:not(:has(.aszo-feed-card__media)) {
+  display: flex;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  aspect-ratio: auto;
+  background: #f4f7f4;
+  overflow: hidden;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__body {
+  padding: clamp(16px, 2.2vw, 24px);
+  gap: 10px;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__desc {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+@media (max-width: 640px) {
+  .aszo-content-section[data-aszo-feed="eventos"] [data-feed-list] > .aszo-feed-grid,
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-archive .aszo-feed-grid,
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__media {
+    height: auto;
+    max-height: 270px;
+    aspect-ratio: auto;
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__image {
+    width: 100%;
+    height: auto;
+    max-height: 270px;
+    object-fit: contain;
+  }
+}
