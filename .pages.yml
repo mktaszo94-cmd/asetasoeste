@@ -18,6 +18,16 @@ media:
   - png
   - webp
   rename: safe
+- name: imagens-parceiros
+  label: Logotipos dos parceiros
+  input: assets/img/parceiros
+  output: /assets/img/parceiros
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  rename: safe
 content:
 - name: documentos
   label: Biblioteca de documentos
@@ -270,6 +280,49 @@ content:
           label: Tacas (2026)
         - name: tradicional
           label: Tradicional (2026)
+    - name: publicado
+      label: Mostrar no website
+      type: boolean
+      required: true
+- name: parceiros
+  label: Parceiros (ASZO)
+  type: file
+  path: dados/parceiros.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: parceiros
+    label: Parceiros e entidades de apoio
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{nome}'
+    fields:
+    - name: nome
+      label: Nome do parceiro
+      type: string
+      required: true
+    - name: logotipo
+      label: Logotipo
+      type: image
+      required: true
+      options:
+        media: imagens-parceiros
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: url
+      label: Website do parceiro (opcional; HTTPS)
+      type: string
+      description: Deixar vazio se o logotipo nao deve ser clicavel.
+    - name: ordem
+      label: Ordem de apresentacao (numero)
+      type: number
+      description: Numero menor aparece primeiro.
     - name: publicado
       label: Mostrar no website
       type: boolean

@@ -1,0 +1,15 @@
+/* ASZO V2 10.4: neutraliza a animação antiga e conserva o carrossel horizontal. */
+.partners__marquee .partners__track { display:flex; align-items:center; width:max-content; animation:none; gap:0; }
+.aszo-partners__group { display:flex; align-items:center; gap:3.5rem; padding-inline:1.75rem; flex:0 0 auto; }
+.partners__marquee .partners__track.aszo-partners__animated { animation:aszo-partners-loop 26s linear infinite; }
+@keyframes aszo-partners-loop { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+.partners__marquee:is(:hover,:focus-within) .partners__track { animation-play-state:paused; }
+.partners__marquee .partners__item a {display:inline-flex; align-items:center; justify-content:center; min-height:80px; border-radius:8px;}
+.partners__marquee .partners__item a:focus-visible {outline:3px solid #1d4ed8; outline-offset:4px;}
+.partners__marquee .partners__item img { max-width:190px; width:auto; height:70px; object-fit:contain; }
+.partners--static .partners__track { flex-wrap:wrap; width:100%; justify-content:center; gap:1rem; }
+.partners--static .aszo-partners__group { flex-wrap:wrap; justify-content:center; }
+.partners__status { text-align:center; margin:0; padding:1.5rem; }
+.partners__status[hidden] {display:none;}
+@media (max-width:520px){ .aszo-partners__group {gap:2rem; padding-inline:1rem;} .partners__marquee .partners__item img {height:52px; max-width:145px;} }
+@media (prefers-reduced-motion:reduce){.partners__marquee .partners__track.aszo-partners__animated {animation:none; flex-wrap:wrap; width:100%; justify-content:center;} .aszo-partners__duplicate {display:none;} }

@@ -20,7 +20,8 @@
 <link href="../assets/css/aszo-conteudos.css" rel="stylesheet"/>
 <link href="../assets/css/aszo-competicoes.css" rel="stylesheet"/>
 <link href="../assets/css/aszo-fase10-1.css" rel="stylesheet"/>
-<link href="../assets/css/aszo-fase10-3.css" rel="stylesheet"/></head>
+<link href="../assets/css/aszo-fase10-3.css" rel="stylesheet"/><link rel="stylesheet" href="../assets/css/aszo-parceiros.css"/>
+</head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="header aszo-header">
@@ -189,25 +190,9 @@
 <section class="partners section" id="parceiros">
 <div class="container">
 <h2 class="section__title">Partners</h2>
-<div aria-label="Parceiros" class="partners__marquee">
-<div class="partners__track">
-<!-- Lista 1 -->
-<div class="partners__item"><img alt="Caldas da Rainha" src="../assets/img/parceiros/CMCR_Logo.png"/></div>
-<div class="partners__item"><img alt="Expoeste" src="../assets/img/parceiros/Expoeste-logo.png"/></div>
-<div class="partners__item"><img alt="GD" src="../assets/img/parceiros/Godinho_Design_Logo.png"/></div>
-<div class="partners__item"><img alt="2K" src="../assets/img/parceiros/2K-Logo.png"/></div>
-<div class="partners__item"><img alt="JFNSP" src="../assets/img/parceiros/nossa-senhora-populo.png"/></div>
-<div class="partners__item"><img alt="JFSO" src="../assets/img/parceiros/santo-onofre.png"/></div>
-<div class="partners__item"><img alt="Winmau" src="../assets/img/parceiros/winmau-logoo.png"/></div>
-<!-- Lista 2 duplicada -->
-<div class="partners__item"><img alt="Caldas da Rainha" src="../assets/img/parceiros/CMCR_Logo.png"/></div>
-<div class="partners__item"><img alt="Expoeste" src="../assets/img/parceiros/Expoeste-logo.png"/></div>
-<div class="partners__item"><img alt="GD" src="../assets/img/parceiros/Godinho_Design_Logo.png"/></div>
-<div class="partners__item"><img alt="2K" src="../assets/img/parceiros/2K-Logo.png"/></div>
-<div class="partners__item"><img alt="JFNSP" src="../assets/img/parceiros/nossa-senhora-populo.png"/></div>
-<div class="partners__item"><img alt="JFSO" src="../assets/img/parceiros/santo-onofre.png"/></div>
-<div class="partners__item"><img alt="Winmau" src="../assets/img/parceiros/winmau-logoo.png"/></div>
-</div>
+<div class="partners__marquee" aria-label="ASZO partners" data-aszo-partners>
+<div class="partners__track" data-aszo-partners-track role="list"></div>
+<p class="partners__status" data-aszo-partners-status role="status">Loading partners…</p>
 </div>
 </div>
 </section>
@@ -284,5 +269,6 @@
 <script defer="" src="../assets/js/aszo-conteudos.js"></script>
 <script defer="" src="../assets/js/aszo-competicoes.js"></script>
 <script defer="" src="../assets/js/aszo-fase10-1.js"></script>
+<script src="../assets/js/aszo-parceiros.js" defer></script>
 </body>
 </html>
