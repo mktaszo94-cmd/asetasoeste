@@ -1,3 +1,13 @@
 {
-  "eventos": []
+  "eventos": [
+    {
+      "titulo": "ASZO — Evento de Teste",
+      "titulo_en": "ASZO — Test Event",
+      "descricao": "Evento criado para testar o novo sistema de gestão de eventos da ASZO.",
+      "descricao_en": "Event created to test the new ASZO event management system.",
+      "data": "2026-11-15",
+      "local": "Caldas da Rainha",
+      "publicado": true
+    }
+  ]
 }
