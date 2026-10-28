@@ -25,6 +25,28 @@
     ? new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'pt-PT',
       { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' })
       .format(new Date(iso + 'T12:00:00Z')) : '';
+  // Formato local: 5 a 8 de novembro de 2026 / 5-8 November 2026.
+  // Datas ISO permitem comparar os dias sem calcular duracoes em milissegundos.
+  const eventEnd = item => validDate(item.data_fim) && item.data_fim >= item.data
+    ? item.data_fim : item.data;
+  const dateRange = (item, lang) => {
+    const begin=item.data;
+    const end=eventEnd(item);
+    if (end === begin) return prettyDate(begin,lang);
+    const locale=lang==='en'?'en-GB':'pt-PT';
+    const fmt=(iso,opts)=>new Intl.DateTimeFormat(locale,{...opts,timeZone:'UTC'})
+      .format(new Date(iso+'T12:00:00Z'));
+    const sameYear=begin.slice(0,4)===end.slice(0,4);
+    const sameMonth=sameYear && begin.slice(0,7)===end.slice(0,7);
+    if (sameMonth) {
+      const first=fmt(begin,{day:'numeric'});
+      const last=fmt(end,{day:'numeric',month:'long',year:'numeric'});
+      return lang==='en'?`${first}–${last}`:`${first} a ${last}`;
+    }
+    const first=fmt(begin,sameYear?{day:'numeric',month:'long'}:{day:'numeric',month:'long',year:'numeric'});
+    const last=fmt(end,{day:'numeric',month:'long',year:'numeric'});
+    return lang==='en'?`${first} – ${last}`:`${first} a ${last}`;
+  };
   const todayLisbon = () => new Intl.DateTimeFormat('en-CA', {
     timeZone:'Europe/Lisbon', year:'numeric',month:'2-digit',day:'2-digit'
   }).format(new Date());
@@ -55,8 +77,12 @@
     const meta=elt('div','aszo-feed-card__meta');
     meta.append(elt('span','aszo-feed-card__tag',type==='noticias'?words.news:words.event));
     if (validDate(item.data)) {
-      const time=elt('time','aszo-feed-card__date',prettyDate(item.data,lang));
+      const time=elt('time','aszo-feed-card__date',
+        type==='eventos'?dateRange(item,lang):prettyDate(item.data,lang));
       time.dateTime=item.data;
+      if (type==='eventos' && eventEnd(item)!==item.data) {
+        time.title=(lang==='en'?'Ends: ':'Termina: ')+prettyDate(eventEnd(item),lang);
+      }
       meta.append(time);
     }
     body.append(meta);
@@ -111,8 +137,17 @@
       .then(data=>{
         const records=data && data[type];
         if(!Array.isArray(records))throw new Error('Invalid '+type+' data');
-        const published=records.filter(row=>row && row.publicado===true
-          && typeof row.titulo==='string' && row.titulo.trim() && validDate(row.data));
+        const published=records.filter(row=>{
+          if (!row || row.publicado!==true || typeof row.titulo!=='string'
+              || !row.titulo.trim() || !validDate(row.data)) return false;
+          if (type==='eventos' && row.data_fim != null && row.data_fim !== '') {
+            if (!validDate(row.data_fim) || row.data_fim < row.data) {
+              console.warn('ASZO: intervalo de datas invalido para o evento:', row.titulo);
+              return false;
+            }
+          }
+          return true;
+        });
         if(!published.length)return;
         target.replaceChildren();
         if(type==='noticias') {
@@ -120,8 +155,11 @@
           progressiveList(target,published,type,lang,{featured:true});
         } else {
           const today=todayLisbon();
-          const upcoming=published.filter(row=>row.data>=today).sort((a,b)=>a.data.localeCompare(b.data));
-          const past=published.filter(row=>row.data<today).sort((a,b)=>b.data.localeCompare(a.data));
+          // Um evento de varios dias permanece nos proximos eventos ate ao ultimo dia (inclusive).
+          const upcoming=published.filter(row=>eventEnd(row)>=today)
+            .sort((a,b)=>a.data.localeCompare(b.data));
+          const past=published.filter(row=>eventEnd(row)<today)
+            .sort((a,b)=>eventEnd(b).localeCompare(eventEnd(a)));
           // The legacy events archive below remains untouched.
           if(upcoming.length) progressiveList(target,upcoming,type,lang);
           else target.append(elt('p','aszo-feed-empty',TXT[lang].emptyUpcoming));

@@ -168,9 +168,16 @@ content:
       label: Descricao (EN)
       type: text
     - name: data
-      label: Data
+      label: Data de inicio
       type: date
       required: true
+      description: Primeiro dia do evento. Para eventos de um unico dia, nao preencher a data de fim.
+      options:
+        format: yyyy-MM-dd
+    - name: data_fim
+      label: Data de fim (opcional)
+      type: date
+      description: Ultimo dia do evento, inclusive. Deixar vazio para eventos de um unico dia. Deve ser igual ou posterior a data de inicio.
       options:
         format: yyyy-MM-dd
     - name: local
