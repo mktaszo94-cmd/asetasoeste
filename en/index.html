@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../assets/css/documentos.css">
   <link rel="stylesheet" href="../assets/css/aszo-v5.css">
   <link rel="stylesheet" href="../assets/css/aszo-conteudos.css">
+  <link rel="stylesheet" href="../assets/css/aszo-competicoes.css">
 </head>
 
 <body>
@@ -35,6 +36,7 @@
       <div class="nav__menu aszo-nav__menu" id="aszo-menu">
         <a class="nav__link" href="#inicio">Home</a>
         <a class="nav__link" href="#associacao">Association</a>
+        <a class="nav__link" href="#competicoes">Competitions</a>
         <a class="nav__link" href="#documentacao">Documents</a>
         <a class="nav__link" href="#eventos">Events</a><a class="nav__link" href="#noticias">News</a>
         <a class="nav__link" href="#parceiros">Partners</a>
@@ -96,6 +98,25 @@
   </div>
 </section>
 
+<!-- ASZO PHASE 8: Competitions - documents reused from Pages CMS. -->
+<section id="competicoes" class="section aszo-competitions" data-aszo-competitions data-lang="en" data-source="../dados/documentos.json" aria-labelledby="aszo-competitions-title">
+  <div class="container">
+    <div class="section__head">
+      <h2 id="aszo-competitions-title">Competitions</h2>
+      <p>Find your competition calendar and open the results platform.</p>
+    </div>
+    <div class="aszo-competitions__toolbar">
+      <label for="aszo-competition-season-en">Season
+        <select id="aszo-competition-season-en" data-competition-season><option value="">All seasons</option></select>
+      </label>
+      <a class="aszo-competitions__results" href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118" target="_blank" rel="noopener noreferrer">Competitions and standings <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="aszo-competitions__grid" data-competition-grid>
+      <p class="aszo-competitions__status">Loading available calendars…</p>
+    </div>
+    <p class="aszo-competitions__note">Official standings and results are available on ASZO's external competition management platform.</p>
+  </div>
+</section>
 <!-- DOCUMENTATION -->
 <section id="documentacao" class="section section--alt">
   <div class="container">
@@ -318,5 +339,6 @@
 <script src="../assets/js/aszo-v5.js" defer></script>
 <script src="../assets/js/documentos.js" defer></script>
 <script src="../assets/js/aszo-conteudos.js" defer></script>
+<script src="../assets/js/aszo-competicoes.js" defer></script>
 </body>
 </html>

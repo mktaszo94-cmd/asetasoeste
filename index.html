@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/documentos.css">
   <link rel="stylesheet" href="assets/css/aszo-v5.css">
   <link rel="stylesheet" href="assets/css/aszo-conteudos.css">
+  <link rel="stylesheet" href="assets/css/aszo-competicoes.css">
 </head>
 
 <body>
@@ -35,6 +36,7 @@
       <div class="nav__menu aszo-nav__menu" id="aszo-menu">
         <a class="nav__link" href="#inicio">Início</a>
         <a class="nav__link" href="#associacao">Associação</a>
+        <a class="nav__link" href="#competicoes">Competições</a>
         <a class="nav__link" href="#documentacao">Documentos</a>
         <a class="nav__link" href="#eventos">Eventos</a><a class="nav__link" href="#noticias">Notícias</a>
         <a class="nav__link" href="#parceiros">Parceiros</a>
@@ -96,6 +98,25 @@
   </div>
 </section>
 
+<!-- ASZO FASE 8: Competições - documentação reutilizada do Pages CMS. -->
+<section id="competicoes" class="section aszo-competitions" data-aszo-competitions data-lang="pt" data-source="dados/documentos.json" aria-labelledby="aszo-competitions-title">
+  <div class="container">
+    <div class="section__head">
+      <h2 id="aszo-competitions-title">Competições</h2>
+      <p>Encontra rapidamente o calendário da tua prova e acede à plataforma de resultados.</p>
+    </div>
+    <div class="aszo-competitions__toolbar">
+      <label for="aszo-competition-season-pt">Época desportiva
+        <select id="aszo-competition-season-pt" data-competition-season><option value="">Todas as épocas</option></select>
+      </label>
+      <a class="aszo-competitions__results" href="https://www.2k-dart-software.com/frontend/events/5/mandant/2118" target="_blank" rel="noopener noreferrer">Consultar provas e classificações <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="aszo-competitions__grid" data-competition-grid>
+      <p class="aszo-competitions__status">A carregar os calendários disponíveis…</p>
+    </div>
+    <p class="aszo-competitions__note">As classificações e os resultados são consultados na plataforma externa de gestão de provas da ASZO.</p>
+  </div>
+</section>
 <!-- DOCUMENTAÇÃO -->
 <section id="documentacao" class="section section--alt">
   <div class="container">
@@ -318,5 +339,6 @@
 <script src="assets/js/aszo-v5.js" defer></script>
 <script src="assets/js/documentos.js" defer></script>
 <script src="assets/js/aszo-conteudos.js" defer></script>
+<script src="assets/js/aszo-competicoes.js" defer></script>
 </body>
 </html>
