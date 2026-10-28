@@ -8,6 +8,15 @@
       "data": "2026-10-21",
       "imagem": "/assets/img/conteudos/apurados.jpg",
       "publicado": true
+    },
+    {
+      "titulo": "Equipas Apuradas e Atletas Mais Pontuados para as Finais Nacionais 2026",
+      "titulo_en": "Qualified Teams and Top-Scoring Athletes for the 2026 National Finals",
+      "descricao": "Listagem das equipas e atleta (masculino e feminino) mais pontuado apurados para as finais nacionais.",
+      "descricao_en": "List of the teams and the highest-scoring athletes (men and women) who have qualified for the national finals.",
+      "data": "2026-10-20",
+      "imagem": "/assets/img/conteudos/equipas-apuradas.jpg",
+      "publicado": true
     }
   ]
 }
