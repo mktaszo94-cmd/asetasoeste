@@ -1,0 +1,14 @@
+/* ASZO V2 Fase 6: Noticias e eventos dinamicos, sem dependencias. */
+.aszo-content-section[hidden]{display:none!important}
+.aszo-feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.aszo-feed-card{background:#fff;border:1px solid #dce2ef;border-radius:16px;overflow:hidden;box-shadow:0 3px 12px rgba(15,30,65,.06);display:flex;flex-direction:column}
+.aszo-feed-card__image{width:100%;height:184px;object-fit:cover;display:block}
+.aszo-feed-card__body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.aszo-feed-card__date{font-size:.85rem;color:#485c88;font-weight:650}
+.aszo-feed-card__title{font-size:1.12rem;margin:0;color:#192b50;line-height:1.35}
+.aszo-feed-card__desc{font-size:.96rem;line-height:1.55;color:#43516e;white-space:pre-line;margin:0}
+.aszo-feed-card__location{font-size:.88rem;color:#34476e;margin:0}
+.aszo-feed-card__link{font-weight:700;color:#243e77;margin-top:auto;padding-top:9px;align-self:flex-start}
+.aszo-feed-card__link:focus-visible{outline:3px solid #e7bd56;outline-offset:3px}
+@media(max-width:900px){.aszo-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.aszo-feed-grid{grid-template-columns:1fr}.aszo-feed-card__image{height:205px}}

@@ -18,6 +18,7 @@
   
   <link rel="stylesheet" href="../assets/css/documentos.css">
   <link rel="stylesheet" href="../assets/css/aszo-v5.css">
+  <link rel="stylesheet" href="../assets/css/aszo-conteudos.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
         <a class="nav__link" href="#inicio">Home</a>
         <a class="nav__link" href="#associacao">Association</a>
         <a class="nav__link" href="#documentacao">Documents</a>
-        <a class="nav__link" href="#eventos">Events</a>
+        <a class="nav__link" href="#eventos">Events</a><a class="nav__link" href="#noticias">News</a>
         <a class="nav__link" href="#parceiros">Partners</a>
         <a class="nav__link" href="#contactos">Contact</a>
         <div class="nav__lang" aria-label="Language"><a class="pill " href="../index.html" >PT</a><a class="pill pill--active" href="../en/index.html" aria-current="page">EN</a></div>
@@ -111,11 +112,21 @@
   </div>
 </section>
 
+<!-- ASZO FASE 6: Noticias e eventos geridos no Pages CMS. -->
+<section id="noticias" class="section aszo-content-section" data-aszo-feed="noticias" data-lang="en" data-source="../dados/noticias.json" hidden>
+  <div class="container"><div class="section__head"><h2>ASZO News</h2><p>Announcements and association updates.</p></div>
+  <div class="aszo-feed-grid" data-feed-list></div></div>
+</section>
+<section class="section section--alt aszo-content-section" data-aszo-feed="eventos" data-lang="en" data-source="../dados/eventos.json" hidden>
+  <div class="container"><div class="section__head"><h2>Upcoming events</h2><p>Events announced by the association.</p></div>
+  <div class="aszo-feed-grid" data-feed-list></div></div>
+</section>
+
 <!-- EVENTS -->
 <section id="eventos" class="section">
   <div class="container container--wide">
     <div class="section__head">
-      <h2>Events</h2>
+      <h2>Previous events</h2>
       <p>Some moments from our events.</p>
     </div>
 
@@ -306,5 +317,6 @@
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/aszo-v5.js" defer></script>
 <script src="../assets/js/documentos.js" defer></script>
+<script src="../assets/js/aszo-conteudos.js" defer></script>
 </body>
 </html>

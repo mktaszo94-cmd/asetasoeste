@@ -1,63 +1,184 @@
-# ASZO V2 — Painel de documentos | Fase 3
-# Trabalhar no ramo desenvolvimento-v2 ate validacao final.
-# Manter caminhos dos PDFs existentes para preservar URLs publicos.
+# ASZO V2 - Fase 6
+# Configuracao apenas no ramo desenvolvimento-v2 durante os testes.
 media:
-  - name: documentos
-    label: PDFs da ASZO
-    input: documentacao
-    output: /documentacao
-    extensions: [pdf]
-    rename: safe
-
+- name: documentos
+  label: PDFs da ASZO
+  input: documentacao
+  output: /documentacao
+  extensions:
+  - pdf
+  rename: safe
+- name: imagens-conteudos
+  label: Imagens das noticias e eventos
+  input: assets/img/conteudos
+  output: /assets/img/conteudos
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  rename: safe
 content:
+- name: documentos
+  label: Biblioteca de documentos
+  type: file
+  path: dados/documentos.json
+  format: json
+  operations:
+    delete: false
+  fields:
   - name: documentos
-    label: Biblioteca de documentos
-    type: file
-    path: dados/documentos.json
-    format: json
-    operations:
-      delete: false
+    label: Documentos publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
     fields:
-      - name: documentos
-        label: Documentos publicados e em preparacao
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{titulo}"
-        fields:
-          - name: titulo
-            label: Titulo (PT)
-            type: string
-            required: true
-            description: Nome apresentado na biblioteca portuguesa.
-          - name: titulo_en
-            label: Titulo (EN)
-            type: string
-            description: Quando vazio, apresenta o titulo portugues no site ingles.
-          - name: categoria
-            label: Categoria
-            type: select
-            required: true
-            options:
-              values:
-                - {name: calendarios, label: Calendarios}
-                - {name: folhas-de-jogo, label: Folhas de jogo}
-                - {name: regulamentos, label: Regulamentos}
-                - {name: outros, label: Outros}
-          - name: epoca
-            label: Epoca (ex. 2027 ou Geral)
-            type: string
-            required: true
-          - name: ficheiro
-            label: Ficheiro PDF
-            type: file
-            required: true
-            description: Selecionar ou carregar um PDF na pasta documentacao.
-            options:
-              media: documentos
-              extensions: [pdf]
-          - name: publicado
-            label: Visivel no website
-            type: boolean
-            description: Desativar para ocultar o documento sem apagar o registo.
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+      description: Nome apresentado na biblioteca portuguesa.
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+      description: Quando vazio, apresenta o titulo portugues no site ingles.
+    - name: categoria
+      label: Categoria
+      type: select
+      required: true
+      options:
+        values:
+        - name: calendarios
+          label: Calendarios
+        - name: folhas-de-jogo
+          label: Folhas de jogo
+        - name: regulamentos
+          label: Regulamentos
+        - name: outros
+          label: Outros
+    - name: epoca
+      label: Epoca (ex. 2027 ou Geral)
+      type: string
+      required: true
+    - name: ficheiro
+      label: Ficheiro PDF
+      type: file
+      required: true
+      description: Selecionar ou carregar um PDF na pasta documentacao.
+      options:
+        media: documentos
+        extensions:
+        - pdf
+    - name: publicado
+      label: Visivel no website
+      type: boolean
+      description: Desativar para ocultar o documento sem apagar o registo.
+- name: noticias
+  label: Noticias (ASZO)
+  type: file
+  path: dados/noticias.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: noticias
+    label: Noticias publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+    - name: descricao
+      label: Descricao (PT)
+      type: text
+      required: true
+    - name: descricao_en
+      label: Descricao (EN)
+      type: text
+    - name: data
+      label: Data
+      type: date
+      required: true
+      options:
+        format: yyyy-MM-dd
+    - name: imagem
+      label: Imagem de destaque (opcional)
+      type: image
+      options:
+        media: imagens-conteudos
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: link
+      label: Ligacao externa (opcional, HTTPS)
+      type: string
+    - name: publicado
+      label: Visivel no website
+      type: boolean
+- name: eventos
+  label: Eventos (ASZO)
+  type: file
+  path: dados/eventos.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: eventos
+    label: Eventos publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+    - name: descricao
+      label: Descricao (PT)
+      type: text
+      required: true
+    - name: descricao_en
+      label: Descricao (EN)
+      type: text
+    - name: data
+      label: Data
+      type: date
+      required: true
+      options:
+        format: yyyy-MM-dd
+    - name: local
+      label: Local
+      type: string
+    - name: imagem
+      label: Imagem de destaque (opcional)
+      type: image
+      options:
+        media: imagens-conteudos
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: link
+      label: Ligacao externa (opcional, HTTPS)
+      type: string
+    - name: publicado
+      label: Visivel no website
+      type: boolean
