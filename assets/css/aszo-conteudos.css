@@ -28,3 +28,47 @@
 @media(max-width:960px){.aszo-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aszo-feed-card--featured{grid-column:span 2}}
 @media(max-width:620px){.aszo-feed-grid{grid-template-columns:1fr;gap:15px}.aszo-feed-card--featured,.aszo-feed-card--featured:not(:has(.aszo-feed-card__media)){grid-column:auto;display:flex}.aszo-feed-card--featured .aszo-feed-card__media{aspect-ratio:16/9;min-height:0}.aszo-feed-card__body{padding:20px}.aszo-feed-card__title{font-size:1.1rem}}
 @media(prefers-reduced-motion:reduce){.aszo-feed-card{transition:none}.aszo-feed-card:hover{transform:none}}
+
+/* ASZO V2 - Fase 7.1: corrigir grelhas aninhadas.
+   Em index.html e en/index.html o data-feed-list ja tem a classe
+   aszo-feed-grid; o JS cria outra grelha dentro desse contentor.
+   O contentor exterior nao pode distribuir a lista em 3 colunas. */
+.aszo-content-section [data-feed-list].aszo-feed-grid {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* A grelha interna adapta-se ao espaco disponivel e nao cria
+   cartoes estreitos quando so existe um evento. */
+.aszo-content-section [data-feed-list] > .aszo-feed-grid,
+.aszo-content-section .aszo-feed-archive .aszo-feed-grid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Um unico cartao: boa legibilidade sem ocupar todo o ecra. */
+.aszo-content-section .aszo-feed-grid > .aszo-feed-card:only-child {
+  width: 100%;
+}
+.aszo-content-section .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 680px);
+}
+
+/* Um artigo destacado sem imagem ocupa a largura de forma legivel. */
+.aszo-content-section .aszo-feed-grid > .aszo-feed-card--featured {
+  min-width: 0;
+}
+
+@media (max-width: 620px) {
+  .aszo-content-section [data-feed-list] > .aszo-feed-grid,
+  .aszo-content-section .aszo-feed-archive .aszo-feed-grid,
+  .aszo-content-section .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+}
