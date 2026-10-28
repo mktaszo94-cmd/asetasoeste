@@ -295,3 +295,52 @@
   .aszo-image-dialog__image { max-height:calc(96dvh - 75px); }
   .aszo-image-dialog__caption { margin:8px 42px 0; font-size:.8rem; }
 }
+
+/* ASZO V2 - Fase 12.5: cartoes mais compactos (noticias e eventos).
+   Mantem object-fit:contain e a ampliacao via lightbox da fase 12.4. */
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 760px);
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 720px);
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__media,
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card--featured .aszo-feed-card__media {
+  height: 240px;
+  max-height: 240px;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__image {
+  width:100%;
+  height:100%;
+  max-height:240px;
+  object-fit:contain;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__body {
+  padding:16px 18px;
+  gap:8px;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__title,
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured .aszo-feed-card__title {
+  font-size:1.1rem;
+  line-height:1.32;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__desc {
+  line-height:1.5;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+}
+@media(max-width:640px) {
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__media,
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card--featured .aszo-feed-card__media {
+    height:210px;
+    max-height:210px;
+  }
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__image {
+    height:100%;
+    max-height:210px;
+  }
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__body {
+    padding:14px 16px;
+    gap:8px;
+  }
+}

@@ -1,21 +1,21 @@
-# ASZO V2 - Fase 12.4 | Ampliacao de imagens de noticias e eventos
+# ASZO V2 - Fase 12.5: noticias e eventos mais compactos
 
-## Objetivo
-Ao clicar num cartaz de noticia ou evento no site, abre uma janela com a imagem integral sem sair da pagina. Suporta fechar no X, tecla Esc ou clique fora da imagem. A disposicao compacta existente e mantida.
+Esta atualizacao altera apenas o CSS. Inclui integralmente as correcoes das Fases 12.2, 12.3 e 12.4, incluindo a janela para ampliar imagens.
 
-## Instalar (ramo desenvolvimento-v2)
-1. No GitHub Desktop, confirmar o repositorio `asetasoeste` e ramo `desenvolvimento-v2`. Fazer Fetch/Pull, se necessario.
-2. Extrair o ZIP para uma pasta temporaria.
-3. Abrir Repository > Show in Explorer e guardar uma copia de `assets/js/aszo-conteudos.js` e `assets/css/aszo-conteudos.css` fora do repositorio.
-4. Copiar a pasta `assets` do pacote para a raiz do repositorio, substituindo APENAS esses dois ficheiros.
-5. No GitHub Desktop, confirmar que aparecem apenas dois ficheiros modificados. Nao fazer commit ainda.
-6. Com o servidor local iniciado na raiz do repositorio (`py -m http.server 8000`), abrir `http://localhost:8000/` e atualizar com Ctrl+F5.
-7. Clicar nas imagens de uma noticia e de um evento; confirmar que abrem completas em modal e que o X, Esc e clique fora fecham a imagem.
-8. Verificar em `http://localhost:8000/en/` e numa janela mobile. Confirmar que as datas multidia e os cartoes compactos continuam intactos.
-9. Apos validar, fazer commit `ASZO V2 - Fase 12.4 - Ampliacao de imagens` e Push origin apenas para `desenvolvimento-v2`.
+## Instalacao
 
-## Ficheiros
-- `assets/js/aszo-conteudos.js`: versao completa com datas multidia da Fase 12.1 e visualizacao ampliada.
-- `assets/css/aszo-conteudos.css`: versao completa com layouts compactos das Fases 12.2/12.3 e estilo do modal.
+1. No GitHub Desktop, confirma `asetasoeste` e o ramo `desenvolvimento-v2`.
+2. Abre **Repository > Show in Explorer**.
+3. Guarda copia de `assets/css/aszo-conteudos.css` fora do repositorio.
+4. Extrai este ZIP e copia o ficheiro `assets/css/aszo-conteudos.css` para a mesma pasta no repositorio, substituindo o ficheiro atual.
+5. No PowerShell, dentro da pasta do repositorio, executa `py -m http.server 8000` se ainda nao estiver a correr.
+6. Abre `http://localhost:8000/` e atualiza com **Ctrl + F5**; testa tambem `http://localhost:8000/en/`.
+7. Confirma que os cartazes nao sao cortados, que os cartoes estao mais baixos e que clicar na imagem abre a ampliacao. Testa no telemovel.
+8. Apenas depois da validacao, faz commit `ASZO V2 - Fase 12.5 - Cartoes compactos` e **Push origin**.
 
-Nao altera `.pages.yml`, JSON, HTML, PDFs nem imagens. Funcionalidade apenas para noticias e eventos que tenham imagem valida em `/assets/img/`.
+## Notas
+
+- A imagem no cartao e apresentada com `object-fit: contain`, sem corte. Dependendo das proporcoes, podera haver espaco vazio nas laterais.
+- No computador a area de imagem fica limitada a 240px de altura; no telemovel a 210px.
+- Nenhum ficheiro HTML, JS, JSON, PDF ou configuracao do Pages CMS e alterado.
+- Se alteraste manualmente este CSS depois da Fase 12.4, compara antes de substituir.
