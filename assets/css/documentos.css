@@ -1,0 +1,18 @@
+/* Biblioteca ASZO: estilos isolados para não afetar as restantes secções */
+.aszo-documents{--aszo-accent:#174b79;--aszo-line:#dce4ef}
+.aszo-documents__filters{display:grid;grid-template-columns:minmax(230px,2fr) repeat(2,minmax(150px,1fr));gap:14px;margin:24px 0 18px}
+.aszo-documents__field{display:flex;flex-direction:column;gap:7px;font-size:.9rem;font-weight:650;color:#1c344e}
+.aszo-documents__field input,.aszo-documents__field select{width:100%;min-width:0;min-height:46px;box-sizing:border-box;padding:11px 13px;border:1px solid #b9c8d8;border-radius:10px;background:#fff;color:#1c344e;font:inherit}
+.aszo-documents__field :is(input,select):focus-visible,.aszo-documents__btn:focus-visible{outline:3px solid #d29b39;outline-offset:2px}
+.aszo-documents__count{font-size:.92rem;color:#4b6075;margin:0 0 15px}
+.aszo-documents__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.aszo-documents__card{min-width:0;background:white;border:1px solid var(--aszo-line);border-radius:14px;padding:19px;box-shadow:0 2px 7px rgba(15,35,60,.05)}
+.aszo-documents__meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:11px}
+.aszo-documents__pill{display:inline-block;font-size:.77rem;font-weight:700;border-radius:999px;padding:4px 9px;background:#eaf2fa;color:#174b79}
+.aszo-documents__title{font-size:1.04rem;line-height:1.45;margin:0 0 15px;color:#14293f;overflow-wrap:anywhere}
+.aszo-documents__actions{display:flex;flex-wrap:wrap;gap:9px}
+.aszo-documents__btn{border-radius:9px;border:1px solid #174b79;background:#174b79;color:white!important;text-decoration:none!important;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 15px;font-size:.9rem;font-weight:650}
+.aszo-documents__btn--secondary{background:#fff;color:#174b79!important}
+.aszo-documents__empty{grid-column:1/-1;padding:22px;border:1px dashed #afc0d3;border-radius:12px;color:#52667b}
+@media(max-width:750px){.aszo-documents__filters{grid-template-columns:1fr 1fr}.aszo-documents__field:first-child{grid-column:1/-1}.aszo-documents__grid{grid-template-columns:1fr}}
+@media(max-width:420px){.aszo-documents__filters{grid-template-columns:1fr}.aszo-documents__field:first-child{grid-column:auto}}
