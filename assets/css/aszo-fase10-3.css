@@ -16,3 +16,96 @@
 .aszo-archive__hint{font-size:.9rem;color:#5a6680;margin:14px 4px 0}
 @media(max-width:720px){.aszo-archive__details summary{padding:17px}.aszo-archive__panel{padding:4px 12px 18px}}
 @media(prefers-reduced-motion:reduce){.aszo-archive__arrow{transition:none}}
+
+/* ASZO V2 - Fase 12.8: arquivo historico mais compacto.
+   Alteracoes apenas nesta secao; nao afeta os eventos do Pages CMS. */
+.aszo-archive{
+  padding-top: 28px;
+  padding-bottom: 30px;
+}
+.aszo-archive .section__head{
+  margin-bottom: 12px;
+}
+.aszo-archive__details{
+  width: 100%;
+  max-width: 790px;
+  border-radius: 14px;
+}
+.aszo-archive__details summary{
+  padding: 13px 17px;
+  gap: 10px;
+}
+.aszo-archive__panel{
+  padding: 0 14px 13px;
+}
+.aszo-archive__panel .eventsGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 13px;
+  align-items: stretch;
+}
+.aszo-archive__panel .eventCard{
+  min-width: 0;
+  border-radius: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.045);
+}
+.aszo-archive__panel .eventCarousel{
+  height: 128px;
+}
+.aszo-archive__panel .eventCard__body{
+  padding: 10px 12px 11px;
+  gap: 3px;
+}
+.aszo-archive__panel .eventCard__title{
+  font-size: .93rem;
+  line-height: 1.35;
+  margin: 0;
+}
+.aszo-archive__panel .eventCard__meta{
+  font-size: .82rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.aszo-archive__panel .eventCarousel__btn{
+  width: 28px;
+  height: 28px;
+}
+.aszo-archive__hint{
+  margin: 11px 2px 0;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+@media (max-width: 600px){
+  .aszo-archive{padding-top:24px;padding-bottom:26px}
+  .aszo-archive__details{max-width:100%}
+  .aszo-archive__details summary{padding:12px 13px}
+  .aszo-archive__panel{padding:0 12px 12px}
+  .aszo-archive__panel .eventsGrid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .aszo-archive__panel .eventCarousel{height:150px}
+}
+
+/* ASZO V2 - Fase 12.8.1: alinhar arquivo com os proximos eventos.
+   O cabecalho e a barra expansivel usam a largura padrao do site;
+   os cartoes historicos mantem dimensoes compactas. */
+.aszo-archive .container--wide {
+  max-width: var(--container, 1120px);
+}
+.aszo-archive__details {
+  max-width: none;
+  width: 100%;
+}
+.aszo-archive__panel .eventsGrid {
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  justify-content: start;
+}
+@media (max-width: 760px) {
+  .aszo-archive__panel .eventsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .aszo-archive__panel .eventsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -23,3 +23,64 @@
 .aszo-competitions__state{display:inline-block;align-self:flex-start;margin:0 0 12px;color:#53627f;font-size:.78rem;font-weight:700}
 .aszo-competitions__link--results{background:#263b70;color:#fff!important;border-color:#263b70}
 .aszo-competitions__link--results:hover{background:#192c58;color:#fff!important}
+
+/* ============================================================
+   ASZO V2 - Fase 12.7 | Cartoes de competicoes mais compactos
+   Nao modifica a paleta da identidade oficial (aszo-identidade.css).
+   Mantem o filtro de epoca, PDFs e links 2K sem alteracoes.
+   ============================================================ */
+.aszo-competitions__toolbar {
+  margin: 10px 0 15px;
+  gap: 12px;
+}
+.aszo-competitions__toolbar label { gap: 5px; }
+.aszo-competitions__toolbar select { padding: 9px 12px; }
+.aszo-competitions__results { padding: 10px 14px; }
+.aszo-competitions__grid {
+  gap: 12px;
+  align-items: start;
+}
+.aszo-competitions__card {
+  padding: 16px 18px;
+  border-radius: 13px;
+  height: auto;
+}
+.aszo-competitions__eyebrow {
+  margin-bottom: 6px;
+  padding: 4px 9px;
+  font-size: .73rem;
+}
+.aszo-competitions__state {
+  margin-bottom: 7px;
+  font-size: .76rem;
+}
+.aszo-competitions__card h3 {
+  font-size: 1.09rem;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+.aszo-competitions__card p {
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-size: .92rem;
+}
+.aszo-competitions__links {
+  margin-top: 3px;
+  gap: 6px;
+  align-items: flex-start;
+}
+.aszo-competitions__link {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: .82rem;
+  line-height: 1.3;
+  min-height: 36px;
+}
+.aszo-competitions__none { margin-top: 3px; }
+.aszo-competitions__note { margin-top: 12px; }
+@media (max-width: 700px) {
+  .aszo-competitions__grid { grid-template-columns: 1fr; gap: 10px; }
+  .aszo-competitions__card { padding: 14px; }
+  .aszo-competitions__toolbar { margin: 10px 0 14px; }
+  .aszo-competitions__link { min-height: 40px; }
+}
