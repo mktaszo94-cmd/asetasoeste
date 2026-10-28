@@ -18,3 +18,8 @@
 .aszo-competitions__note{font-size:.87rem;color:#5b6884;margin-top:18px;line-height:1.6}
 .aszo-competitions__status{grid-column:1/-1}
 @media(max-width:700px){.aszo-competitions__grid{grid-template-columns:1fr}.aszo-competitions__card{padding:18px}.aszo-competitions__toolbar{align-items:stretch}.aszo-competitions__results{justify-content:center}}
+
+/* Extensao pequena e isolada: manter o CSS da Fase 8. */
+.aszo-competitions__state{display:inline-block;align-self:flex-start;margin:0 0 12px;color:#53627f;font-size:.78rem;font-weight:700}
+.aszo-competitions__link--results{background:#263b70;color:#fff!important;border-color:#263b70}
+.aszo-competitions__link--results:hover{background:#192c58;color:#fff!important}

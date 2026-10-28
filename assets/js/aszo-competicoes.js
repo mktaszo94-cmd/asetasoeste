@@ -1,63 +1,106 @@
-/* ASZO Fase 8 — calendário por competição a partir de dados/documentos.json. */
+/* ASZO V2 Fase 9: competicoes administradas no Pages CMS.
+ * Reutiliza a lista de PDFs da biblioteca para as quatro competicoes historicas.
+ * Novas competicoes devem ter PDFs associados explicitamente no CMS.
+ */
 (() => {
   'use strict';
   const root = document.querySelector('[data-aszo-competitions]');
   if (!root) return;
-  const en = root.dataset.lang === 'en';
+  const english = root.dataset.lang === 'en';
   const season = root.querySelector('[data-competition-season]');
   const grid = root.querySelector('[data-competition-grid]');
-  const groups = [
-    { id: 'masculino', pt: 'Campeonato Masculino', en: 'Men’s Championship', hintPt: '1.ª e 2.ª Divisões', hintEn: 'First and second divisions', words: ['masculino'] },
-    { id: 'feminino', pt: 'Campeonato Feminino', en: 'Women’s Championship', hintPt: 'Calendários da competição feminina', hintEn: 'Women’s competition calendars', words: ['feminino'] },
-    { id: 'tacas', pt: 'Taças', en: 'Cups', hintPt: 'Taça de Portugal e outras provas', hintEn: 'Portugal Cup and other competitions', words: ['taça','taca','cup','nelson fernandes'] },
-    { id: 'tradicional', pt: 'Tradicional', en: 'Traditional', hintPt: 'Provas de setas tradicionais', hintEn: 'Traditional darts competitions', words: ['tradicional','traditional'] }
-  ];
-  let docs = [];
-  const create = (tag, cls, content) => {
-    const node = document.createElement(tag);
-    if (cls) node.className = cls;
-    if (content !== undefined) node.textContent = content;
-    return node;
+  if (!season || !grid) return;
+  const docsUrl = root.dataset.source || (english ? '../dados/documentos.json' : 'dados/documentos.json');
+  const competitionUrl = new URL('competicoes.json', new URL(docsUrl, document.baseURI)).href;
+  const GENERAL_RESULTS = 'https://www.2k-dart-software.com/frontend/events/5/mandant/2118';
+  const labels = english
+    ? { competition:'Competition', unavailable:'No calendar available for this season.', status:'Unable to load competitions.', results:'Standings and results', preparation:'Preparing', underway:'In progress', finished:'Finished' }
+    : { competition:'Competição', unavailable:'Sem calendário disponível para esta época.', status:'Não foi possível carregar as competições.', results:'Classificações e resultados', preparation:'Em preparação', underway:'Em curso', finished:'Concluída' };
+  const legacyWords = {
+    masculino: ['masculino'], feminino: ['feminino'],
+    tacas: ['taça', 'taca', 'cup', 'nelson fernandes'],
+    tradicional: ['tradicional', 'traditional']
   };
-  const validPdf = value => typeof value === 'string' && /^\/documentacao\/[a-z0-9/_-]+\.pdf$/i.test(value);
-  const str = value => String(value || '').toLocaleLowerCase('pt');
-  function render() {
-    const selected = season.value;
-    const frag = document.createDocumentFragment();
-    groups.forEach(group => {
-      const card = create('article','aszo-competitions__card');
-      card.append(create('span','aszo-competitions__eyebrow',en ? 'Competition' : 'Competição'));
-      card.append(create('h3','',en ? group.en : group.pt));
-      card.append(create('p','',en ? group.hintEn : group.hintPt));
-      // Correspondência baseada nos nomes atuais dos documentos; sem criar dados inventados.
-      const matches = docs.filter(doc => (!selected || String(doc.epoca) === selected) &&
-        group.words.some(w => str(doc.titulo + ' ' + (doc.titulo_en || '')).includes(w)));
-      if (matches.length) {
-        const links = create('div','aszo-competitions__links');
-        matches.forEach(doc => {
-          const a = create('a','aszo-competitions__link',(en && doc.titulo_en) || doc.titulo);
-          a.href = doc.ficheiro; a.target = '_blank'; a.rel = 'noopener noreferrer';
-          a.setAttribute('aria-label', `${a.textContent} — PDF`);
-          links.append(a);
-        });
-        card.append(links);
-      } else {
-        card.append(create('span','aszo-competitions__none',en ? 'No calendar available for this season.' : 'Sem calendário disponível para esta época.'));
-      }
-      frag.append(card);
-    });
-    grid.replaceChildren(frag);
+  const text = value => String(value ?? '').toLocaleLowerCase('pt');
+  const pdfPath = value => typeof value === 'string' && /^\/documentacao\/[a-z0-9/_-]+\.pdf$/i.test(value);
+  const httpsUrl = value => {
+    if (typeof value !== 'string' || !value.trim()) return null;
+    try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; }
+    catch (_) { return null; }
+  };
+  const element = (tag, className, content) => {
+    const n = document.createElement(tag);
+    if (className) n.className = className;
+    if (content !== undefined) n.textContent = content;
+    return n;
+  };
+  let documents = [];
+  let competitions = [];
+
+  function linkedDocuments(competition) {
+    const explicit = Array.isArray(competition.calendarios)
+      ? competition.calendarios.filter(d => d && pdfPath(d.ficheiro) && d.titulo)
+      : [];
+    if (explicit.length) return explicit;
+    // Apenas para as quatro competicoes preexistentes. Evita misturar PDFs de 2027.
+    const words = legacyWords[competition.chave_legado];
+    if (!words || competition.epoca !== '2026') return [];
+    return documents.filter(d => d.epoca === '2026' && words.some(w => text(d.titulo + ' ' + (d.titulo_en || '')).includes(w)));
   }
-  season.addEventListener('change',render);
-  fetch(root.dataset.source,{cache:'no-cache'})
-    .then(response => {if(!response.ok) throw Error(`HTTP ${response.status}`);return response.json();})
-    .then(data => {
-      const records = Array.isArray(data) ? data : data?.documentos;
-      if(!Array.isArray(records)) throw Error('Invalid data');
-      docs = records.filter(doc => doc && doc.publicado === true && doc.categoria === 'calendarios' && doc.titulo && validPdf(doc.ficheiro));
-      const seasons = [...new Set(docs.map(d => String(d.epoca)).filter(Boolean))].sort((a,b)=>b.localeCompare(a,'pt',{numeric:true}));
-      seasons.forEach(s=>{const option=create('option','',s);option.value=s;season.append(option);});
-      render();
+  function draw() {
+    const filter = season.value;
+    const selected = competitions.filter(c => c.publicado === true && c.titulo && c.epoca && (!filter || c.epoca === filter));
+    const fragment = document.createDocumentFragment();
+    for (const comp of selected) {
+      const card = element('article', 'aszo-competitions__card');
+      const eyebrow = element('span', 'aszo-competitions__eyebrow', `${labels.competition} · ${comp.epoca}`);
+      card.append(eyebrow);
+      const states = { preparacao: labels.preparation, decorrer: labels.underway, concluida: labels.finished };
+      if (states[comp.estado]) card.append(element('span','aszo-competitions__state',states[comp.estado]));
+      card.append(element('h3', '', (english && comp.titulo_en) || comp.titulo));
+      const description = (english && comp.descricao_en) || comp.descricao;
+      if (description) card.append(element('p', '', description));
+      const links = element('div', 'aszo-competitions__links');
+      const unique = new Set();
+      for (const doc of linkedDocuments(comp)) {
+        if (unique.has(doc.ficheiro)) continue;
+        unique.add(doc.ficheiro);
+        const a = element('a', 'aszo-competitions__link', (english && doc.titulo_en) || doc.titulo);
+        a.href = doc.ficheiro;
+        a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', `${a.textContent} — PDF`);
+        links.append(a);
+      }
+      if (unique.size === 0) links.append(element('span', 'aszo-competitions__none', labels.unavailable));
+      const results = element('a','aszo-competitions__link aszo-competitions__link--results',labels.results + ' ↗');
+      results.href = httpsUrl(comp.url_classificacoes) || GENERAL_RESULTS;
+      results.target = '_blank'; results.rel = 'noopener noreferrer';
+      links.append(results);
+      card.append(links);
+      fragment.append(card);
+    }
+    if (!selected.length) fragment.append(element('p','aszo-competitions__status',english ? 'No competitions for this season.' : 'Sem competições disponíveis para esta época.'));
+    grid.replaceChildren(fragment);
+  }
+  season.addEventListener('change', draw);
+  const readJson = url => fetch(url, { cache: 'no-cache' }).then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
+    return r.json();
+  });
+  Promise.all([readJson(docsUrl), readJson(competitionUrl)])
+    .then(([documentData,competitionData]) => {
+      const docList = Array.isArray(documentData) ? documentData : documentData?.documentos;
+      const competitionList = competitionData?.competicoes;
+      if (!Array.isArray(docList) || !Array.isArray(competitionList)) throw new Error('Invalid content format');
+      documents = docList.filter(d => d && d.publicado === true && d.categoria === 'calendarios' && pdfPath(d.ficheiro));
+      competitions = competitionList.filter(c => c && c.publicado === true && typeof c.epoca === 'string');
+      [...new Set(competitions.map(c => c.epoca).filter(Boolean))]
+        .sort((a,b) => b.localeCompare(a,'pt',{numeric:true}))
+        .forEach(value => { const option = element('option','',value); option.value = value; season.append(option); });
+      draw();
     })
-    .catch(err=>{console.error('ASZO competitions:',err);grid.replaceChildren(create('p','aszo-competitions__status',en?'Calendars could not be loaded.':'Não foi possível carregar os calendários.'));});
+    .catch(error => {
+      console.error('ASZO competitions:',error);
+      grid.replaceChildren(element('p','aszo-competitions__status',labels.status));
+    });
 })();

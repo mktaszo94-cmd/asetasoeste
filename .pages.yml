@@ -182,3 +182,95 @@ content:
     - name: publicado
       label: Visivel no website
       type: boolean
+- name: competicoes
+  label: Competicoes (ASZO)
+  type: file
+  path: dados/competicoes.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: competicoes
+    label: Competicoes por epoca
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Nome da competicao (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Nome da competicao (EN)
+      type: string
+    - name: descricao
+      label: Descricao curta (PT)
+      type: text
+    - name: descricao_en
+      label: Descricao curta (EN)
+      type: text
+    - name: epoca
+      label: Epoca (ex. 2027)
+      type: string
+      required: true
+    - name: estado
+      label: Estado
+      type: select
+      required: true
+      options:
+        values:
+        - name: preparacao
+          label: Em preparacao
+        - name: decorrer
+          label: Em curso
+        - name: concluida
+          label: Concluida
+    - name: url_classificacoes
+      label: Link para classificacoes (HTTPS, opcional)
+      type: string
+      description: Deixar vazio para usar o link geral 2K da ASZO.
+    - name: calendarios
+      label: PDFs associados a esta competicao
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{titulo}'
+      fields:
+      - name: titulo
+        label: Nome do documento (PT)
+        type: string
+        required: true
+      - name: titulo_en
+        label: Nome do documento (EN)
+        type: string
+      - name: ficheiro
+        label: PDF do calendario
+        type: file
+        required: true
+        options:
+          media: documentos
+          extensions:
+          - pdf
+    - name: chave_legado
+      label: Associacao automatica dos PDF antigos (opcional)
+      type: select
+      description: Utilizar apenas nas quatro competicoes antigas de 2026. Nas novas competicoes, escolher Nenhuma e associar PDFs acima.
+      options:
+        values:
+        - name: ''
+          label: Nenhuma
+        - name: masculino
+          label: Masculino (2026)
+        - name: feminino
+          label: Feminino (2026)
+        - name: tacas
+          label: Tacas (2026)
+        - name: tradicional
+          label: Tradicional (2026)
+    - name: publicado
+      label: Mostrar no website
+      type: boolean
+      required: true
