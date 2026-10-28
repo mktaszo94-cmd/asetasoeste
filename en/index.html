@@ -17,149 +17,56 @@
   </script>
   
   <link rel="stylesheet" href="../assets/css/documentos.css">
+  <link rel="stylesheet" href="../assets/css/aszo-v5.css">
 </head>
 
 <body>
 
-<!-- UPCOMING EVENTS POP-UP -->
-<div id="eventsPopup" class="events-popup-overlay">
-  <div class="events-popup">
-
-    <button class="popup-close" onclick="closePopup()">×</button>
-
-    <h3 class="popup-title">
-      📅 Upcoming Events
-    </h3>
-
-    <!-- CAROUSEL -->
-    <div class="popup-carousel">
-
-      <!-- EVENT 3 -->
-      <div class="popup-slide">
-        <h4>ASZO qualifies for the 14th Catalonia Open</h4>
-        <img src="../assets/img/eventos/iberico.jpg" alt="Iberico">
-        <p>March 14 · May 30 · June 9 · July 18 · Expoeste – Caldas da Rainha</p>
-      </div>
-
-    </div>
-
-    <!-- CONTROLS -->
-    <div class="popup-controls">
-      <button onclick="prevSlide()">‹</button>
-      <button onclick="nextSlide()">›</button>
-    </div>
-
-    
-
-  </div>
-</div>
-
-
-<!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
-<div style="display:none;">
-  <img src="../assets/img/Inicio/1.jpg" alt="">
-  <img src="../assets/img/Inicio/2.jpg" alt="">
-  <img src="../assets/img/Inicio/3.jpg" alt="">
-  <img src="../assets/img/Inicio/4.jpg" alt="">
-  <img src="../assets/img/Inicio/5.jpg" alt="">
-</div>
-
-<header class="header">
-  <div class="container header__inner">
-    <a class="brand" href="index.html">
-      <img class="brand__logo" src="../assets/img/logo.png" alt="ASZO">
-      <div class="brand__text">
-        <span class="brand__title">West Zone Darts Association</span>
-        <span class="brand__subtitle">Caldas da Rainha</span>
-      </div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="header aszo-header">
+  <div class="container aszo-header__inner">
+    <a class="aszo-brand" href="../index.html" aria-label="ASZO - Home">
+      <img src="../assets/img/logo.png" width="52" height="52" alt="ASZO" class="aszo-brand__logo">
+      <span class="aszo-brand__copy"><strong>ASZO</strong><small>Caldas da Rainha · Portugal</small></span>
     </a>
-
-    <nav class="nav">
-      <button class="nav__toggle"><span class="nav__toggleBars"></span></button>
-      <div class="nav__menu">
+    <button class="nav__toggle aszo-menu-button" type="button" aria-label="Open menu" aria-controls="aszo-menu" aria-expanded="false"><span class="nav__toggleBars" aria-hidden="true"></span></button>
+    <nav class="nav aszo-nav" aria-label="Main navigation">
+      <div class="nav__menu aszo-nav__menu" id="aszo-menu">
         <a class="nav__link" href="#inicio">Home</a>
         <a class="nav__link" href="#associacao">Association</a>
-        <a class="nav__link" href="#documentacao">Documentation</a>
+        <a class="nav__link" href="#documentacao">Documents</a>
         <a class="nav__link" href="#eventos">Events</a>
-        <a class="nav__link" href="#links">Useful Links</a>
         <a class="nav__link" href="#parceiros">Partners</a>
-        <a class="nav__link" href="#sugestoes">Suggestions</a>
-        <a class="nav__link" href="#contactos">Contacts</a>
-        <div class="nav__lang">
-          <a class="pill" href="../index.html">PT</a>
-          <a class="pill pill--active" href="index.html">EN</a>
-        </div>
+        <a class="nav__link" href="#contactos">Contact</a>
+        <div class="nav__lang" aria-label="Language"><a class="pill " href="../index.html" >PT</a><a class="pill pill--active" href="../en/index.html" aria-current="page">EN</a></div>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
-
-<!-- HOME / HERO -->
-<section id="inicio" class="section" style="padding:0;">
-  <div class="heroShell" style="position:relative;overflow:hidden;">
-
-    <!-- BACKGROUND SLIDER -->
-    <div style="
-      position:absolute;
-      inset:0;
-      background-size:cover;
-      background-position:center center;
-      background-repeat: no-repeat;
-      background-image:url('../assets/img/Inicio/1.jpg');
-      animation: heroSlider 18s infinite;
-      will-change: background-image;
-    "></div>
-
-    <!-- OVERLAY -->
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
-
-    <!-- LOGO FIXO INFERIOR DIREITO -->
-    <div class="hero-logo-right">
-      <img src="../assets/img/logo-direito.png" alt="Logo Associação">
+<main id="main-content">
+<section id="inicio" class="aszo-hero" aria-labelledby="aszo-hero-title">
+  <div class="container aszo-hero__layout">
+    <div class="aszo-hero__content">
+      <span class="aszo-kicker"><span class="aszo-kicker__dot" aria-hidden="true"></span>WEST ZONE DARTS ASSOCIATION</span>
+      <h1 id="aszo-hero-title">Your home for darts in the West.</h1>
+      <p>Competitions, calendars, rules and all the latest news from our darts community in one place.</p>
+      <div class="aszo-hero__actions"><a class="aszo-button aszo-button--primary" href="#documentacao">View calendars <span aria-hidden="true">↗</span></a><a class="aszo-button aszo-button--secondary" href="#eventos">Explore events <span aria-hidden="true">→</span></a></div>
     </div>
-
-    <!-- TEXT -->
-    <div class="container" style="
-      position:relative;
-      z-index:2;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      flex-direction:column;
-      gap:12px;
-    ">
-      <h1 style="
-        color:#fff;
-        font-size:clamp(2.2rem,5vw,3.6rem);
-        letter-spacing:-0.02em;
-        margin:0;
-      ">
-        West Zone Darts Association
-      </h1>
-
-      <p style="color:#e5e7eb;font-size:1.1rem;margin:0;">
-        Unity, competition and passion for darts in the West Zone
-      </p>
-    </div>
-
+    <div class="aszo-hero__art" aria-hidden="true"><div class="aszo-hero__photo"></div><div class="aszo-hero__overlay"></div><span class="aszo-hero__mark">180</span></div>
   </div>
 </section>
-
-<style>
-@keyframes heroSlider {
-  0%   { background-image:url('../assets/img/Inicio/1.jpg'); }
-  20%  { background-image:url('../assets/img/Inicio/2.jpg'); }
-  40%  { background-image:url('../assets/img/Inicio/3.jpg'); }
-  60%  { background-image:url('../assets/img/Inicio/4.jpg'); }
-  80%  { background-image:url('../assets/img/Inicio/5.jpg'); }
-  100% { background-image:url('../assets/img/Inicio/1.jpg'); }
-}
-</style>
-
+<section class="aszo-shortcuts" aria-labelledby="aszo-shortcuts-title">
+  <div class="container">
+    <div class="aszo-shortcuts__head"><div><h2 id="aszo-shortcuts-title">Find what you need</h2><p>Everything you need to follow the season.</p></div></div>
+    <div class="aszo-shortcuts__grid">
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="calendarios"><span class="aszo-shortcut__icon" aria-hidden="true">▦</span><strong>Calendars</strong><small>Matches and competitions</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="folhas-de-jogo"><span class="aszo-shortcut__icon" aria-hidden="true">▤</span><strong>Match sheets</strong><small>Forms for teams</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="regulamentos"><span class="aszo-shortcut__icon" aria-hidden="true">≡</span><strong>Regulations</strong><small>Official rules and documents</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#contactos"><span class="aszo-shortcut__icon" aria-hidden="true">✉</span><strong>Get in touch</strong><small>Contacts and information</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
 <!-- ASSOCIATION -->
 <section id="associacao" class="section">
   <div class="container">
@@ -397,6 +304,7 @@
 </footer>
 
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/aszo-v5.js" defer></script>
 <script src="../assets/js/documentos.js" defer></script>
 </body>
 </html>

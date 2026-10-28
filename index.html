@@ -17,148 +17,56 @@
   </script>
 
   <link rel="stylesheet" href="assets/css/documentos.css">
+  <link rel="stylesheet" href="assets/css/aszo-v5.css">
 </head>
 
 <body>
 
-<!-- POP-UP PRÓXIMOS EVENTOS -->
-<div id="eventsPopup" class="events-popup-overlay">
-  <div class="events-popup">
-
-    <button class="popup-close" onclick="closePopup()">×</button>
-
-    <h3 class="popup-title">
-      📅 Próximos Eventos
-    </h3>
-    <!-- CARROSSEL -->
-    <div class="popup-carousel">
-
-      <!-- EVENTO 2 -->
-      <div class="popup-slide">
-        <h4>Apuramento da ASZO para o 14° Catalonia Open</h4>
-        <img src="assets/img/eventos/iberico.jpg" alt="Iberico">
-        <p>13 Março · 30 Maio · 9 Junho · 18 Julho · Expoeste – Caldas da Rainha</p>
-      </div>
-
-    </div>
-
-    <!-- CONTROLOS -->
-    <div class="popup-controls">
-      <button onclick="prevSlide()">‹</button>
-      <button onclick="nextSlide()">›</button>
-    </div>
-
-    
-
-  </div>
-</div>
-
-
-<!-- PRELOAD HERO IMAGES (ANTI-FLASH) -->
-<div style="display:none;">
-  <img src="assets/img/Inicio/1.jpg" alt="">
-  <img src="assets/img/Inicio/2.jpg" alt="">
-  <img src="assets/img/Inicio/3.jpg" alt="">
-  <img src="assets/img/Inicio/4.jpg" alt="">
-  <img src="assets/img/Inicio/5.jpg" alt="">
-</div>
-
-<header class="header">
-  <div class="container header__inner">
-    <a class="brand" href="index.html">
-      <img class="brand__logo" src="assets/img/logo.png" alt="ASZO">
-      <div class="brand__text">
-        <span class="brand__title">Associação de Setas da Zona Oeste</span>
-        <span class="brand__subtitle">Caldas da Rainha</span>
-      </div>
+<a class="skip-link" href="#main-content">Saltar para o conteúdo</a>
+<header class="header aszo-header">
+  <div class="container aszo-header__inner">
+    <a class="aszo-brand" href="index.html" aria-label="ASZO - Início">
+      <img src="assets/img/logo.png" width="52" height="52" alt="ASZO" class="aszo-brand__logo">
+      <span class="aszo-brand__copy"><strong>ASZO</strong><small>Caldas da Rainha · Portugal</small></span>
     </a>
-
-    <nav class="nav">
-      <button class="nav__toggle"><span class="nav__toggleBars"></span></button>
-      <div class="nav__menu">
+    <button class="nav__toggle aszo-menu-button" type="button" aria-label="Abrir menu" aria-controls="aszo-menu" aria-expanded="false"><span class="nav__toggleBars" aria-hidden="true"></span></button>
+    <nav class="nav aszo-nav" aria-label="Menu principal">
+      <div class="nav__menu aszo-nav__menu" id="aszo-menu">
         <a class="nav__link" href="#inicio">Início</a>
         <a class="nav__link" href="#associacao">Associação</a>
-        <a class="nav__link" href="#documentacao">Documentação</a>
+        <a class="nav__link" href="#documentacao">Documentos</a>
         <a class="nav__link" href="#eventos">Eventos</a>
-        <a class="nav__link" href="#links">Links Úteis</a>
         <a class="nav__link" href="#parceiros">Parceiros</a>
-        <a class="nav__link" href="#sugestoes">Sugestões</a>
         <a class="nav__link" href="#contactos">Contactos</a>
-        <div class="nav__lang">
-          <a class="pill pill--active" href="index.html">PT</a>
-          <a class="pill" href="en/index.html">EN</a>
-        </div>
+        <div class="nav__lang" aria-label="Language"><a class="pill pill--active" href="index.html" aria-current="page">PT</a><a class="pill " href="en/index.html" >EN</a></div>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
-
-<!-- INÍCIO / HERO -->
-<section id="inicio" class="section" style="padding:0;">
-  <div class="heroShell" style="position:relative;overflow:hidden;">
-
-    <!-- CARROSSEL BACKGROUND -->
-    <div style="
-      position:absolute;
-      inset:0;
-      background-size: cover;
-      background-position:center center;
-      background-repeat: no-repeat;
-      background-image:url('assets/img/Inicio/1.jpg');
-      animation: heroSlider 18s infinite;
-      will-change: background-image;
-    "></div>
-
-    <!-- OVERLAY -->
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
-
-    <!-- LOGO FIXO INFERIOR DIREITO -->
-    <div class="hero-logo-right">
-      <img src="assets/img/logo-direito.png" alt="Logo Associação">
+<main id="main-content">
+<section id="inicio" class="aszo-hero" aria-labelledby="aszo-hero-title">
+  <div class="container aszo-hero__layout">
+    <div class="aszo-hero__content">
+      <span class="aszo-kicker"><span class="aszo-kicker__dot" aria-hidden="true"></span>ASSOCIAÇÃO DE SETAS DA ZONA OESTE</span>
+      <h1 id="aszo-hero-title">A paixão pelas setas vive aqui.</h1>
+      <p>Competições, calendários, regulamentos e todas as novidades da modalidade num só lugar.</p>
+      <div class="aszo-hero__actions"><a class="aszo-button aszo-button--primary" href="#documentacao">Consultar calendários <span aria-hidden="true">↗</span></a><a class="aszo-button aszo-button--secondary" href="#eventos">Ver eventos <span aria-hidden="true">→</span></a></div>
     </div>
-
-    <!-- TEXTO -->
-    <div class="container" style="
-      position:relative;
-      z-index:2;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      flex-direction:column;
-      gap:12px;
-    ">
-      <h1 style="
-        color:#fff;
-        font-size:clamp(2.2rem,5vw,3.6rem);
-        letter-spacing:-0.02em;
-        margin:0;
-      ">
-        Associação de Setas da Zona Oeste
-      </h1>
-
-      <p style="color:#e5e7eb;font-size:1.1rem;margin:0;">
-        União, competição e paixão pelas setas na Zona Oeste
-      </p>
-    </div>
-
+    <div class="aszo-hero__art" aria-hidden="true"><div class="aszo-hero__photo"></div><div class="aszo-hero__overlay"></div><span class="aszo-hero__mark">180</span></div>
   </div>
 </section>
-
-<style>
-@keyframes heroSlider {
-  0%   { background-image:url('assets/img/Inicio/1.jpg'); }
-  20%  { background-image:url('assets/img/Inicio/2.jpg'); }
-  40%  { background-image:url('assets/img/Inicio/3.jpg'); }
-  60%  { background-image:url('assets/img/Inicio/4.jpg'); }
-  80%  { background-image:url('assets/img/Inicio/5.jpg'); }
-  100% { background-image:url('assets/img/Inicio/1.jpg'); }
-}
-</style>
-
+<section class="aszo-shortcuts" aria-labelledby="aszo-shortcuts-title">
+  <div class="container">
+    <div class="aszo-shortcuts__head"><div><h2 id="aszo-shortcuts-title">Encontra rapidamente</h2><p>Tudo o que precisas para acompanhar a época desportiva.</p></div></div>
+    <div class="aszo-shortcuts__grid">
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="calendarios"><span class="aszo-shortcut__icon" aria-hidden="true">▦</span><strong>Calendários</strong><small>Datas, jornadas e competições</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="folhas-de-jogo"><span class="aszo-shortcut__icon" aria-hidden="true">▤</span><strong>Folhas de jogo</strong><small>Documentos para as equipas</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#documentacao" data-doc-quick-category="regulamentos"><span class="aszo-shortcut__icon" aria-hidden="true">≡</span><strong>Regulamentos</strong><small>Normas e documentação</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+      <a class="aszo-shortcut" href="#contactos"><span class="aszo-shortcut__icon" aria-hidden="true">✉</span><strong>Falar com a ASZO</strong><small>Contactos e informações</small><span class="aszo-shortcut__arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
 <!-- ASSOCIAÇÃO -->
 <section id="associacao" class="section">
   <div class="container">
@@ -396,6 +304,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/aszo-v5.js" defer></script>
 <script src="assets/js/documentos.js" defer></script>
 </body>
 </html>
