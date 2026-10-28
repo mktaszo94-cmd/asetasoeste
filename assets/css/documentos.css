@@ -16,3 +16,9 @@
 .aszo-documents__empty{grid-column:1/-1;padding:22px;border:1px dashed #afc0d3;border-radius:12px;color:#52667b}
 @media(max-width:750px){.aszo-documents__filters{grid-template-columns:1fr 1fr}.aszo-documents__field:first-child{grid-column:1/-1}.aszo-documents__grid{grid-template-columns:1fr}}
 @media(max-width:420px){.aszo-documents__filters{grid-template-columns:1fr}.aszo-documents__field:first-child{grid-column:auto}}
+
+/* ASZO V2 - Fase 10.2: mostrar documentos apenas apos pesquisa ou filtro.
+   Estilos complementares; a grelha, cartoes e botoes mantêm o CSS existente. */
+.aszo-documents [data-doc-list][hidden] { display: none !important; }
+.aszo-documents [data-doc-count] { min-height: 1.5em; }
+.aszo-documents__filters :is(input,select):focus-visible { outline: 3px solid #d29b39; outline-offset: 2px; }

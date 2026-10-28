@@ -9,12 +9,14 @@
     categories: {calendarios:'Calendars','folhas-de-jogo':'Match sheets',regulamentos:'Regulations',outros:'Other'},
     count: n => `${n} document${n === 1 ? '' : 's'}`,
     empty:'No documents match your search.',
+    prompt:'Search by document name, select a category or choose a season to display documents.',
     error:'Documents could not be loaded. Please try again later.',
     view:'View PDF', download:'Download'
   } : {
     categories: {calendarios:'Calendários','folhas-de-jogo':'Folhas de jogo',regulamentos:'Regulamentos',outros:'Outros'},
     count: n => `${n} documento${n === 1 ? '' : 's'}`,
     empty:'Não existem documentos para os filtros selecionados.',
+    prompt:'Pesquisa pelo nome, escolhe uma categoria ou seleciona uma época para veres os documentos.',
     error:'Não foi possível carregar os documentos. Tenta novamente mais tarde.',
     view:'Ver PDF',download:'Descarregar'
   };
@@ -24,6 +26,18 @@
   const count = root.querySelector('[data-doc-count]');
   const list = root.querySelector('[data-doc-list]');
   let documents = [];
+  let loaded = false;
+  // Enquanto não houver pesquisa nem filtro, a biblioteca mantém os cartões ocultos.
+  // A lista completa continua acessível a partir de qualquer filtro (ou combinação).
+  function hasSelection() {
+    return Boolean(search.value.trim() || category.value || season.value);
+  }
+  function initialState() {
+    count.textContent = labels.prompt;
+    list.replaceChildren();
+    list.hidden = true;
+  }
+  initialState();
 
   // Confiar apenas em PDFs publicados dentro da pasta documental do próprio website.
   function safePdf(value) {
@@ -38,6 +52,8 @@
     return el;
   }
   function render() {
+    if (!loaded || !hasSelection()) { initialState(); return; }
+    list.hidden = false;
     const q = search.value.trim().toLocaleLowerCase();
     const filtered = documents.filter(d => (!category.value || d.categoria === category.value)
       && (!season.value || d.epoca === season.value)
@@ -73,7 +89,8 @@
       const seasons = [...new Set(documents.map(d => String(d.epoca || 'Geral')))];
       seasons.sort((a,b)=>b.localeCompare(a,'pt',{numeric:true}));
       seasons.forEach(value=>{const option = document.createElement('option');option.value=value;option.textContent=value;season.append(option);});
+      loaded = true;
       render();
     })
-    .catch(error => {console.error('ASZO documents:',error);count.textContent=labels.error;list.replaceChildren();});
+    .catch(error => {console.error('ASZO documents:',error);count.textContent=labels.error;list.replaceChildren();list.hidden=true;});
 })();
