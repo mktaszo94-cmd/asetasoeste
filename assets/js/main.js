@@ -21,23 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = carousel.querySelectorAll("img");
     let index = 0;
 
+    if (!images.length) return;
     images[index].classList.add("is-active");
 
     const prev = carousel.querySelector(".eventCarousel__btn--prev");
     const next = carousel.querySelector(".eventCarousel__btn--next");
 
-    prev.addEventListener("click", e => {
+    if (prev) prev.addEventListener("click", e => {
       e.preventDefault();
       images[index].classList.remove("is-active");
       index = (index - 1 + images.length) % images.length;
-      images[index].classList.add("is-active");
+      if (!images.length) return;
+    images[index].classList.add("is-active");
     });
 
-    next.addEventListener("click", e => {
+    if (next) next.addEventListener("click", e => {
       e.preventDefault();
       images[index].classList.remove("is-active");
       index = (index + 1) % images.length;
-      images[index].classList.add("is-active");
+      if (!images.length) return;
+    images[index].classList.add("is-active");
     });
   });
 
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
    =============================== */
 
 // ATIVAR / DESATIVAR POP-UP
-const ENABLE_EVENTS_POPUP = true; // <-- MUDA AQUI
+const ENABLE_EVENTS_POPUP = false; // <-- MUDA AQUI
 
 function closeEventsPopup(){
   document.getElementById('eventsPopup').style.display = 'none';

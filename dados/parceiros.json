@@ -1,0 +1,46 @@
+{
+  "parceiros": [
+    {
+      "nome": "Caldas da Rainha",
+      "logotipo": "/assets/img/parceiros/CMCR_Logo.png",
+      "ordem": 1,
+      "publicado": true
+    },
+    {
+      "nome": "Expoeste",
+      "logotipo": "/assets/img/parceiros/Expoeste-logo.png",
+      "ordem": 2,
+      "publicado": true
+    },
+    {
+      "nome": "Caldas Link",
+      "logotipo": "/assets/img/parceiros/logo-tecnologico-caldas-link-em-azul-suavecopia.png",
+      "ordem": 3,
+      "publicado": true
+    },
+    {
+      "nome": "3K",
+      "logotipo": "/assets/img/parceiros/3k-removebg-preview-2.png",
+      "ordem": 4,
+      "publicado": true
+    },
+    {
+      "nome": "Nossa Senhora do Pópulo",
+      "logotipo": "/assets/img/parceiros/nossa-senhora-populo.png",
+      "ordem": 5,
+      "publicado": true
+    },
+    {
+      "nome": "Santo Onofre",
+      "logotipo": "/assets/img/parceiros/santo-onofre.png",
+      "ordem": 6,
+      "publicado": true
+    },
+    {
+      "nome": "Winmau",
+      "logotipo": "/assets/img/parceiros/winmau-logoo.png",
+      "ordem": 7,
+      "publicado": true
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+/* ASZO V2 - Fase 7 | News and event cards */
+.aszo-content-section[hidden],.aszo-feed-more[hidden]{display:none!important}
+.aszo-feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.aszo-feed-card{min-width:0;display:flex;flex-direction:column;background:#fff;border:1px solid #dce3ef;border-radius:18px;overflow:hidden;box-shadow:0 5px 16px rgba(16,34,67,.055);transition:box-shadow .18s ease,transform .18s ease}
+.aszo-feed-card:hover{box-shadow:0 12px 28px rgba(16,34,67,.105);transform:translateY(-2px)}
+.aszo-feed-card__media{aspect-ratio:16/9;background:#e9edf5;overflow:hidden}
+.aszo-feed-card__image{display:block;width:100%;height:100%;object-fit:cover}
+.aszo-feed-card__body{padding:24px;display:flex;flex-direction:column;gap:13px;flex:1}
+.aszo-feed-card__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.aszo-feed-card__tag{display:inline-flex;border-radius:999px;background:#ecf0f8;padding:5px 10px;color:#263f77;font-size:.76rem;font-weight:750}
+.aszo-feed-card__date{color:#556581;font-size:.83rem;font-weight:650}
+.aszo-feed-card__title{color:#17274a;font-size:1.17rem;line-height:1.35;margin:0;overflow-wrap:anywhere}
+.aszo-feed-card__desc{margin:0;color:#465574;font-size:.94rem;line-height:1.65;white-space:pre-line;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.aszo-feed-card__location{display:flex;align-items:center;gap:8px;margin:0;color:#334b75;font-size:.9rem;font-weight:650;overflow-wrap:anywhere}
+.aszo-feed-card__pin{color:#d9a831;font-size:.78rem}
+.aszo-feed-card__link{display:inline-flex;align-self:flex-start;margin-top:auto;padding-top:7px;color:#233d77;text-decoration:underline;text-underline-offset:4px;font-weight:750}
+.aszo-feed-card__link:focus-visible,.aszo-feed-more:focus-visible{outline:3px solid #e3b944;outline-offset:3px}
+.aszo-feed-card--featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.aszo-feed-card--featured .aszo-feed-card__media{aspect-ratio:auto;min-height:250px;height:100%}
+.aszo-feed-card--featured .aszo-feed-card__title{font-size:clamp(1.2rem,2vw,1.55rem)}
+.aszo-feed-card--featured:not(:has(.aszo-feed-card__media)){grid-column:span 2;display:flex;background:linear-gradient(130deg,#fff,#f4f7fc)}
+.aszo-feed-more{margin:22px auto 0;display:block;border-radius:10px;border:1px solid #2c4378;background:white;color:#223a72;padding:12px 24px;font:inherit;font-weight:750;cursor:pointer}
+.aszo-feed-more:hover{background:#eef2fa}
+.aszo-feed-empty{padding:17px 20px;margin:0;background:#fff;border:1px solid #dce3ef;border-radius:12px;color:#53617a}
+.aszo-feed-archive{margin-top:34px;padding-top:27px;border-top:1px solid #dce3ef}
+.aszo-feed-archive__title{margin:0 0 20px;font-size:1.2rem;color:#22365e}
+.aszo-feed-grid--archive .aszo-feed-card{box-shadow:none}
+@media(max-width:960px){.aszo-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aszo-feed-card--featured{grid-column:span 2}}
+@media(max-width:620px){.aszo-feed-grid{grid-template-columns:1fr;gap:15px}.aszo-feed-card--featured,.aszo-feed-card--featured:not(:has(.aszo-feed-card__media)){grid-column:auto;display:flex}.aszo-feed-card--featured .aszo-feed-card__media{aspect-ratio:16/9;min-height:0}.aszo-feed-card__body{padding:20px}.aszo-feed-card__title{font-size:1.1rem}}
+@media(prefers-reduced-motion:reduce){.aszo-feed-card{transition:none}.aszo-feed-card:hover{transform:none}}
+
+/* ASZO V2 - Fase 7.1: corrigir grelhas aninhadas.
+   Em index.html e en/index.html o data-feed-list ja tem a classe
+   aszo-feed-grid; o JS cria outra grelha dentro desse contentor.
+   O contentor exterior nao pode distribuir a lista em 3 colunas. */
+.aszo-content-section [data-feed-list].aszo-feed-grid {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* A grelha interna adapta-se ao espaco disponivel e nao cria
+   cartoes estreitos quando so existe um evento. */
+.aszo-content-section [data-feed-list] > .aszo-feed-grid,
+.aszo-content-section .aszo-feed-archive .aszo-feed-grid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Um unico cartao: boa legibilidade sem ocupar todo o ecra. */
+.aszo-content-section .aszo-feed-grid > .aszo-feed-card:only-child {
+  width: 100%;
+}
+.aszo-content-section .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 680px);
+}
+
+/* Um artigo destacado sem imagem ocupa a largura de forma legivel. */
+.aszo-content-section .aszo-feed-grid > .aszo-feed-card--featured {
+  min-width: 0;
+}
+
+@media (max-width: 620px) {
+  .aszo-content-section [data-feed-list] > .aszo-feed-grid,
+  .aszo-content-section .aszo-feed-archive .aszo-feed-grid,
+  .aszo-content-section .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+}
+
+
+/* ASZO V2 - Fase 12.2 | Eventos compactos com cartaz completo.
+   Aplicado apenas aos eventos do CMS; noticias mantem o layout anterior. */
+.aszo-content-section[data-aszo-feed="eventos"] [data-feed-list] > .aszo-feed-grid,
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-archive .aszo-feed-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 18px;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 780px);
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  align-items: stretch;
+  min-width: 0;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card:not(:has(.aszo-feed-card__media)) {
+  display: flex;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  aspect-ratio: auto;
+  background: #f4f7f4;
+  overflow: hidden;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__body {
+  padding: clamp(16px, 2.2vw, 24px);
+  gap: 10px;
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__desc {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+@media (max-width: 640px) {
+  .aszo-content-section[data-aszo-feed="eventos"] [data-feed-list] > .aszo-feed-grid,
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-archive .aszo-feed-grid,
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__media {
+    height: auto;
+    max-height: 270px;
+    aspect-ratio: auto;
+  }
+  .aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-card__image {
+    width: 100%;
+    height: auto;
+    max-height: 270px;
+    object-fit: contain;
+  }
+}
+
+/* ASZO V2 - Fase 12.3 | Noticias compactas, com imagem integral.
+   Escopo exclusivo: secao Noticias, nao altera os eventos ja validados. */
+.aszo-content-section[data-aszo-feed="noticias"] [data-feed-list] > .aszo-feed-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 18px;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 820px);
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card,
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured {
+  grid-column: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  align-items: stretch;
+  min-width: 0;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card:not(:has(.aszo-feed-card__media)) {
+  display: flex;
+  flex-direction: column;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__media,
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured .aszo-feed-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  max-height: 300px;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #f5f7f5;
+  overflow: hidden;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__body {
+  padding: clamp(16px, 2.2vw, 24px);
+  gap: 10px;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__desc {
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+@media (max-width: 640px) {
+  .aszo-content-section[data-aszo-feed="noticias"] [data-feed-list] > .aszo-feed-grid,
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card,
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured {
+    display: flex;
+    flex-direction: column;
+  }
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__media,
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured .aszo-feed-card__media {
+    height: auto;
+    max-height: 260px;
+    aspect-ratio: auto;
+  }
+  .aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card__image {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+  }
+}
+
+/* ASZO V2 - Fase 12.4 | Ampliacao das imagens de noticias e eventos.
+   Mantem a disposicao compacta e o object-fit: contain das fases anteriores. */
+.aszo-feed-card__zoom {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%; height:100%; min-height:0;
+  padding:0; margin:0; border:0; background:transparent;
+  cursor:zoom-in;
+}
+.aszo-feed-card__zoom:focus-visible {
+  outline:3px solid #c92f3d;
+  outline-offset:-4px;
+}
+.aszo-feed-card__zoom .aszo-feed-card__image { pointer-events:none; }
+.aszo-image-dialog {
+  position:fixed;
+  inset:0;
+  width:min(96vw, 1300px);
+  max-width:96vw;
+  max-height:96dvh;
+  margin:auto;
+  padding:0;
+  border:0;
+  border-radius:14px;
+  background:#17201c;
+  color:#fff;
+  box-shadow:0 24px 70px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+.aszo-image-dialog::backdrop { background:rgba(0,0,0,.84); }
+.aszo-image-dialog__frame {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  max-height:96dvh;
+  padding:12px;
+}
+.aszo-image-dialog__image {
+  display:block;
+  max-width:100%;
+  max-height:calc(96dvh - 80px);
+  width:auto; height:auto;
+  object-fit:contain;
+}
+.aszo-image-dialog__caption {
+  margin:10px 52px 0;
+  font-size:.9rem;
+  color:#f5f7f5;
+  text-align:center;
+}
+.aszo-image-dialog__close {
+  position:absolute;
+  z-index:2;
+  top:12px; right:12px;
+  width:42px; height:42px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  background:rgba(0,0,0,.8);
+  color:white;
+  font-size:30px;
+  line-height:1;
+  cursor:pointer;
+}
+.aszo-image-dialog__close:hover { background:#a92e3b; }
+.aszo-image-dialog__close:focus-visible {
+  outline:3px solid #e5c64d;
+  outline-offset:3px;
+}
+@media (max-width:640px) {
+  .aszo-image-dialog__frame { padding:8px; }
+  .aszo-image-dialog__image { max-height:calc(96dvh - 75px); }
+  .aszo-image-dialog__caption { margin:8px 42px 0; font-size:.8rem; }
+}
+
+/* ASZO V2 - Fase 12.5: cartoes mais compactos (noticias e eventos).
+   Mantem object-fit:contain e a ampliacao via lightbox da fase 12.4. */
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 760px);
+}
+.aszo-content-section[data-aszo-feed="eventos"] .aszo-feed-grid:has(> .aszo-feed-card:only-child) {
+  grid-template-columns: minmax(0, 720px);
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__media,
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card--featured .aszo-feed-card__media {
+  height: 240px;
+  max-height: 240px;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__image {
+  width:100%;
+  height:100%;
+  max-height:240px;
+  object-fit:contain;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__body {
+  padding:16px 18px;
+  gap:8px;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__title,
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card--featured .aszo-feed-card__title {
+  font-size:1.1rem;
+  line-height:1.32;
+}
+.aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__desc {
+  line-height:1.5;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+}
+@media(max-width:640px) {
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__media,
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card--featured .aszo-feed-card__media {
+    height:210px;
+    max-height:210px;
+  }
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__image {
+    height:100%;
+    max-height:210px;
+  }
+  .aszo-content-section:is([data-aszo-feed="noticias"],[data-aszo-feed="eventos"]) .aszo-feed-card__body {
+    padding:14px 16px;
+    gap:8px;
+  }
+}

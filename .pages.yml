@@ -1,0 +1,327 @@
+# ASZO V2 - Fase 6
+# Configuracao apenas no ramo desenvolvimento-v2 durante os testes.
+media:
+- name: documentos
+  label: PDFs da ASZO
+  input: documentacao
+  output: /documentacao
+  extensions:
+  - pdf
+  rename: safe
+- name: imagens-conteudos
+  label: Imagens das noticias e eventos
+  input: assets/img/conteudos
+  output: /assets/img/conteudos
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  rename: safe
+- name: imagens-parceiros
+  label: Logotipos dos parceiros
+  input: assets/img/parceiros
+  output: /assets/img/parceiros
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  rename: safe
+content:
+- name: documentos
+  label: Biblioteca de documentos
+  type: file
+  path: dados/documentos.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: documentos
+    label: Documentos publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+      description: Nome apresentado na biblioteca portuguesa.
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+      description: Quando vazio, apresenta o titulo portugues no site ingles.
+    - name: categoria
+      label: Categoria
+      type: select
+      required: true
+      options:
+        values:
+        - name: calendarios
+          label: Calendarios
+        - name: folhas-de-jogo
+          label: Folhas de jogo
+        - name: regulamentos
+          label: Regulamentos
+        - name: outros
+          label: Outros
+    - name: epoca
+      label: Epoca (ex. 2027 ou Geral)
+      type: string
+      required: true
+    - name: ficheiro
+      label: Ficheiro PDF
+      type: file
+      required: true
+      description: Selecionar ou carregar um PDF na pasta documentacao.
+      options:
+        media: documentos
+        extensions:
+        - pdf
+    - name: publicado
+      label: Visivel no website
+      type: boolean
+      description: Desativar para ocultar o documento sem apagar o registo.
+- name: noticias
+  label: Noticias (ASZO)
+  type: file
+  path: dados/noticias.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: noticias
+    label: Noticias publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+    - name: descricao
+      label: Descricao (PT)
+      type: text
+      required: true
+    - name: descricao_en
+      label: Descricao (EN)
+      type: text
+    - name: data
+      label: Data
+      type: date
+      required: true
+      options:
+        format: yyyy-MM-dd
+    - name: imagem
+      label: Imagem de destaque (opcional)
+      type: image
+      options:
+        media: imagens-conteudos
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: galeria
+      label: Fotografias adicionais (opcional)
+      type: image
+      description: Adiciona ate 12 fotografias extra a noticia, por ordem de apresentacao.
+      options:
+        media: imagens-conteudos
+        multiple:
+          max: 12
+        unique: true
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: link
+      label: Ligacao externa (opcional, HTTPS)
+      type: string
+    - name: publicado
+      label: Visivel no website
+      type: boolean
+- name: eventos
+  label: Eventos (ASZO)
+  type: file
+  path: dados/eventos.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: eventos
+    label: Eventos publicados e em preparacao
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Titulo (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Titulo (EN)
+      type: string
+    - name: descricao
+      label: Descricao (PT)
+      type: text
+      required: true
+    - name: descricao_en
+      label: Descricao (EN)
+      type: text
+    - name: data
+      label: Data
+      type: date
+      required: true
+      options:
+        format: yyyy-MM-dd
+    - name: local
+      label: Local
+      type: string
+    - name: imagem
+      label: Imagem de destaque (opcional)
+      type: image
+      options:
+        media: imagens-conteudos
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: link
+      label: Ligacao externa (opcional, HTTPS)
+      type: string
+    - name: publicado
+      label: Visivel no website
+      type: boolean
+- name: competicoes
+  label: Competicoes (ASZO)
+  type: file
+  path: dados/competicoes.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: competicoes
+    label: Competicoes por epoca
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titulo}'
+    fields:
+    - name: titulo
+      label: Nome da competicao (PT)
+      type: string
+      required: true
+    - name: titulo_en
+      label: Nome da competicao (EN)
+      type: string
+    - name: descricao
+      label: Descricao curta (PT)
+      type: text
+    - name: descricao_en
+      label: Descricao curta (EN)
+      type: text
+    - name: epoca
+      label: Epoca (ex. 2027)
+      type: string
+      required: true
+    - name: estado
+      label: Estado
+      type: select
+      required: true
+      options:
+        values:
+        - name: preparacao
+          label: Em preparacao
+        - name: decorrer
+          label: Em curso
+        - name: concluida
+          label: Concluida
+    - name: url_classificacoes
+      label: Link direto para classificacoes 2K (HTTPS, opcional)
+      type: string
+      description: Se vazio, utiliza o link geral da plataforma 2K.
+    - name: calendarios
+      label: Botoes de PDF desta competicao (editaveis)
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{titulo}'
+      fields:
+      - name: titulo
+        label: Nome do documento (PT)
+        type: string
+        required: true
+      - name: titulo_en
+        label: Nome do documento (EN)
+        type: string
+      - name: ficheiro
+        label: PDF do calendario
+        type: file
+        required: true
+        options:
+          media: documentos
+          extensions:
+          - pdf
+    - name: publicado
+      label: Mostrar no website
+      type: boolean
+      required: true
+- name: parceiros
+  label: Parceiros (ASZO)
+  type: file
+  path: dados/parceiros.json
+  format: json
+  operations:
+    delete: false
+  fields:
+  - name: parceiros
+    label: Parceiros e entidades de apoio
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{nome}'
+    fields:
+    - name: nome
+      label: Nome do parceiro
+      type: string
+      required: true
+    - name: logotipo
+      label: Logotipo
+      type: image
+      required: true
+      options:
+        media: imagens-parceiros
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
+    - name: url
+      label: Website do parceiro (opcional; HTTPS)
+      type: string
+      description: Deixar vazio se o logotipo nao deve ser clicavel.
+    - name: ordem
+      label: Ordem de apresentacao (numero)
+      type: number
+      description: Numero menor aparece primeiro.
+    - name: publicado
+      label: Mostrar no website
+      type: boolean
+      required: true

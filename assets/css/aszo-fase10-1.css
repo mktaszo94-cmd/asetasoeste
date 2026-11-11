@@ -1,0 +1,31 @@
+/* ASZO V2 Fase 10.1 — banner e Associação. Complementa os estilos anteriores. */
+.aszo-hero__art{isolation:isolate;}
+.aszo-carousel{position:absolute;inset:0;z-index:0;overflow:hidden;background:#18263d;}
+.aszo-carousel__slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .85s ease;pointer-events:none;}
+.aszo-carousel__slide.is-active{opacity:1;}
+.aszo-hero__art .aszo-hero__overlay{pointer-events:none;z-index:1;}
+.aszo-hero__art .aszo-hero__mark{pointer-events:none;z-index:1;}
+.aszo-carousel__controls{position:absolute;bottom:18px;right:24px;z-index:3;display:flex;align-items:center;gap:9px;padding:6px;border-radius:999px;background:rgba(11,23,44,.8);backdrop-filter:blur(5px);}
+.aszo-carousel__arrow,.aszo-carousel__pause,.aszo-carousel__dots button{appearance:none;border:0;cursor:pointer;color:#fff;background:transparent;}
+.aszo-carousel__arrow,.aszo-carousel__pause{display:grid;place-items:center;min-width:34px;min-height:34px;border-radius:100%;font-size:17px;}
+.aszo-carousel__pause{font-size:11px;}
+.aszo-carousel__dots{display:flex;align-items:center;gap:6px;}
+.aszo-carousel__dots button{height:12px;width:12px;border:2px solid #fff;border-radius:50%;opacity:.75;padding:0;}
+.aszo-carousel__dots button[aria-current="true"]{background:#e7bd55;opacity:1;border-color:#e7bd55;}
+.aszo-carousel__controls button:hover{background:rgba(255,255,255,.2);}
+.aszo-carousel__controls button:focus-visible,.aszo-association__link:focus-visible{outline:3px solid #e7bd55;outline-offset:3px;}
+.aszo-association__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.aszo-association__card{display:flex;flex-direction:column;align-items:flex-start;gap:13px;min-width:0;padding:26px;background:#fff;border:1px solid #e0e5ef;border-radius:17px;box-shadow:0 9px 25px rgba(21,41,76,.05);}
+.aszo-association__number{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#edf1f9;color:#283d71;font-weight:800;font-size:.9rem;}
+.aszo-association__card h3{margin:0;color:#1b2849;font-size:1.15rem;line-height:1.3;}
+.aszo-association__card p{margin:0 0 8px;line-height:1.65;color:#56617b;flex:1;}
+.aszo-association__link{display:inline-flex;gap:9px;align-items:center;color:#283d71;font-weight:750;text-decoration:none;border-bottom:2px solid transparent;min-height:36px;}
+.aszo-association__link:hover{border-color:#e7bd55;}
+@media(max-width:979px){.aszo-carousel__controls{right:16px;bottom:15px}.aszo-association__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aszo-hero__art{opacity:1!important}.aszo-carousel{opacity:.30}.aszo-hero__art .aszo-hero__overlay{background:linear-gradient(90deg,rgba(16,36,59,.6),rgba(16,36,59,.2))}}
+@media(max-width:640px){.aszo-association__grid{grid-template-columns:1fr}.aszo-association__card{padding:22px}.aszo-carousel__controls{bottom:8px;right:8px;gap:5px;transform:scale(.87);transform-origin:right bottom}.aszo-hero__content{padding-bottom:96px!important}}
+@media(prefers-reduced-motion:reduce){.aszo-carousel__slide{transition:none}}
+/* Manter os comandos acima da camada escurecida do banner */
+.aszo-carousel{z-index:2}
+.aszo-carousel::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(16,36,59,.85),rgba(16,36,59,.06) 60%,rgba(16,36,59,.22))}
+.aszo-hero__art .aszo-hero__mark{z-index:3}
+@media(max-width:979px){.aszo-carousel::after{background:rgba(16,36,59,.2)}}
