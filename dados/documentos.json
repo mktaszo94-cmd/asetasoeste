@@ -6,7 +6,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/calendario-epoca-2026.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Geral Época Feminino 2026",
@@ -14,7 +14,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/calendario-epoca-feminino-2026.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Campeonato Masculino 1ª Divisão",
@@ -22,7 +22,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/campeonato-masculino-1-divisao.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Campeonato Masculino 2ª Divisão",
@@ -30,7 +30,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/campeonato-masculino-2-divisao.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Campeonato Feminino",
@@ -38,7 +38,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/campeonato-feminino-2026.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Taça NF - Nelson Fernandes (M/F)",
@@ -46,7 +46,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/taca-nf-m-f-oitavos-meias.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Taça Portugal - Regional (M/F)",
@@ -54,7 +54,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Campeonato Tradicional Não Oficial",
@@ -62,7 +62,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Calendário Atividades 2026 Expoeste",
@@ -70,7 +70,7 @@
       "categoria": "calendarios",
       "epoca": "2026",
       "ficheiro": "/documentacao/calendarios/plano-atividades-2026.pdf",
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Folha de jogo Taça NF",
