@@ -131,6 +131,20 @@ content:
         - jpeg
         - png
         - webp
+    - name: galeria
+      label: Fotografias adicionais (opcional)
+      type: image
+      description: Adiciona ate 12 fotografias extra a noticia, por ordem de apresentacao.
+      options:
+        media: imagens-conteudos
+        multiple:
+          max: 12
+        unique: true
+        extensions:
+        - jpg
+        - jpeg
+        - png
+        - webp
     - name: link
       label: Ligacao externa (opcional, HTTPS)
       type: string

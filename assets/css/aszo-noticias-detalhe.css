@@ -1,0 +1,97 @@
+/* ASZO V2 - Fase 12.10: leitura integral das noticias (PT/EN).
+   Este ficheiro e adicional: nao substitui o CSS de noticias/eventos aprovado. */
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card[role="button"] {
+  cursor: pointer;
+}
+.aszo-content-section[data-aszo-feed="noticias"] .aszo-feed-card[role="button"]:focus-visible {
+  outline: 3px solid #b13443;
+  outline-offset: 3px;
+}
+.aszo-feed-card__read {
+  display: inline-flex;
+  align-self: flex-start;
+  color: #a92f3e;
+  font-weight: 700;
+  font-size: .84rem;
+  margin-top: 5px;
+}
+.aszo-news-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(940px, calc(100vw - 28px));
+  max-width: calc(100vw - 28px);
+  max-height: min(92dvh, 900px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #dce4de;
+  border-radius: 18px;
+  background: #fff;
+  color: #202725;
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 20px 70px rgba(0,0,0,.3);
+}
+.aszo-news-dialog::backdrop { background: rgba(10,20,15,.78); }
+.aszo-news-dialog__shell { position: relative; padding: clamp(18px,3vw,34px); }
+.aszo-news-dialog__close {
+  position: sticky;
+  top: 0;
+  margin: 0 0 -42px auto;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d9e1dc;
+  border-radius: 50%;
+  background: #fff;
+  color: #202725;
+  font-size: 29px;
+  cursor: pointer;
+}
+.aszo-news-dialog__close:hover { background: #f7edef; color: #a92f3e; }
+.aszo-news-dialog__close:focus-visible,
+.aszo-news-dialog__poster:focus-visible { outline: 3px solid #b13443; outline-offset: 3px; }
+.aszo-news-dialog__header { padding-right: 50px; }
+.aszo-news-dialog__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: .85rem; color: #4e5a55; }
+.aszo-news-dialog__tag { background: #edf3ec; color: #285936; border-radius: 20px; padding: 5px 11px; font-weight: 700; }
+.aszo-news-dialog__title { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.24; margin: 16px 0 22px; color: #202725; }
+.aszo-news-dialog__body { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); align-items: start; gap: 24px; }
+.aszo-news-dialog__body:not(:has(.aszo-news-dialog__poster)) { grid-template-columns: 1fr; }
+.aszo-news-dialog__poster { width: 100%; border: 1px solid #e0e5df; border-radius: 12px; padding: 8px; background: #f5f7f5; cursor: zoom-in; }
+.aszo-news-dialog__poster img { display: block; width: 100%; max-height: 360px; height: auto; object-fit: contain; }
+.aszo-news-dialog__text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 1rem; line-height: 1.75; color: #34403a; min-width: 0; }
+.aszo-news-dialog__footer { margin-top: 22px; }
+.aszo-news-dialog__external { display: inline-block; border-radius: 8px; padding: 10px 14px; color: #fff; background: #ac3544; font-weight: 700; text-decoration: none; }
+.aszo-news-dialog__external:hover { background: #8b2633; }
+@media (max-width: 650px) {
+  .aszo-news-dialog { max-height: 95dvh; }
+  .aszo-news-dialog__shell { padding: 16px; }
+  .aszo-news-dialog__body { grid-template-columns: minmax(0,1fr); gap: 16px; }
+  .aszo-news-dialog__poster { width: min(100%, 370px); margin: 0 auto; }
+  .aszo-news-dialog__poster img { max-height: 280px; }
+  .aszo-news-dialog__title { margin-top: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .aszo-news-dialog { scroll-behavior: auto; } }
+
+/* ASZO V2 - Fase 12.11: galeria de fotografias nas noticias. */
+.aszo-news-gallery { min-width:0; width:100%; display:grid; gap:10px; }
+.aszo-news-gallery__controls { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.aszo-news-gallery__arrow { border:1px solid #d0dbd1; background:#f5f7f5; color:#285936;
+  border-radius:9px; min-height:38px; min-width:42px; cursor:pointer; font-weight:800; font-size:1.5rem; }
+.aszo-news-gallery__arrow:hover { background:#edf3ec; }
+.aszo-news-gallery__counter { font-size:.8rem; font-weight:700; color:#34403a; text-align:center; }
+.aszo-news-gallery__thumbs { display:flex; gap:8px; overflow-x:auto; overscroll-behavior-x:contain;
+  padding:3px 3px 9px; scrollbar-width:thin; scroll-snap-type:x proximity; }
+.aszo-news-gallery__thumb { flex:0 0 56px; height:56px; background:#f5f7f5;
+  border:2px solid #d0dbd1; border-radius:8px; padding:2px; cursor:pointer; scroll-snap-align:start; }
+.aszo-news-gallery__thumb[aria-pressed="true"] { border-color:#ae3544; box-shadow:0 0 0 1px #ae3544; }
+.aszo-news-gallery__thumb img { display:block; height:100%; width:100%; object-fit:contain; }
+.aszo-news-gallery__arrow:focus-visible, .aszo-news-gallery__thumb:focus-visible {
+  outline:3px solid #b13443; outline-offset:3px;
+}
+.aszo-news-gallery .aszo-news-dialog__poster { margin:0; }
+@media (max-width:650px) {
+  .aszo-news-gallery { width:min(100%,370px); margin:auto; }
+  .aszo-news-gallery__thumb { flex-basis:50px; height:50px; }
+}
