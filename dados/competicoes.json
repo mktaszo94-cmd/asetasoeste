@@ -20,7 +20,7 @@
           "ficheiro": "/documentacao/calendarios/campeonato-masculino-2-divisao.pdf"
         }
       ],
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Campeonato Feminino",
@@ -41,7 +41,7 @@
           "ficheiro": "/documentacao/calendarios/campeonato-feminino-2026.pdf"
         }
       ],
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Taças",
@@ -62,7 +62,7 @@
           "ficheiro": "/documentacao/calendarios/taca-portugal-regional-m-f-oitavos-meias.pdf"
         }
       ],
-      "publicado": true
+      "publicado": false
     },
     {
       "titulo": "Tradicional",
@@ -78,7 +78,7 @@
           "ficheiro": "/documentacao/calendarios/campeonato-tradicional-nao-oficial.pdf"
         }
       ],
-      "publicado": true
+      "publicado": false
     }
   ]
 }
